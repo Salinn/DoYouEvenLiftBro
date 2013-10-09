@@ -26,8 +26,14 @@ public class gymInterface {
 		//Initializes the west Panel, aka the 5 main buttons
         panelInterface westPanel = new panelInterface();
 
+         //test for classes
+        //classInterface centerPanel = new classInterface();
+
 		//Frame adds the west panel to the correct location
         frame.add(westPanel.getPanel(), BorderLayout.WEST);
+
+         //test for classes
+        //frame.add(centerPanel, BorderLayout.CENTER);
 	}
 
 }
