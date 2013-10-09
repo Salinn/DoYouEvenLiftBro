@@ -27,13 +27,13 @@ public class gymInterface {
         panelInterface westPanel = new panelInterface();
 
          //test for classes
-        //classInterface centerPanel = new classInterface();
+        classInterface centerPanel = new classInterface();
 
 		//Frame adds the west panel to the correct location
         frame.add(westPanel.getPanel(), BorderLayout.WEST);
 
          //test for classes
-        //frame.add(centerPanel, BorderLayout.CENTER);
+        frame.add(centerPanel, BorderLayout.CENTER);
 	}
 
 }
