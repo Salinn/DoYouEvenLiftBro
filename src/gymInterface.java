@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
@@ -26,8 +27,13 @@ public class gymInterface {
 		//Initializes the west Panel, aka the 5 main buttons
         panelInterface westPanel = new panelInterface();
 
+        //Initialize the member
+        memberInterface centerFrame = new memberInterface();
+        //editMembers centerFrame = new editMembers();
+
 		//Frame adds the west panel to the correct location
         frame.add(westPanel.getPanel(), BorderLayout.WEST);
+        frame.add(centerFrame.getPanel(), BorderLayout.CENTER);
 	}
 
 }
