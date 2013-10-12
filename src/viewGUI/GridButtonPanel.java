@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.Border;
 
 /**
@@ -180,7 +181,7 @@ public class GridButtonPanel extends JPanel {
 			});
 						
 		//Gray right Button if needed
-		if(currentPage + 1 > currentList.size()/9){
+		if(currentPage + 1 >= currentList.size()/9){
 			rightButton.setEnabled(false);
 		}
 		return rightButton;
@@ -272,6 +273,17 @@ public class GridButtonPanel extends JPanel {
 	 * @param args
 	 */
     public static void main(String [] args){
+    	try {
+    	    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+    	        if ("Nimbus".equals(info.getName())) {
+    	            UIManager.setLookAndFeel(info.getClassName());
+    	            break;
+    	        }
+    	    }
+    	} catch (Exception e) {
+    	    // If Nimbus is not available, you can set the GUI to another look and feel.
+    	}
+    	
     	ArrayList<GridMenuItem> testList = new ArrayList<GridMenuItem>();
     	testList.add(new GridMenuItem(null,"Team Applesauce"));
     	testList.add(new GridMenuItem(null,"Team Knightmare"));
