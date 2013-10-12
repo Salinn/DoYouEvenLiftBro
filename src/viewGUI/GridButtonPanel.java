@@ -181,7 +181,8 @@ public class GridButtonPanel extends JPanel {
 			});
 						
 		//Gray right Button if needed
-		if(currentPage + 1 >= currentList.size()/9){
+		if((currentPage * 9 + 9) >= currentList.size()){
+			System.out.println("CP: " + (currentPage * 9 + 18) + " List Size: " + currentList.size());
 			rightButton.setEnabled(false);
 		}
 		return rightButton;
@@ -309,7 +310,6 @@ public class GridButtonPanel extends JPanel {
     	
     	JFrame test = new JFrame();
     	test.add(new GridButtonPanel("Team",testList));
-    	test.setLocationRelativeTo(null);
     	test.setMinimumSize(new Dimension(800,800));
     	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	test.setVisible(true);
