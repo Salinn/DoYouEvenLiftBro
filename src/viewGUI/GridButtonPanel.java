@@ -182,7 +182,6 @@ public class GridButtonPanel extends JPanel {
 						
 		//Gray right Button if needed
 		if((currentPage * 9 + 9) >= currentList.size()){
-			System.out.println("CP: " + (currentPage * 9 + 18) + " List Size: " + currentList.size());
 			rightButton.setEnabled(false);
 		}
 		return rightButton;
@@ -205,7 +204,7 @@ public class GridButtonPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				leftButtonPressed();
 			}
-		      });
+		});
 				
 		//Gray left Button if needed
 		if(currentPage == 0){
