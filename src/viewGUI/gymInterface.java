@@ -1,3 +1,5 @@
+package viewGUI;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -28,10 +30,13 @@ public class gymInterface {
         panelInterface westPanel = new panelInterface();
 
         //Initialize the member
+        //memberInterface centerFrame = new memberInterface();
+        editMembers centerFrame = new editMembers();
+        //newMembershipType centerFrame = new newMembershipType();
 
 		//Frame adds the west panel to the correct location
         frame.add(westPanel.getPanel(), BorderLayout.WEST);
-        //frame.add(centerFrame.getPanel(), BorderLayout.CENTER);
+        frame.add(centerFrame.getPanel(), BorderLayout.CENTER);
 	}
 
 }
