@@ -4,7 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
-public class memberInterface {
+public class memberInterface extends JPanel{
     //The private variables used by different parts of the class
     private JPanel memberPanel;
     private JPanel bottumLayout;
@@ -17,13 +17,14 @@ public class memberInterface {
     private JScrollBar vbar;
 
 
-    public memberInterface(){
+    public memberInterface() {
         //Creates the font that the rest of the program will use
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
         //Creates the panel to be passed back and makes it a border layout
         memberPanel = new JPanel();
         memberPanel.setLayout(new BorderLayout(15,15));
+        memberPanel.setVisible(true);
 
         //Gets the layout of different parts of the boarder layout
         bottumLayout = initSouth(setFont);

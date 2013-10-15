@@ -68,4 +68,9 @@ public class members {
     public void setCreditCard(Integer creditCard){
         this.creditCard = creditCard;
     }
+
+    public Integer searchID(){
+        //catch exception if id can't be found
+        return 123;
+    }
 }
