@@ -1,3 +1,13 @@
+/*
+ * panelInterface.java
+ * 
+ */
+package EquipmentView;
+
+/**
+ * Copied from defualt package so that my testing code works.
+ *   -Pop
+ */
 import javax.swing.*;
 import java.awt.*;
 
