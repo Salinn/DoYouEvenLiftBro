@@ -25,12 +25,19 @@ public class gymInterface {
     private ImageIcon imgEquipment;
     private ImageIcon imgLeague;
     private ImageIcon imgLogo;
-	
+
+    private Caretaker caretaker;
+    private Originator originator;
+
 	public static void main(String[] args) {
 		gymInterface gymGUI = new gymInterface();
 	}
 	public gymInterface(){
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+        caretaker = new Caretaker();
+        originator = new Originator();
+
 		frame = new JFrame("DO YOU EVEN LIFT BRO?!?!");
         frame.getContentPane().setLayout(new BorderLayout(20, 20));
 		frame.setBounds(65, 65, screenSize.width-70, screenSize.height-70); //This was just so I could see it in ubunutu
@@ -90,9 +97,12 @@ public class gymInterface {
         return west;
     }
     public void refresh(Integer buttonName){
+        if (center != null){
+            originator.set(center);
+            caretaker.addMemento(originator.save());
+        }
         //Initializes and empty panel in case one option is not selected
         center= new JPanel();
-
         //Ensures the frame  stacking up the
         frame.remove(center);
 
@@ -111,11 +121,12 @@ public class gymInterface {
                 center = new LeagueMain("League");
                 break;
             case 4:
-                //memento go back
+                originator.restoreFromMemento(caretaker.get(0));
+                center = originator.getState();
                 break;
         }
         frame.add(center, BorderLayout.CENTER);
         frame.revalidate();
-        //repaint();
+
     }
 }
