@@ -3,15 +3,17 @@ package viewGUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class editMembers {
+public class editMembers extends JPanel {
     private JPanel customerInfo;
     private JPanel bottumLayout;
     private JPanel west;
     private JPanel south;
     private JPanel center;
+
     private Font setFont;
+
     private JButton add;
-    private JButton remove;
+
     private JTextField searchFeild;
 
     private JLabel firstName;
@@ -118,9 +120,5 @@ public class editMembers {
         bottumLayout.add(add);
 
         return bottumLayout;
-    }
-
-    public JPanel getPanel(){
-        return customerInfo;
     }
 }

@@ -5,18 +5,19 @@ import java.awt.*;
 import javax.swing.*;
 
 public class memberInterface extends JPanel{
-    //The private variables used by different parts of the class
     private JPanel memberPanel;
     private JPanel bottumLayout;
+
     private JTextField searchFeild;
+
     private JButton add;
-    private JButton remove;
+    private JButton edit;
+
     private JTable table;
+
     private JScrollPane scrollWindow;
+
     private Font setFont;
-    private JScrollBar vbar;
-
-
     public memberInterface() {
         //Creates the font that the rest of the program will use
         setFont = new Font("SansSerif", Font.BOLD, 40);
@@ -43,12 +44,12 @@ public class memberInterface extends JPanel{
         //Creates an Add button and sets its font
         add = new JButton(" Add Member ");
         add.setFont(setFont);
-        add.setSize(1000,1000);
+        add.setSize(1000, 1000);
 
         //Creates an Edit button and set its font
-        remove = new JButton(" Edit Member ");
-        remove.setFont(setFont);
-        remove.setSize(1000,1000);
+        edit = new JButton(" Edit Member ");
+        edit.setFont(setFont);
+        edit.setSize(1000, 1000);
 
         //Creates a search feild and sets the width and font
         searchFeild = new JTextField("",15);
@@ -57,7 +58,7 @@ public class memberInterface extends JPanel{
         //Adds the 2 buttons and text feild to the flow layout
         bottumLayout.add(searchFeild);
         bottumLayout.add(add);
-        bottumLayout.add(remove);
+        bottumLayout.add(edit);
 
         return bottumLayout;
     }
@@ -86,12 +87,4 @@ public class memberInterface extends JPanel{
         x.setBorder(BorderFactory.createEmptyBorder());
         return x;
     }
-    public boolean isCellEditable(int row, int column) {
-        return false;
-    }
-    public JPanel getPanel(){
-        //Returns the panel
-        return memberPanel;
-    }
-
 }

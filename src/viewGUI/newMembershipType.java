@@ -3,12 +3,14 @@ package viewGUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class newMembershipType {
+public class newMembershipType extends JPanel {
     private Font setFont;
+
     private JPanel membershipType;
     private JPanel west;
     private JPanel south;
     private JPanel center;
+
     private JButton add;
 
     private JLabel typeName;
@@ -100,8 +102,5 @@ public class newMembershipType {
         south.add(add);
 
         return south;
-    }
-    public JPanel getPanel(){
-        return membershipType;
     }
 }
