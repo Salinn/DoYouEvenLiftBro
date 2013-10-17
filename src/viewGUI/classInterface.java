@@ -1,8 +1,5 @@
 package viewGUI;
 
-import com.sun.deploy.panel.JavaPanel;
-import viewGUI.GridButtonPanel;
-import viewGUI.GridMenuItem;
 
 import java.awt.*;
 import java.util.ArrayList;

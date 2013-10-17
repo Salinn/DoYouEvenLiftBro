@@ -2,7 +2,7 @@ package Model;
 
 public class GymMediatorModel {
     private ClassesModel classes;
-    private members members;
+    //private members members;
 
     public GymMediatorModel(){}
 
