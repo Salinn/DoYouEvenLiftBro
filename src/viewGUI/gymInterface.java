@@ -3,8 +3,12 @@ package viewGUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
+
+import Model.LeagueModel;
+import Model.TeamModel;
 
 public class gymInterface {
 	Dimension screenSize;
@@ -28,6 +32,9 @@ public class gymInterface {
 
     private static Caretaker caretaker;
     private static Originator originator;
+    
+    //temp for leagues
+    static ArrayList<GridMenuItem> tempLeague;
 
 	public static void main(String[] args) {
 		gymInterface gymGUI = new gymInterface();
@@ -72,6 +79,52 @@ public class gymInterface {
         imgEquipment  = new ImageIcon();
         imgLeague     = new ImageIcon();
         imgLogo       = new ImageIcon();
+        
+        //Build a temp league
+        ArrayList<TeamModel> tempTeam = new ArrayList<TeamModel>();
+        TeamModel tempTeamModel = new TeamModel("Gruul");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Simic");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Izzet");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Orzhov");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Selesnya");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Rakdos");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Boros");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Golgari");
+        tempTeam.add(tempTeamModel);
+    	tempTeamModel = new TeamModel("Azourious");
+    	tempTeam.add(tempTeamModel);
+    	tempTeamModel = new TeamModel("Dimir");
+    	tempTeam.add(tempTeamModel);
+    	
+    	//Build a temp league
+        tempLeague = new ArrayList<GridMenuItem>();
+        LeagueModel tempLeagueModel = new LeagueModel("Football",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Soccer",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Ping Pong",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Weight Club",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Basketball",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Dodgeball",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Tennis",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
+    	tempLeagueModel = new LeagueModel("Field Hockey",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
+    	tempLeagueModel = new LeagueModel("Hockey",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
+    	tempLeagueModel = new LeagueModel("Underwater Basket Weaving",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
 
         //Inserts the images objects into the correct button
         membership.setIcon(imgMembership);
@@ -119,7 +172,7 @@ public class gymInterface {
                 //center = new equipment();
                 break;
             case 3:
-                center = new LeagueMain("League");
+                center = new GridButtonPanel("League",tempLeague);
                 break;
             case 4:
                 originator.restoreFromMemento(caretaker.get(0));

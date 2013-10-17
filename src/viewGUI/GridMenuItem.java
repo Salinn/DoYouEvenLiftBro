@@ -1,6 +1,12 @@
 package viewGUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
+
+import Model.LeagueModel;
+import Model.TeamModel;
 
 /**
  * This class is a generic data structure that can be used to make
@@ -16,6 +22,9 @@ public class GridMenuItem {
 	//The name of the Object
 	private String name;
 	
+	//Button of object
+	JButton button;
+	
 	//Image of the object
 	
 	/**
@@ -27,8 +36,17 @@ public class GridMenuItem {
 	public GridMenuItem(Object target, String name){
 		this.name = name;
 		this.target = target;
+		
+		//Insert button generation Methods here
+		if(target instanceof LeagueModel){
+			createLeagueButton((LeagueModel)target);
+		} else if(target instanceof TeamModel){
+			createTeamButton((TeamModel)target);
+		} else {
+			createButton(target);
+		}
 	}
-	
+
 	/**
 	 * This text is used by the GridMenuItem to find items the user
 	 * searched for.
@@ -40,16 +58,59 @@ public class GridMenuItem {
 	}
 	
 	/**
+	 * Create a league button
+	 * @return JButton
+	 */
+	public JButton createLeagueButton(LeagueModel target){
+		//Create Button
+		button = new JButton(name);
+		
+		//Create Listener
+		GridButtonPanel teamView = new GridButtonPanel(target.getName(),target.getTeams());
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//gymInterface.refresh(teamView);;
+			}
+		});
+		return button;
+	}
+	
+	/**
+	 * Create a Team button
+	 * @return JButton
+	 */
+	public JButton createTeamButton(TeamModel target){
+		//Create Button
+		button = new JButton(name);
+		
+		//Create Listener
+		//Generate Screen
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//gymInterface.refresh();;
+			}
+		});
+		return button;
+	}
+	
+	/**
+	 * This function returns an button representation of the object
+	 * @return
+	 */
+	 
+	public JButton createButton(Object target){
+		//Create Button
+		button = new JButton(name);
+		return button;
+	}
+	
+	/**
 	 * This function returns an button representation of the object
 	 * @return
 	 */
 	public JButton getButton(){
-		//Create Button
-		JButton button = new JButton(name);
-		
-		//Create Listener
-		
-		
 		return button;
 	}
 
