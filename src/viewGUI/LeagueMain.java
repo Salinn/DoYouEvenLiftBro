@@ -22,6 +22,8 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.border.Border;
 
+import Model.LeagueModel;
+
 /**
  * This class represents the page that the user will be brought to if they
  * tap on a specific league. It has 4 major buttons.
@@ -37,8 +39,11 @@ import javax.swing.border.Border;
  */
 public class LeagueMain extends JPanel {
 
+	LeagueModel league;
 	
-	public LeagueMain(String mainName){
+	public LeagueMain(String mainName,LeagueModel league){
+		
+		this.league = league;
 		
 		//Create the title
 		JPanel titlePanel = new JPanel(new GridLayout(1, 1), false);
@@ -56,11 +61,12 @@ public class LeagueMain extends JPanel {
 		teams.setIcon(teamsIcn);
 		
 		//Create teams button listener
+		GridButtonPanel tempTeamsMenu = new GridButtonPanel(mainName,league.getTeams());
 		teams.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//add method call
+				//gymInterface.refresh(tempTeamsMenu);
 			}
 		});
 		
@@ -137,7 +143,7 @@ public class LeagueMain extends JPanel {
     	}
     	
     	JFrame test = new JFrame();
-    	test.add(new LeagueMain("League"));
+    	test.add(new LeagueMain("League",null));
     	test.setMinimumSize(new Dimension(800,800));
     	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	test.setVisible(true);

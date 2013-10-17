@@ -66,11 +66,11 @@ public class GridMenuItem {
 		button = new JButton(name);
 		
 		//Create Listener
-		GridButtonPanel teamView = new GridButtonPanel(target.getName(),target.getTeams());
+		LeagueMain temp = new LeagueMain(target.getName(),target);
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//gymInterface.refresh(teamView);;
+				//gymInterface.refresh(temp);
 			}
 		});
 		return button;
