@@ -9,10 +9,10 @@ import javax.swing.*;
 public class gymInterface {
 	Dimension screenSize;
 
-	private JFrame frame;
+	private static JFrame frame;
 
     private JPanel west;
-    private JPanel center;
+    private static JPanel center;
 
     public JButton membership;
     public JButton classes;
@@ -26,8 +26,8 @@ public class gymInterface {
     private ImageIcon imgLeague;
     private ImageIcon imgLogo;
 
-    private Caretaker caretaker;
-    private Originator originator;
+    private static Caretaker caretaker;
+    private static Originator originator;
 
 	public static void main(String[] args) {
 		gymInterface gymGUI = new gymInterface();
@@ -96,10 +96,11 @@ public class gymInterface {
 
         return west;
     }
-    public void refresh(Integer buttonName){
+    public static void refresh(Integer buttonName){
         if (center != null){
             originator.set(center);
             caretaker.addMemento(originator.save());
+            center.removeAll();
         }
         //Initializes and empty panel in case one option is not selected
         center= new JPanel();

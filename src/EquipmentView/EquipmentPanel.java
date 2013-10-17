@@ -18,6 +18,7 @@ import javax.swing.UIManager;
 
 import viewGUI.GridButtonPanel;
 import viewGUI.GridMenuItem;
+import viewGUI.gymInterface;
 
 /**
  * Enter description here.
