@@ -40,6 +40,18 @@ public class gymInterface {
 		gymInterface gymGUI = new gymInterface();
 	}
 	public gymInterface(){
+		
+		try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            // If Nimbus is not available, you can set the GUI to another look and feel.
+        }
+		
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         caretaker = new Caretaker();
@@ -65,6 +77,7 @@ public class gymInterface {
         west.setLayout(new GridLayout(5,1));
         west.setVisible(true);
 
+        
         //Creates the buttons for the panel
         membership = new JButton("Membership");
         classes = new JButton("Class");
@@ -72,6 +85,7 @@ public class gymInterface {
         league     = new JButton("League");
         logo       = new JButton();
 
+        /*
         //Needs Images to be inserted
         //Creates images that can be inserted as objects
         imgMembership = new ImageIcon();
@@ -79,6 +93,7 @@ public class gymInterface {
         imgEquipment  = new ImageIcon();
         imgLeague     = new ImageIcon();
         imgLogo       = new ImageIcon();
+        */
         
         //Build a temp league
         ArrayList<TeamModel> tempTeam = new ArrayList<TeamModel>();
@@ -126,6 +141,7 @@ public class gymInterface {
     	tempLeagueModel = new LeagueModel("Underwater Basket Weaving",tempTeam);
     	tempLeague.add(tempLeagueModel.getMenuItem());
 
+    	/*
         //Inserts the images objects into the correct button
         membership.setIcon(imgMembership);
         classes.setIcon(imgSchedule);
@@ -133,6 +149,8 @@ public class gymInterface {
         league.setIcon(imgLeague);
         logo.setIcon(imgLogo);
 
+		*/
+    	
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(0);}});
         classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(1);}});
