@@ -152,11 +152,11 @@ public class gymInterface {
 		*/
     	
         //Creates all of the listeners for each button
-        membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(0);}});
-        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(1);}});
-        equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(2);}});
-        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(3);}});
-        logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(4);}});
+        membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface());}});
+        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
+        equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
+        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
+        logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
 
         //Adds all of the buttons to the layout
         west.add(membership);
@@ -167,36 +167,17 @@ public class gymInterface {
 
         return west;
     }
-    public static void refresh(Integer buttonName){
+    public static void refresh(JPanel center){
         if (center != null){
             originator.set(center);
             caretaker.addMemento(originator.save());
-            center.removeAll();
+        } else {
+            //backbutton
         }
         //Initializes and empty panel in case one option is not selected
         center= new JPanel();
         //Ensures the frame  stacking up the
         frame.remove(center);
-
-        //Chooses the correct JPanel to display based on the button pressed
-        switch (buttonName) {
-            case 0:
-                center = new memberInterface();
-                break;
-            case 1:
-                center = new classInterface();
-                break;
-            case 2:
-                //center = new equipment();
-                break;
-            case 3:
-                center = new GridButtonPanel("League",tempLeague);
-                break;
-            case 4:
-                originator.restoreFromMemento(caretaker.get(0));
-                center = originator.getState();
-                break;
-        }
         frame.add(center, BorderLayout.CENTER);
         frame.revalidate();
 
