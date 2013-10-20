@@ -25,6 +25,9 @@ public class GridMenuItem {
 	//Button of object
 	JButton button;
 	
+	//temp league page
+	LeagueMain tempLeaguePage;
+	
 	//Image of the object
 	
 	/**
@@ -66,11 +69,11 @@ public class GridMenuItem {
 		button = new JButton(name);
 		
 		//Create Listener
-		LeagueMain temp = new LeagueMain(target.getName(),target);
+		tempLeaguePage = new LeagueMain(target.getName(),target);
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//gymInterface.refresh(temp);
+				gymInterface.refresh(tempLeaguePage);
 			}
 		});
 		return button;

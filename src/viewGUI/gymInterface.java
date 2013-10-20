@@ -15,7 +15,7 @@ public class gymInterface {
 
 	private static JFrame frame;
 
-    private JPanel west;
+    private static JPanel west;
     private static JPanel center;
 
     public JButton membership;
@@ -155,7 +155,7 @@ public class gymInterface {
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface());}});
         classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
-        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
+        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("Leagues",tempLeague));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
 
         //Adds all of the buttons to the layout
@@ -175,10 +175,14 @@ public class gymInterface {
             //backbutton
         }
         //Initializes and empty panel in case one option is not selected
-        center= new JPanel();
+        if(center == null){
+        	center = new JPanel();
+        }
         //Ensures the frame  stacking up the
-        frame.remove(center);
+        frame.getContentPane().removeAll();
+        frame.getContentPane().setLayout(new BorderLayout());
         frame.add(center, BorderLayout.CENTER);
+        frame.add(west, BorderLayout.WEST);
         frame.revalidate();
 
     }

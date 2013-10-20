@@ -42,6 +42,8 @@ public class LeagueMain extends JPanel {
 
 	LeagueModel league;
 	
+	GridButtonPanel tempTeamsMenu;
+	
 	public LeagueMain(String mainName,LeagueModel league){
 		
 		this.league = league;
@@ -62,12 +64,12 @@ public class LeagueMain extends JPanel {
 		teams.setIcon(teamsIcn);
 		
 		//Create teams button listener
-		GridButtonPanel tempTeamsMenu = new GridButtonPanel(mainName,league.getTeams());
+		tempTeamsMenu = new GridButtonPanel(mainName,league.getTeams());
 		teams.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//gymInterface.refresh(tempTeamsMenu);
+				gymInterface.refresh(tempTeamsMenu);
 			}
 		});
 		
