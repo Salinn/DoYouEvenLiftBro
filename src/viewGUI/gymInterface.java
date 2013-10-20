@@ -55,21 +55,22 @@ public class gymInterface {
         originator = new Originator();
 
 		frame = new JFrame("DO YOU EVEN LIFT BRO?!?!");
-        frame.getContentPane().setLayout(new BorderLayout(20, 20));
-		frame.setBounds(65, 65, screenSize.width-70, screenSize.height-70); //This was just so I could see it in ubunutu
+        frame.getContentPane().setLayout(new BorderLayout());
+		frame.setBounds(0, 0, screenSize.width, screenSize.height); //This was just so I could see it in ubunutu
 		frame.setResizable(true);
         frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        //createLeagueModel();
 		//Initializes the west Panel, aka the 5 main buttons
-        setWestPanel();
+        west = setWestPanel();
 
         //Adds the 5 main buttons to the layout
         frame.add(west, BorderLayout.WEST);
 
     //Add function to pass JPANELS around and set that up
     }
-    private void setWestPanel(){
+    private JPanel setWestPanel(){
         west = new JPanel();
         west.setLayout(new GridLayout(5,1));
         west.setVisible(true);
@@ -77,12 +78,12 @@ public class gymInterface {
         
         //Creates the buttons for the panel
         membership = new JButton("Membership");
-        classes = new JButton("Class");
+        classes    = new JButton("Class");
         equipment  = new JButton("Equipment");
         league     = new JButton("League");
         logo       = new JButton();
 
-        /*
+
         //Needs Images to be inserted
         //Creates images that can be inserted as objects
         imgMembership = new ImageIcon();
@@ -90,55 +91,7 @@ public class gymInterface {
         imgEquipment  = new ImageIcon();
         imgLeague     = new ImageIcon();
         imgLogo       = new ImageIcon();
-        */
-        
-        //Build a temp league
-        ArrayList<TeamModel> tempTeam = new ArrayList<TeamModel>();
-        TeamModel tempTeamModel = new TeamModel("Gruul");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Simic");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Izzet");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Orzhov");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Selesnya");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Rakdos");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Boros");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Golgari");
-        tempTeam.add(tempTeamModel);
-    	tempTeamModel = new TeamModel("Azourious");
-    	tempTeam.add(tempTeamModel);
-    	tempTeamModel = new TeamModel("Dimir");
-    	tempTeam.add(tempTeamModel);
-    	
-    	//Build a temp league
-        tempLeague = new ArrayList<GridMenuItem>();
-        LeagueModel tempLeagueModel = new LeagueModel("Football",tempTeam);
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Soccer",tempTeam);
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Ping Pong",tempTeam);
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Weight Club",tempTeam);
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Basketball",tempTeam);
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Dodgeball",tempTeam);
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Tennis",tempTeam);
-    	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Field Hockey",tempTeam);
-    	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Hockey",tempTeam);
-    	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Underwater Basket Weaving",tempTeam);
-    	tempLeague.add(tempLeagueModel.getMenuItem());
 
-    	/*
         //Inserts the images objects into the correct button
         membership.setIcon(imgMembership);
         classes.setIcon(imgSchedule);
@@ -146,7 +99,7 @@ public class gymInterface {
         league.setIcon(imgLeague);
         logo.setIcon(imgLogo);
 
-		*/
+
     	Equipment equip = new Equipment("Treadmill", "1", "OBJT-01", 
         		"RM-9001");
         Equipment equip1 = new Equipment("Weight Bench", "2", "OBJT-01", 
@@ -169,7 +122,7 @@ public class gymInterface {
         equipment_list.add(equip4);
         equipment_list.add(equip5);
         equipment_list.add(equip6);
-    	
+
     	
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface());}});
@@ -185,8 +138,7 @@ public class gymInterface {
         west.add(league);
         west.add(logo);
         
-        frame.revalidate();
-
+        return west;
     }
     
     public static void refresh(JPanel new_center){
@@ -230,5 +182,53 @@ public class gymInterface {
     
     public static void main(String[] args) {
 		gymInterface gymGUI = new gymInterface();
+    }
+
+    private void createLeagueModel(){
+        //Build a temp league
+        ArrayList<TeamModel> tempTeam = new ArrayList<TeamModel>();
+        TeamModel tempTeamModel = new TeamModel("Gruul");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Simic");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Izzet");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Orzhov");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Selesnya");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Rakdos");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Boros");
+        tempTeam.add(tempTeamModel);
+        tempTeamModel = new TeamModel("Golgari");
+        tempTeam.add(tempTeamModel);
+    	tempTeamModel = new TeamModel("Azourious");
+    	tempTeam.add(tempTeamModel);
+    	tempTeamModel = new TeamModel("Dimir");
+    	tempTeam.add(tempTeamModel);
+
+    	//Build a temp league
+        tempLeague = new ArrayList<GridMenuItem>();
+        LeagueModel tempLeagueModel = new LeagueModel("Football",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Soccer",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Ping Pong",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Weight Club",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Basketball",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Dodgeball",tempTeam);
+        tempLeague.add(tempLeagueModel.getMenuItem());
+        tempLeagueModel = new LeagueModel("Tennis",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
+    	tempLeagueModel = new LeagueModel("Field Hockey",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
+    	tempLeagueModel = new LeagueModel("Hockey",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
+    	tempLeagueModel = new LeagueModel("Underwater Basket Weaving",tempTeam);
+    	tempLeague.add(tempLeagueModel.getMenuItem());
     }
 }
