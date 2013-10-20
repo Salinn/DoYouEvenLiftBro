@@ -1,12 +1,14 @@
 package viewGUI;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 public class memberInterface extends JPanel{
-    private JPanel memberPanel;
     private JPanel bottumLayout;
+    private JPanel membershipLayout;
 
     private JTextField searchFeild;
 
@@ -18,22 +20,28 @@ public class memberInterface extends JPanel{
     private JScrollPane scrollWindow;
 
     private Font setFont;
+
+    private Object[][] data;
     public memberInterface() {
         //Creates the font that the rest of the program will use
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
+        membershipLayout = new JPanel();
+
         //Creates the panel to be passed back and makes it a border layout
-        memberPanel = new JPanel();
-        memberPanel.setLayout(new BorderLayout(15,15));
-        memberPanel.setVisible(true);
+        membershipLayout.setLayout(new BorderLayout(15, 15));
+        membershipLayout.setVisible(true);
 
         //Gets the layout of different parts of the boarder layout
-        bottumLayout = initSouth(setFont);
         scrollWindow = initCenter(setFont);
+        bottumLayout = initSouth(setFont);
+
 
         //Adds the different layouts to the boarder layout
-        memberPanel.add(bottumLayout, BorderLayout.SOUTH);
-        memberPanel.add(scrollWindow,BorderLayout.CENTER);
+        membershipLayout.add(scrollWindow, BorderLayout.CENTER);
+        membershipLayout.add(bottumLayout, BorderLayout.SOUTH);
+        this.setLayout(new BorderLayout());
+        this.add(membershipLayout, BorderLayout.CENTER);
     }
 
     private JPanel initSouth(Font setFont){
@@ -45,11 +53,20 @@ public class memberInterface extends JPanel{
         add = new JButton(" Add Member ");
         add.setFont(setFont);
         add.setSize(1000, 1000);
+        add.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                gymInterface.refresh(new editMembers());
+            }
+        });
 
         //Creates an Edit button and set its font
         edit = new JButton(" Edit Member ");
         edit.setFont(setFont);
-        edit.setSize(1000, 1000);
+        edit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(table.getSelectedRow());
+            }
+        });
 
         //Creates a search feild and sets the width and font
         searchFeild = new JTextField("",15);
