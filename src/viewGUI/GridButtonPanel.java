@@ -110,10 +110,14 @@ public class GridButtonPanel extends JPanel {
 		
 		
 		//Add panels to the window
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BorderLayout());
+		centerPanel.setLayout(new BorderLayout());
+		centerPanel.add(titlePanel,BorderLayout.NORTH);
+		centerPanel.add(centerPane,BorderLayout.CENTER);
+		centerPanel.add(searchBar,BorderLayout.SOUTH);
 		this.setLayout(new BorderLayout());
-		this.add(titlePanel,BorderLayout.NORTH);
-		this.add(centerPane,BorderLayout.CENTER);
-		this.add(searchBar,BorderLayout.SOUTH);
+		this.add(centerPanel,BorderLayout.CENTER);
 
 	}
 	
@@ -259,10 +263,14 @@ public class GridButtonPanel extends JPanel {
 		this.removeAll();
 		
 		//Add panels to the window
+		JPanel centerPanel = new JPanel();
+		centerPanel.setLayout(new BorderLayout());
+		centerPanel.setLayout(new BorderLayout());
+		centerPanel.add(titlePanel,BorderLayout.NORTH);
+		centerPanel.add(centerPane,BorderLayout.CENTER);
+		centerPanel.add(searchBar,BorderLayout.SOUTH);
 		this.setLayout(new BorderLayout());
-		this.add(titlePanel,BorderLayout.NORTH);
-		this.add(centerPane,BorderLayout.CENTER);
-		this.add(searchBar,BorderLayout.SOUTH);
+		this.add(centerPanel,BorderLayout.CENTER);
 		
 		this.revalidate();
 	}

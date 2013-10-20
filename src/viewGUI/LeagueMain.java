@@ -123,9 +123,12 @@ public class LeagueMain extends JPanel {
 		gridPanel.add(edit);
 		
 		//Create the panel
+		JPanel mainPane = new JPanel();
+		mainPane.setLayout(new BorderLayout());
+		mainPane.add(titlePanel,BorderLayout.NORTH);
+		mainPane.add(gridPanel,BorderLayout.CENTER);
 		this.setLayout(new BorderLayout());
-		this.add(titlePanel,BorderLayout.NORTH);
-		this.add(gridPanel,BorderLayout.CENTER);
+		this.add(mainPane,BorderLayout.CENTER);
 	}
 	
 	/**
