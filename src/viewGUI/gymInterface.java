@@ -60,7 +60,7 @@ public class gymInterface {
 		frame.setResizable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //createLeagueModel();
+        createLeagueModel();
 		//Initializes the west Panel, aka the 5 main buttons
         west = setWestPanel();
 
