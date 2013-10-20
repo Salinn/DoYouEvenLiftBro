@@ -2,8 +2,12 @@ package viewGUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ClassInfoandStudents extends JPanel {
+    private  JPanel centerPanel;
+    private JButton addStudent;
     private JPanel topPanel;
 
     private JLabel name;
@@ -19,9 +23,18 @@ public class ClassInfoandStudents extends JPanel {
     public ClassInfoandStudents(){
         studentTable = new JTable();
         topPanel = new JPanel();
+        centerPanel = new JPanel();
+        addStudent = new JButton("Add Student");
+        addStudent.addActionListener(new ActionListener() {
+                    				public void actionPerformed(ActionEvent e){
+                                        JPanel addClass= new AddStudent();
+                                        gymInterface.refresh(addClass);
+                                    }
+        });
 
         topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.setLayout(new BorderLayout());
+        centerPanel.setLayout(new BorderLayout());
 
         name = new JLabel("the name");
         time = new JLabel("the time");
@@ -51,8 +64,10 @@ public class ClassInfoandStudents extends JPanel {
         topPanel.add(days);
         topPanel.add(capacity);
         topPanel.add(location);
-        this.add(topPanel, BorderLayout.NORTH);
-        this.add(studentScrollWindow, BorderLayout.CENTER);
+        centerPanel.add(topPanel, BorderLayout.NORTH);
+        centerPanel.add(studentScrollWindow, BorderLayout.CENTER);
+        centerPanel.add(addStudent, BorderLayout.SOUTH);
+        this.add(centerPanel);
 
 
     }

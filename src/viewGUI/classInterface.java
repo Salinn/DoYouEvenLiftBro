@@ -2,6 +2,8 @@ package viewGUI;
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -23,6 +25,7 @@ public class classInterface extends JPanel {
         }
         this.setLayout(new BorderLayout());
         ArrayList<GridMenuItem> testList = new ArrayList<GridMenuItem>();
+
         testList.add(new GridMenuItem(null,"Jogging"));
         testList.add(new GridMenuItem(null,"spinning"));
         testList.add(new GridMenuItem(null,"running"));
@@ -44,6 +47,13 @@ public class classInterface extends JPanel {
         testList.add(new GridMenuItem(null,"gorri"));
         testList.add(new GridMenuItem(null,"jumas"));
         testList.add(new GridMenuItem(null,"dirt"));
+        for (GridMenuItem GmI: testList){
+            GmI.getButton().addActionListener(new ActionListener() {
+            				public void actionPerformed(ActionEvent e){
+                            JPanel panel = new ClassInfoandStudents();
+                            gymInterface.refresh(panel);}
+            });
+        }
         buttons = new GridButtonPanel("Classes",testList);
         this.add(buttons, BorderLayout.CENTER);
 

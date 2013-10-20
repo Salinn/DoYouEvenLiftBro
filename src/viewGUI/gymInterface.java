@@ -58,7 +58,6 @@ public class gymInterface {
         frame.getContentPane().setLayout(new BorderLayout());
 		frame.setBounds(0, 0, screenSize.width, screenSize.height); //This was just so I could see it in ubunutu
 		frame.setResizable(true);
-        frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //createLeagueModel();
@@ -67,13 +66,13 @@ public class gymInterface {
 
         //Adds the 5 main buttons to the layout
         frame.add(west, BorderLayout.WEST);
+        frame.setVisible(true);
 
     //Add function to pass JPANELS around and set that up
     }
     private JPanel setWestPanel(){
         west = new JPanel();
         west.setLayout(new GridLayout(5,1));
-        west.setVisible(true);
 
         
         //Creates the buttons for the panel
@@ -137,6 +136,8 @@ public class gymInterface {
         west.add(equipment);
         west.add(league);
         west.add(logo);
+
+        west.setVisible(true);
         
         return west;
     }
