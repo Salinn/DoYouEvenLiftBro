@@ -17,12 +17,16 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import viewGUI.gymInterface;
 
 public class EquipmentInfo extends JPanel{
 
@@ -181,9 +185,20 @@ public class EquipmentInfo extends JPanel{
 		
 		
 		//South border
+		JPanel south = new JPanel(new GridLayout(0,2));
+		JButton back = new JButton("Back");
 		JButton edit = new JButton("Edit");
 		edit.setFont(new Font("Serif", Font.PLAIN, 40));
-		this.add(edit, BorderLayout.SOUTH);
+		back.setFont(new Font("Serif", Font.PLAIN, 40));
+		back.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				gymInterface.undo();	
+			}
+		});
+		south.add(edit);
+		south.add(back);
+		this.add(south, BorderLayout.SOUTH);
 		
 		
 	}

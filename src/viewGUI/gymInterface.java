@@ -207,7 +207,7 @@ public class gymInterface {
     
     
     
-    private static void undo(){
+    public static void undo(){
     	
     	//TODO Differentiate between panels because if the same button is pressed multiple times
     	//each new panel is still saved on the stack
