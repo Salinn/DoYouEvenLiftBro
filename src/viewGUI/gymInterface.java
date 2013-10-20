@@ -221,7 +221,8 @@ public class gymInterface {
     			center.removeAll();	
     		}
     		
-    		refresh(restored_state.getState());
+    		center=restored_state.getState();
+            frame.add(center, BorderLayout.CENTER);
     		frame.revalidate();
     	}
     	//Otherwise do nothing

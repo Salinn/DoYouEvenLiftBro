@@ -2,6 +2,7 @@ package viewGUI;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 class Caretaker {
 	
@@ -28,9 +29,18 @@ class Caretaker {
     		savedStates.remove();
     		savedStates.add(m);
     	}
+    	System.out.println("Add size: " + savedStates.size());
+    	
     }
     
-    public Memento restore() { 
-    	return savedStates.removeLast(); 
+    public Memento restore() {
+    	Memento m;
+    	try{
+    	m = savedStates.removeLast();
+    	System.out.println("Removed Size: " +savedStates.size());
+    	} catch (NoSuchElementException e){
+    		m = null;
+    	}
+    	return m; 
     }
 }
