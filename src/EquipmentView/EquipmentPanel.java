@@ -50,9 +50,7 @@ public class EquipmentPanel extends JPanel{
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
 					JPanel panel = new EquipmentInfo(equipment_piece);
-					//Set to frame
-					
-					
+					gymInterface.refresh(panel);	
 				}
 			});
 			items.add(item);

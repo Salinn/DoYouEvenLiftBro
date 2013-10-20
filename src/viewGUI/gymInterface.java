@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import EquipmentView.Equipment;
+import EquipmentView.EquipmentPanel;
 import Model.LeagueModel;
 import Model.TeamModel;
 
@@ -30,15 +32,11 @@ public class gymInterface {
     private ImageIcon imgLeague;
     private ImageIcon imgLogo;
 
-    private static Caretaker caretaker;
     private static Originator originator;
     
     //temp for leagues
     static ArrayList<GridMenuItem> tempLeague;
 
-	public static void main(String[] args) {
-		gymInterface gymGUI = new gymInterface();
-	}
 	public gymInterface(){
 		
 		try {
@@ -54,7 +52,6 @@ public class gymInterface {
 		
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-        caretaker = new Caretaker();
         originator = new Originator();
 
 		frame = new JFrame("DO YOU EVEN LIFT BRO?!?!");
@@ -65,14 +62,14 @@ public class gymInterface {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		//Initializes the west Panel, aka the 5 main buttons
-        west = setWestPanel();
+        setWestPanel();
 
         //Adds the 5 main buttons to the layout
         frame.add(west, BorderLayout.WEST);
 
     //Add function to pass JPANELS around and set that up
     }
-    public JPanel setWestPanel(){
+    private void setWestPanel(){
         west = new JPanel();
         west.setLayout(new GridLayout(5,1));
         west.setVisible(true);
@@ -150,13 +147,36 @@ public class gymInterface {
         logo.setIcon(imgLogo);
 
 		*/
+    	Equipment equip = new Equipment("Treadmill", "1", "OBJT-01", 
+        		"RM-9001");
+        Equipment equip1 = new Equipment("Weight Bench", "2", "OBJT-01", 
+        		"RM-9001");
+        Equipment equip2 = new Equipment("Dumbbells", "3", "OBJT-01", 
+        		"RM-9001");
+        Equipment equip3 = new Equipment("Elliptical", "4", "OBJT-01", 
+        		"RM-9001");
+        Equipment equip4 = new Equipment("Stationary Bike", "5", "OBJT-01", 
+        		"RM-9001");
+        Equipment equip5 = new Equipment("Weight Machine", "6", "OBJT-01", 
+        		"RM-9001");
+        Equipment equip6 = new Equipment("Something else", "7", "OBJT-01", 
+        		"RM-9001");
+        final ArrayList<Equipment> equipment_list = new ArrayList<Equipment>();
+        equipment_list.add(equip);
+        equipment_list.add(equip1);
+        equipment_list.add(equip2);
+        equipment_list.add(equip3);
+        equipment_list.add(equip4);
+        equipment_list.add(equip5);
+        equipment_list.add(equip6);
+    	
     	
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface());}});
         classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
-        equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
-        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("Leagues",tempLeague));}});
-        logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(null);}});
+        equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
+        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", tempLeague));}});
+        logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
 
         //Adds all of the buttons to the layout
         west.add(membership);
@@ -164,26 +184,50 @@ public class gymInterface {
         west.add(equipment);
         west.add(league);
         west.add(logo);
-
-        return west;
-    }
-    public static void refresh(JPanel center){
-        if (center != null){
-            originator.set(center);
-            caretaker.addMemento(originator.save());
-        } else {
-            //backbutton
-        }
-        //Initializes and empty panel in case one option is not selected
-        if(center == null){
-        	center = new JPanel();
-        }
-        //Ensures the frame  stacking up the
-        frame.getContentPane().removeAll();
-        frame.getContentPane().setLayout(new BorderLayout());
-        frame.add(center, BorderLayout.CENTER);
-        frame.add(west, BorderLayout.WEST);
+        
         frame.revalidate();
 
+    }
+    
+    public static void refresh(JPanel new_center){
+        if (center != null){
+            //originator.set(copyCenter());
+        	Caretaker caretaker = Caretaker.getInstance();
+            caretaker.addMemento(new Memento(center));
+            center.removeAll();
+        }
+        //Initializes and empty panel in case one option is not selected
+        
+        //Ensures the frame  stacking up the
+        center=new_center;
+        frame.add(center, BorderLayout.CENTER);
+        frame.revalidate();
+
+    }
+    
+    
+    
+    private void undo(){
+    	
+    	//TODO Differentiate between panels because if the same button is pressed multiple times
+    	//each new panel is still saved on the stack
+    	Caretaker caretaker = Caretaker.getInstance();
+    	Memento restored_state = caretaker.restore();
+    	
+    	if(restored_state != null){
+    		
+    		//Clear the center if necessary
+    		if (center != null){
+    			center.removeAll();	
+    		}
+    		
+    		refresh(restored_state.getState());
+    		frame.revalidate();
+    	}
+    	//Otherwise do nothing
+    }
+    
+    public static void main(String[] args) {
+		gymInterface gymGUI = new gymInterface();
     }
 }
