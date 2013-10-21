@@ -64,7 +64,7 @@ public class memberInterface extends JPanel{
         edit.setFont(setFont);
         edit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println(table.getSelectedRow());
+                gymInterface.refresh((new editMembers(data)));
             }
         });
 

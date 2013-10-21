@@ -17,6 +17,7 @@ public class editMembers extends JPanel {
     private JPanel west;
     private JPanel south;
     private JPanel center;
+    private JPanel editLayout;
 
     private Font setFont;
 
@@ -53,15 +54,24 @@ public class editMembers extends JPanel {
     public editMembers(Object[][] person){
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
-        this.setLayout(new BorderLayout(15, 15));
+        editLayout = new JPanel();
+        editLayout.setLayout(new BorderLayout());
 
         west = initWest(setFont);
         south = initSouth(setFont);
         center = initCenter(setFont);
 
-        this.add(west, BorderLayout.WEST);
-        this.add(south, BorderLayout.SOUTH);
-        this.add(center, BorderLayout.CENTER);
+        firstNameTextBox.setText("Paul");
+        lastNameTextBox.setText("Darragh");
+        membershipTextBox.setText("Basic");
+        renewalDateTextBox.setText("11-10-2013");
+        cardNumberTextBox.setText("**********");
+
+        editLayout.add(west, BorderLayout.WEST);
+        editLayout.add(south, BorderLayout.SOUTH);
+        editLayout.add(center, BorderLayout.CENTER);
+        this.setLayout(new BorderLayout());
+        this.add(editLayout, BorderLayout.CENTER);
     }
     private JPanel initWest(Font setFont){
         west = new JPanel();
