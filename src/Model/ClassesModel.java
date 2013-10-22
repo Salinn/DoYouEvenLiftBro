@@ -1,13 +1,14 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ClassesModel {
 
-    private ArrayList<ClassModel> classes;
+    private HashMap<String,ClassModel> theClasses;
 
     public ClassesModel(){
-        classes = new ArrayList<ClassModel>();
+        theClasses = new HashMap<String,ClassModel>();
     }
 
     public ClassModel createClass(String className, String classTime, String classDays, String classCapacity, String classLocation){
@@ -15,8 +16,22 @@ public class ClassesModel {
         return aClass;
     }
 
-    public void addClass(ClassModel aClass){
-        classes.add(aClass);
+    public void addClass(String name, ClassModel aClass){
+        theClasses.put(name,aClass);
     }
+
+    public ClassModel findClass(String className){
+        ClassModel tempClass = theClasses.get(className);
+        return tempClass;
+    }
+
+    public ArrayList<ClassModel> getAllClasses(){
+        ArrayList<ClassModel> temp = new ArrayList<ClassModel>();
+        for (ClassModel a: theClasses.values()){
+            temp.add(a);
+        }
+        return temp;
+    }
+
 
 }

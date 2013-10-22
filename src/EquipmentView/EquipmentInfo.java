@@ -44,18 +44,19 @@ public class EquipmentInfo extends JPanel{
 		this.equipment = equipment;
 		
 		//Uses border layout for main layout
-		this.setLayout(new BorderLayout(50,50));
+		this.setLayout(new BorderLayout());
 		
 		Font label_font = new Font("Serif", Font.PLAIN, 30);
 		Font sub_label = new Font("Serif", Font.PLAIN, 20);
-		
+		JPanel frame = new JPanel(new BorderLayout(50, 50));
+
 		//North border
 		JPanel north = new JPanel();
 		JLabel label = new JLabel(this.equipment.getName());
 		label.setFont(new Font("Serif", Font.PLAIN, 40));
 		north.add(label);
 		
-		this.add(north, BorderLayout.NORTH);
+		frame.add(north, BorderLayout.NORTH);
 		
 		
 		//Center border
@@ -181,7 +182,7 @@ public class EquipmentInfo extends JPanel{
 		center.add(clean);
 		center.add(repair);
 		
-		this.add(center, BorderLayout.CENTER);
+		frame.add(center, BorderLayout.CENTER);
 		
 		
 		//South border
@@ -198,8 +199,9 @@ public class EquipmentInfo extends JPanel{
 		});
 		south.add(edit);
 		south.add(back);
-		this.add(south, BorderLayout.SOUTH);
-		
+		frame.add(south, BorderLayout.SOUTH);
+		this.add(frame, BorderLayout.CENTER);
+
 		
 	}
 	

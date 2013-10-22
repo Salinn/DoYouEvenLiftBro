@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class AddStudent extends JPanel {
+    private JButton addStudent;
     private JTextField studentId;
     private JLabel id;
 
@@ -11,8 +12,9 @@ public class AddStudent extends JPanel {
 
 
     public AddStudent(){
+        addStudent = new JButton("Add");
         studentId = new JTextField();
-        id = new JLabel("Add Student");
+        id = new JLabel("Add Student ID");
 
         gridPanel = new JPanel();
 
@@ -22,6 +24,7 @@ public class AddStudent extends JPanel {
         gridPanel.add(id);
         gridPanel.add(studentId);
         this.add(gridPanel, BorderLayout.CENTER);
+        this.add(addStudent, BorderLayout.SOUTH);
     }
 
 

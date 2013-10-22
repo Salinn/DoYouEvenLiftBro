@@ -1,6 +1,9 @@
 package viewGUI;
 
 
+import Model.ClassModel;
+import Model.GymMediatorModel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +13,7 @@ import javax.swing.*;
 
 public class classInterface extends JPanel {
     private GridButtonPanel buttons;
+    private GymMediatorModel mediator;
 
 
     public classInterface(){
@@ -25,6 +29,14 @@ public class classInterface extends JPanel {
         }
         this.setLayout(new BorderLayout());
         ArrayList<GridMenuItem> testList = new ArrayList<GridMenuItem>();
+
+        /**
+        ArrayList<ClassModel> classes = mediator.getClasses();
+        for(ClassModel aClass: classes){
+            testList.add(new GridMenuItem(aClass,aClass.getClassName()));
+        }
+         **/
+
 
         testList.add(new GridMenuItem(null,"Jogging"));
         testList.add(new GridMenuItem(null,"spinning"));

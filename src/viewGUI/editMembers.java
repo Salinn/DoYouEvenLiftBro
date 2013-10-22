@@ -6,6 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class editMembers extends JPanel {
     private JPanel customerInfo;
@@ -13,6 +17,7 @@ public class editMembers extends JPanel {
     private JPanel west;
     private JPanel south;
     private JPanel center;
+    private JPanel editLayout;
 
     private Font setFont;
 
@@ -35,29 +40,40 @@ public class editMembers extends JPanel {
 
     public editMembers(){
         setFont = new Font("SansSerif", Font.BOLD, 40);
-
-        this.setLayout(new BorderLayout(15, 15));
+        editLayout = new JPanel();
+        editLayout.setLayout(new BorderLayout());
 
         west = initWest(setFont);
         south = initSouth(setFont);
         center = initCenter(setFont);
 
-        this.add(west, BorderLayout.WEST);
-        this.add(south, BorderLayout.SOUTH);
-        this.add(center, BorderLayout.CENTER);
+        editLayout.add(west, BorderLayout.WEST);
+        editLayout.add(south, BorderLayout.SOUTH);
+        editLayout.add(center, BorderLayout.CENTER);
+        this.setLayout(new BorderLayout());
+        this.add(editLayout, BorderLayout.CENTER);
     }
     public editMembers(Object[][] person){
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
-        this.setLayout(new BorderLayout(15, 15));
+        editLayout = new JPanel();
+        editLayout.setLayout(new BorderLayout());
 
         west = initWest(setFont);
         south = initSouth(setFont);
         center = initCenter(setFont);
 
-        this.add(west, BorderLayout.WEST);
-        this.add(south, BorderLayout.SOUTH);
-        this.add(center, BorderLayout.CENTER);
+        firstNameTextBox.setText("Paul");
+        lastNameTextBox.setText("Darragh");
+        membershipTextBox.setText("Basic");
+        renewalDateTextBox.setText("11-10-2013");
+        cardNumberTextBox.setText("**********");
+
+        editLayout.add(west, BorderLayout.WEST);
+        editLayout.add(south, BorderLayout.SOUTH);
+        editLayout.add(center, BorderLayout.CENTER);
+        this.setLayout(new BorderLayout());
+        this.add(editLayout, BorderLayout.CENTER);
     }
     private JPanel initWest(Font setFont){
         west = new JPanel();
@@ -107,6 +123,16 @@ public class editMembers extends JPanel {
         idTextBox.setText("1234");
         idTextBox.setEnabled(false);
 
+        Calendar calendar = new GregorianCalendar();
+        Date trialTime = new Date();
+        calendar.setTime(trialTime);
+        SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
+        calendar.add(Calendar.MONTH,1);
+        String nextMonthAsString = sf.format(calendar.getTime());
+
+        renewalDateTextBox.setText(nextMonthAsString);
+        renewalDateTextBox.setEnabled(false);
+
         membershipTextBox.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 gymInterface.refresh(new MembershipOptions());
@@ -133,13 +159,27 @@ public class editMembers extends JPanel {
         add = new JButton(" Add Member ");
         add.setFont(setFont);
         add.setSize(1000,1000);
-        add.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {gymInterface.refresh(new memberInterface());}});
+        add.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
+            if (cardNumberTextBox.getText().length() == 10){
+                gymInterface.refresh(new memberInterface());
+            } else if (cardNumberTextBox.getText().length() < 10){
+                JOptionPane.showMessageDialog(center,
+                        "The credit card is missing a few numbers",
+                        "Please update",
+                        JOptionPane.ERROR_MESSAGE);
+            } else if (cardNumberTextBox.getText().length() > 10){
+                JOptionPane.showMessageDialog(center,
+                        "The credit card has to many numbers",
+                        "Please update",
+                        JOptionPane.ERROR_MESSAGE);
+            }}});
+
 
         //Creates an Add button and sets its font
         back = new JButton(" Back ");
         back.setFont(setFont);
         back.setSize(1000,1000);
-        back.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {gymInterface.refresh(null);}});
+        back.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {gymInterface.undo();}});
 
         //Adds the 2 buttons and text feild to the flow layout
         bottumLayout.add(add);

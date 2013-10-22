@@ -44,8 +44,10 @@ public class GridMenuItem {
 		if(target instanceof LeagueModel){
 			createLeagueButton((LeagueModel)target);
 		} else if(target instanceof TeamModel){
-			createTeamButton((TeamModel)target);
-		} else {
+			createTeamButton((TeamModel) target);
+		} else if(target instanceof MembershipOptions) {
+
+        } else {
 			createButton(target);
 		}
 	}
@@ -97,7 +99,19 @@ public class GridMenuItem {
 		});
 		return button;
 	}
-	
+
+    public JButton createdMembershipOptionButton(MembershipOptions target){
+        button = new JButton(name);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gymInterface.undo();
+            }
+        });
+        return button;
+    }
+
 	/**
 	 * This function returns an button representation of the object
 	 * @return
