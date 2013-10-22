@@ -16,7 +16,7 @@ local.properties
 .idea
 .ide*
 *.class
-
+*dea*
 # External tool builders
 .externalToolBuilders/
 
