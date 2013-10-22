@@ -80,7 +80,7 @@ public class gymInterface {
         classes    = new JButton("Class");
         equipment  = new JButton("Equipment");
         league     = new JButton("League");
-        logo       = new JButton();
+        logo       = new JButton("Back");
 
 
         //Needs Images to be inserted
