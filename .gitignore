@@ -13,7 +13,8 @@ local.properties
 .settings/
 .loadpath
 .idea/
-
+.idea
+.ide*
 *.class
 
 # External tool builders

@@ -42,7 +42,7 @@ public class editMembers extends JPanel {
         setFont = new Font("SansSerif", Font.BOLD, 40);
         editLayout = new JPanel();
         editLayout.setLayout(new BorderLayout());
-        
+
         west = initWest(setFont);
         south = initSouth(setFont);
         center = initCenter(setFont);

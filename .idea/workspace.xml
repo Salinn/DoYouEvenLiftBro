@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DoYouEvenLiftBro.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/viewGUI/gymInterface.java" afterPath="$PROJECT_DIR$/src/viewGUI/gymInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/viewGUI/editMembers.java" afterPath="$PROJECT_DIR$/src/viewGUI/editMembers.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DoYouEvenLiftBro.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382195385015" ignored="false" />
+    <file path="/Dummy.txt" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382466711475" ignored="false" />
     <file path="/gymInterface.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382293480718" ignored="false" />
     <file path="/panelInterface.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1381782948138" ignored="false" />
     <file path="/memberInterface.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382330196446" ignored="false" />
@@ -85,21 +86,8 @@
       <file leaf-file-name="gymInterface.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewGUI/gymInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="8" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
+            <state line="41" column="8" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editMembers.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/viewGUI/editMembers.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="8" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.8974359">
-              <folding>
-                <element signature="method#initWest#0;class#editMembers#0" expanded="false" />
-                <element signature="method#initCenter#0;class#editMembers#0" expanded="false" />
-                <element signature="method#initSouth#0;class#editMembers#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -108,9 +96,19 @@
         <entry file="file://$PROJECT_DIR$/src/viewGUI/memberInterface.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="42" column="8" selection-start="1189" selection-end="1281" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editMembers.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/viewGUI/editMembers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="12" selection-start="555" selection-end="555" vertical-scroll-proportion="0.025641026">
               <folding>
-                <element signature="method#initSouth#0;class#memberInterface#0" expanded="false" />
-                <element signature="method#initCenter#0;class#memberInterface#0" expanded="false" />
+                <element signature="method#initWest#0;class#editMembers#0" expanded="false" />
+                <element signature="method#initCenter#0;class#editMembers#0" expanded="false" />
+                <element signature="method#initSouth#0;class#editMembers#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -158,7 +156,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1600" />
-    <option name="y" value="24" />
+    <option name="y" value="924" />
     <option name="width" value="1600" />
     <option name="height" value="876" />
   </component>
@@ -222,7 +220,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -294,18 +291,19 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="dynamic.classpath" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RunManager" selected="Application.gymInterface">
     <configuration default="false" name="GridButtonPanel" type="Application" factoryName="Application" temporary="true">
@@ -338,6 +336,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -363,19 +374,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -514,7 +512,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1600" y="24" width="1600" height="876" extended-state="6" />
+    <frame x="1600" y="924" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -615,10 +613,7 @@
     <entry file="file://$PROJECT_DIR$/src/viewGUI/memberInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="28" selection-start="74" selection-end="89" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#initSouth#0;class#memberInterface#0" expanded="false" />
-            <element signature="method#initCenter#0;class#memberInterface#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -697,7 +692,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/viewGUI/gymInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="8" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
+        <state line="41" column="8" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -705,16 +700,13 @@
     <entry file="file://$PROJECT_DIR$/src/viewGUI/memberInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="8" selection-start="1189" selection-end="1281" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="method#initSouth#0;class#memberInterface#0" expanded="false" />
-            <element signature="method#initCenter#0;class#memberInterface#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/viewGUI/editMembers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="8" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.8974359">
+        <state line="21" column="12" selection-start="555" selection-end="555" vertical-scroll-proportion="0.025641026">
           <folding>
             <element signature="method#initWest#0;class#editMembers#0" expanded="false" />
             <element signature="method#initCenter#0;class#editMembers#0" expanded="false" />
