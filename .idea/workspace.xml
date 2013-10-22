@@ -10,8 +10,8 @@
     <file path="/Dummy.txt" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382195385015" ignored="false" />
     <file path="/gymInterface.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382293480718" ignored="false" />
     <file path="/panelInterface.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1381782948138" ignored="false" />
-    <file path="/memberInterface.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382287908453" ignored="false" />
-    <file path="/editMembers.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382288959970" ignored="false" />
+    <file path="/memberInterface.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382330196446" ignored="false" />
+    <file path="/editMembers.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382465626870" ignored="false" />
     <file path="/newMembershipType.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1381883030921" ignored="false" />
     <file path="/gridLayout.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1381692750403" ignored="false" />
     <file path="/members.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382034818379" ignored="false" />
@@ -20,7 +20,8 @@
     <file path="/Memento.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1381892568951" ignored="false" />
     <file path="/Caretaker.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382034358156" ignored="false" />
     <file path="/fragment.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382195133419" ignored="false" />
-    <file path="/MembershipOptions.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382286238266" ignored="false" />
+    <file path="/MembershipOptions.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382299846341" ignored="false" />
+    <file path="/GridMenuItem.java" changelist="236c52d7-7d6c-4d15-a3ca-160a3ee2b419" time="1382329714176" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,38 +82,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gymInterface.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gymInterface.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewGUI/gymInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="10" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.038961038">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3721#3732#0" expanded="true" />
-                <element signature="e#4086#4185#0" expanded="true" />
-                <element signature="e#4183#4184#0" expanded="true" />
-                <element signature="e#4222#4320#0" expanded="true" />
-                <element signature="e#4318#4319#0" expanded="true" />
-                <element signature="e#4359#4471#0" expanded="true" />
-                <element signature="e#4469#4470#0" expanded="true" />
-                <element signature="e#4507#4626#0" expanded="true" />
-                <element signature="e#4624#4625#0" expanded="true" />
-                <element signature="e#4660#4735#0" expanded="true" />
-                <element signature="e#4733#4734#0" expanded="true" />
-                <element signature="method#refresh#0;class#gymInterface#0" expanded="false" />
-                <element signature="e#5249#5313#0" expanded="false" />
-                <element signature="method#undo#0;class#gymInterface#0" expanded="false" />
-                <element signature="method#main#0;class#gymInterface#0" expanded="false" />
-                <element signature="e#6312#6323#0" expanded="true" />
-              </folding>
+            <state line="40" column="8" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editMembers.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="editMembers.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/viewGUI/editMembers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="33" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="44" column="8" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.8974359">
+              <folding>
+                <element signature="method#initWest#0;class#editMembers#0" expanded="false" />
+                <element signature="method#initCenter#0;class#editMembers#0" expanded="false" />
+                <element signature="method#initSouth#0;class#editMembers#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,17 +107,11 @@
       <file leaf-file-name="memberInterface.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/viewGUI/memberInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="42" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MembershipOptions.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/viewGUI/MembershipOptions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="30" selection-start="103" selection-end="120" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="42" column="8" selection-start="1189" selection-end="1281" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="method#initSouth#0;class#memberInterface#0" expanded="false" />
+                <element signature="method#initCenter#0;class#memberInterface#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/gridLayout.java" />
         <option value="$PROJECT_DIR$/src/gymInterface.java" />
         <option value="$PROJECT_DIR$/src/viewGUI/classInterface.java" />
         <option value="$PROJECT_DIR$/src/viewGUI/LoginPage.java" />
@@ -165,10 +145,11 @@
         <option value="$PROJECT_DIR$/src/viewGUI/Caretaker.java" />
         <option value="$PROJECT_DIR$/src/viewGUI/Originator.java" />
         <option value="$PROJECT_DIR$/src/Model/members.java" />
+        <option value="$PROJECT_DIR$/src/viewGUI/gymInterface.java" />
         <option value="$PROJECT_DIR$/src/viewGUI/MembershipOptions.java" />
+        <option value="$PROJECT_DIR$/src/viewGUI/GridMenuItem.java" />
         <option value="$PROJECT_DIR$/src/viewGUI/memberInterface.java" />
         <option value="$PROJECT_DIR$/src/viewGUI/editMembers.java" />
-        <option value="$PROJECT_DIR$/src/viewGUI/gymInterface.java" />
       </list>
     </option>
   </component>
@@ -176,10 +157,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="801" />
-    <option name="y" value="52" />
-    <option name="width" value="800" />
-    <option name="height" value="848" />
+    <option name="x" value="1600" />
+    <option name="y" value="24" />
+    <option name="width" value="1600" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -241,6 +222,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -312,19 +294,18 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Application.gymInterface">
     <configuration default="false" name="GridButtonPanel" type="Application" factoryName="Application" temporary="true">
@@ -357,19 +338,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -395,6 +363,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -533,7 +514,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="801" y="52" width="800" height="848" extended-state="4" />
+    <frame x="1600" y="24" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -550,8 +531,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.82166445" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4111406" sideWeight="0.73251027" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41838133" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4105534" sideWeight="0.80713344" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19286658" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -634,7 +615,10 @@
     <entry file="file://$PROJECT_DIR$/src/viewGUI/memberInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="28" selection-start="74" selection-end="89" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="method#initSouth#0;class#memberInterface#0" expanded="false" />
+            <element signature="method#initCenter#0;class#memberInterface#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -652,9 +636,7 @@
     </entry>
     <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/javax/swing/JFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="584" column="0" selection-start="21160" selection-end="21160" vertical-scroll-proportion="0.33271027">
-          <folding />
-        </state>
+        <state line="584" column="0" selection-start="21160" selection-end="21160" vertical-scroll-proportion="0.33271027" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/viewGUI/ClassInfoandStudents.java">
@@ -671,23 +653,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewGUI/GridButtonPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="66" selection-start="1319" selection-end="1331" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EquipmentView/Equipment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="13" selection-start="224" selection-end="224" vertical-scroll-proportion="-1.8190298">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewGUI/GridMenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="346" selection-end="346" vertical-scroll-proportion="-0.13432837">
           <folding />
         </state>
       </provider>
@@ -706,48 +674,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewGUI/GridButtonPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="316" column="0" selection-start="9144" selection-end="9144" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewGUI/GridMenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="22" selection-start="2542" selection-end="2542" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/viewGUI/MembershipOptions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="103" selection-end="120" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewGUI/editMembers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="33" selection-start="1061" selection-end="1061" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/viewGUI/memberInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="42" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
+        <state line="14" column="28" selection-start="326" selection-end="343" vertical-scroll-proportion="0.17948718">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/viewGUI/gymInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="10" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.038961038">
+        <state line="40" column="8" selection-start="891" selection-end="891" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewGUI/memberInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="8" selection-start="1189" selection-end="1281" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3721#3732#0" expanded="true" />
-            <element signature="e#4086#4185#0" expanded="true" />
-            <element signature="e#4183#4184#0" expanded="true" />
-            <element signature="e#4222#4320#0" expanded="true" />
-            <element signature="e#4318#4319#0" expanded="true" />
-            <element signature="e#4359#4471#0" expanded="true" />
-            <element signature="e#4469#4470#0" expanded="true" />
-            <element signature="e#4507#4626#0" expanded="true" />
-            <element signature="e#4624#4625#0" expanded="true" />
-            <element signature="e#4660#4735#0" expanded="true" />
-            <element signature="e#4733#4734#0" expanded="true" />
-            <element signature="method#refresh#0;class#gymInterface#0" expanded="false" />
-            <element signature="e#5249#5313#0" expanded="false" />
-            <element signature="method#undo#0;class#gymInterface#0" expanded="false" />
-            <element signature="method#main#0;class#gymInterface#0" expanded="false" />
-            <element signature="e#6312#6323#0" expanded="true" />
+            <element signature="method#initSouth#0;class#memberInterface#0" expanded="false" />
+            <element signature="method#initCenter#0;class#memberInterface#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/viewGUI/editMembers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="8" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.8974359">
+          <folding>
+            <element signature="method#initWest#0;class#editMembers#0" expanded="false" />
+            <element signature="method#initCenter#0;class#editMembers#0" expanded="false" />
+            <element signature="method#initSouth#0;class#editMembers#0" expanded="false" />
           </folding>
         </state>
       </provider>
