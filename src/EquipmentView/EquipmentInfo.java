@@ -49,7 +49,7 @@ public class EquipmentInfo extends JPanel{
 		Font label_font = new Font("Serif", Font.PLAIN, 30);
 		Font sub_label = new Font("Serif", Font.PLAIN, 20);
 		JPanel frame = new JPanel(new BorderLayout(50, 50));
-
+		
 		//North border
 		JPanel north = new JPanel();
 		JLabel label = new JLabel(this.equipment.getName());
@@ -201,7 +201,7 @@ public class EquipmentInfo extends JPanel{
 		south.add(back);
 		frame.add(south, BorderLayout.SOUTH);
 		this.add(frame, BorderLayout.CENTER);
-
+		
 		
 	}
 	

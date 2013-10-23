@@ -271,7 +271,7 @@ public class GridButtonPanel extends JPanel {
 		centerPanel.add(searchBar,BorderLayout.SOUTH);
 		this.setLayout(new BorderLayout());
 		this.add(centerPanel,BorderLayout.CENTER);
-
+		
 		this.revalidate();
 	}
 	

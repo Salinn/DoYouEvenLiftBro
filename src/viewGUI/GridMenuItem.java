@@ -111,7 +111,7 @@ public class GridMenuItem {
         });
         return button;
     }
-
+	
 	/**
 	 * This function returns an button representation of the object
 	 * @return
