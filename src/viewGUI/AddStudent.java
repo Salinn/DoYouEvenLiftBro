@@ -23,7 +23,7 @@ public class AddStudent extends JPanel {
 
         gridPanel.add(id);
         gridPanel.add(studentId);
-        this.add(gridPanel, BorderLayout.CENTER);
+        this.add(gridPanel, BorderLayout.NORTH);
         this.add(addStudent, BorderLayout.SOUTH);
     }
 
