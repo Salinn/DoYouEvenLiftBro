@@ -21,7 +21,7 @@ public class editMembers extends JPanel {
     private JPanel editLayout;
 
     private Font setFont;
-
+    private Integer value;
     private JButton add;
 
     private JLabel firstName;
@@ -44,7 +44,24 @@ public class editMembers extends JPanel {
 
     public editMembers(MemberTableModel model, ArrayList<members> memberList){
         this.model = model;
-        this.memberList =memberList;
+        this.memberList = memberList;
+        ArrayList<Integer> tempIdList = new ArrayList<Integer>();
+        for(members person : memberList){
+            tempIdList.add(person.getId());
+        }
+        boolean flag = true;
+        while (flag){
+            this.value = (int)(Math.random() * 8847);
+            for(Integer tempNum : tempIdList){
+                if (tempNum != value){
+                    flag = false;
+                } else {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+
 
         setFont = new Font("SansSerif", Font.BOLD, 40);
         editLayout = new JPanel();
@@ -52,7 +69,7 @@ public class editMembers extends JPanel {
 
         west = initWest(setFont);
         south = initSouth(setFont);
-        center = initCenter(setFont);
+        center = initCenter(setFont, value);
 
         editLayout.add(west, BorderLayout.WEST);
         editLayout.add(south, BorderLayout.SOUTH);
@@ -72,7 +89,7 @@ public class editMembers extends JPanel {
 
         west = initWest(setFont);
         south = initSouth(setFont);
-        center = initCenter(setFont);
+        center = initCenter(setFont, 1234);
 
         firstNameTextBox.setText("Paul");
         lastNameTextBox.setText("Darragh");
@@ -113,7 +130,7 @@ public class editMembers extends JPanel {
 
         return west;
     }
-    private JPanel initCenter(Font setFont){
+    private JPanel initCenter(Font setFont, Integer value){
         center = new JPanel();
         center.setLayout(new GridLayout(9,1));
 
@@ -131,7 +148,7 @@ public class editMembers extends JPanel {
         renewalDateTextBox.setFont(setFont);
         cardNumberTextBox.setFont(setFont);
 
-        idTextBox.setText("1234");
+        idTextBox.setText(value.toString());
         idTextBox.setEnabled(false);
 
         Calendar calendar = new GregorianCalendar();
