@@ -1,15 +1,16 @@
 package viewGUI;
 
+import Model.members;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 public class editMembers extends JPanel {
     private JPanel customerInfo;
@@ -22,7 +23,6 @@ public class editMembers extends JPanel {
     private Font setFont;
 
     private JButton add;
-    private JButton back;
 
     private JLabel firstName;
     private JLabel lastName;
@@ -38,7 +38,14 @@ public class editMembers extends JPanel {
     private JTextField renewalDateTextBox;
     private JPasswordField cardNumberTextBox;
 
-    public editMembers(){
+    private MemberTableModel model;
+    private ArrayList<members> memberList;
+    private Integer ID;
+
+    public editMembers(MemberTableModel model, ArrayList<members> memberList){
+        this.model = model;
+        this.memberList =memberList;
+
         setFont = new Font("SansSerif", Font.BOLD, 40);
         editLayout = new JPanel();
         editLayout.setLayout(new BorderLayout());
@@ -53,7 +60,11 @@ public class editMembers extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(editLayout, BorderLayout.CENTER);
     }
-    public editMembers(Object[][] person){
+    public editMembers(MemberTableModel model, ArrayList<members> memberList, Integer ID){
+        this.model = model;
+        this.memberList = memberList;
+        this.ID = ID;
+
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
         editLayout = new JPanel();
@@ -160,30 +171,31 @@ public class editMembers extends JPanel {
         add.setFont(setFont);
         add.setSize(1000,1000);
         add.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
-            if (cardNumberTextBox.getText().length() == 10){
-                gymInterface.refresh(new memberInterface());
-            } else if (cardNumberTextBox.getText().length() < 10){
+            if (cardNumberTextBox.getText().length() == 16){
+                Calendar calendar = new GregorianCalendar();
+                Date trialTime = new Date();
+                calendar.setTime(trialTime);
+                SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
+                calendar.add(Calendar.MONTH,1);
+                String nextMonthAsString = sf.format(calendar.getTime());
+                members mem = new members(firstNameTextBox.getText(), lastNameTextBox.getText(), membershipTextBox.getText() , Integer.parseInt(idTextBox.getText()),calendar.getTime(), cardNumberTextBox.getText());
+                memberList.add(mem);
+                model = new MemberTableModel(memberList);
+                gymInterface.refresh(new memberInterface(model, memberList));
+            } else if (cardNumberTextBox.getText().length() < 16){
                 JOptionPane.showMessageDialog(center,
                         "The credit card is missing a few numbers",
                         "Please update",
                         JOptionPane.ERROR_MESSAGE);
-            } else if (cardNumberTextBox.getText().length() > 10){
+            } else if (cardNumberTextBox.getText().length() > 16){
                 JOptionPane.showMessageDialog(center,
                         "The credit card has to many numbers",
                         "Please update",
                         JOptionPane.ERROR_MESSAGE);
             }}});
 
-
-        //Creates an Add button and sets its font
-        back = new JButton(" Back ");
-        back.setFont(setFont);
-        back.setSize(1000,1000);
-        back.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {gymInterface.undo();}});
-
         //Adds the 2 buttons and text feild to the flow layout
         bottumLayout.add(add);
-        bottumLayout.add(back);
 
         return bottumLayout;
     }

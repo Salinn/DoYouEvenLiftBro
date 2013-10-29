@@ -3,12 +3,17 @@ package viewGUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.swing.*;
 
 import EquipmentView.Equipment;
 import EquipmentView.EquipmentPanel;
+import Model.members;
 import Model.LeagueModel;
 import Model.TeamModel;
 
@@ -31,7 +36,7 @@ public class gymInterface {
     private ImageIcon imgEquipment;
     private ImageIcon imgLeague;
     private ImageIcon imgLogo;
-
+    private Object[][] data;
     private static Originator originator;
     
     //temp for leagues
@@ -122,9 +127,32 @@ public class gymInterface {
         equipment_list.add(equip5);
         equipment_list.add(equip6);
 
-    	
+        Calendar calendar = new GregorianCalendar();
+        Date trialTime = new Date();
+        calendar.setTime(trialTime);
+        SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
+        calendar.add(Calendar.MONTH,1);
+        String nextMonthAsString = sf.format(calendar.getTime());
+
+        final ArrayList<members> memberList = new ArrayList<members>();
+        members mem1 = new members("Paul", "Darragh", "Basic", 1234, calendar.getTime() , "1234567887654321");
+        members mem2 = new members("Joe", "Smith", "Trial", 1235, calendar.getTime() , "8765432112345678");
+        members mem3 = new members("Nick", "Cifranic", "Basic", 1254, calendar.getTime() , "9234567887654321");
+        members mem4 = new members("Matt", "Smith", "League", 2235, calendar.getTime() , "2765432112345678");
+        members mem5 = new members("Mason", "Sciotti", "Premium", 3234, calendar.getTime() , "8234567887654321");
+        members mem6 = new members("Marissa", "Thomas", "Class", 1435, calendar.getTime() , "3765432112345678");
+
+        memberList.add(mem1);
+        memberList.add(mem2);
+        memberList.add(mem3);
+        memberList.add(mem4);
+        memberList.add(mem5);
+        memberList.add(mem6);
+
+        final MemberTableModel model = new MemberTableModel(memberList);
+
         //Creates all of the listeners for each button
-        membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface());}});
+        membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
         classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
         league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", tempLeague));}});

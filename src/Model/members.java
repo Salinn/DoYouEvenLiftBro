@@ -7,17 +7,15 @@ public class members {
     private String lastName;
     private String membershipType;
     private Integer id;
-    private String address;
     private Date renwalDate;
-    private Integer creditCard;
+    private String creditCard;
 
-    public members(String firstName, String lastName, String membershipType, Integer id, String address,
-                   Date renwalDate, Integer creditCard){
+    public members(String firstName, String lastName, String membershipType, Integer id,
+                   Date renwalDate, String creditCard){
         this.firstName      = firstName;
         this.lastName       = lastName;
         this.membershipType = membershipType;
         this.id             = id;
-        this.address        = address;
         this.renwalDate     = renwalDate;
         this.creditCard     = creditCard;
     }
@@ -33,13 +31,10 @@ public class members {
     public String getMembershipType(){
         return membershipType;
     }
-    public String getAddress(){
-        return address;
-    }
     public Integer getId(){
         return id;
     }
-    public Integer getCreditCard(){
+    public String getCreditCard(){
         return creditCard;
     }
     public Date getRenwalDate(){
@@ -56,16 +51,13 @@ public class members {
     public void setMembershipType(String membershipType){
         this.membershipType = membershipType;
     }
-    public void setAddress(String address){
-        this.address = address;
-    }
     public void setId(Integer id){
         this.id = id;
     }
     public void setRenwalDate(Date renwalDate){
         this.renwalDate = renwalDate;
     }
-    public void setCreditCard(Integer creditCard){
+    public void setCreditCard(String creditCard){
         this.creditCard = creditCard;
     }
 

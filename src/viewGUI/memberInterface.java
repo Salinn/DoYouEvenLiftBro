@@ -1,8 +1,11 @@
 package viewGUI;
 
+import Model.members;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -21,8 +24,11 @@ public class memberInterface extends JPanel{
 
     private Font setFont;
 
-    private Object[][] data;
-    public memberInterface() {
+    private MemberTableModel model;
+    private ArrayList<members> memberList;
+    public memberInterface(MemberTableModel model, ArrayList<members> memberList) {
+        this.model = model;
+        this.memberList =memberList;
         //Creates the font that the rest of the program will use
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
@@ -55,7 +61,7 @@ public class memberInterface extends JPanel{
         add.setSize(1000, 1000);
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gymInterface.refresh(new editMembers());
+                gymInterface.refresh(new editMembers(model,memberList));
             }
         });
 
@@ -64,7 +70,7 @@ public class memberInterface extends JPanel{
         edit.setFont(setFont);
         edit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gymInterface.refresh((new editMembers(data)));
+                gymInterface.refresh((new editMembers(model,memberList)));
             }
         });
 
@@ -82,17 +88,9 @@ public class memberInterface extends JPanel{
     private JScrollPane initCenter(Font setFont){
         //This is just data to populate the table to show what it would look like
         String[] columnNames = {"First Name","Last Name","ID"};
-        Object[][] data = { {"Paul", "Darragh", new Integer(1234)},
-                            {"Joe", "Smith", new Integer(4321)},
-                            {"Paul", "Darragh", new Integer(1234)},
-                            {"Joe", "Smith", new Integer(4321)},
-                            {"Paul", "Darragh", new Integer(1234)},
-                            {"Joe", "Smith", new Integer(4321)},
-                            {"Paul", "Darragh", new Integer(1234)},
-                            {"Joe", "Smith", new Integer(4321)}};
 
         //Creates a table of all of the customers and sets the font
-        table = new JTable(data, columnNames);
+        table = new JTable(model);
         table.setFont(setFont);
         table.setRowHeight(45);
         table.isCellEditable(0,0);
