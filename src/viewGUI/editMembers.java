@@ -40,7 +40,7 @@ public class editMembers extends JPanel {
 
     private MemberTableModel model;
     private ArrayList<members> memberList;
-    private Integer ID;
+    private members mem;
 
     public editMembers(MemberTableModel model, ArrayList<members> memberList){
         this.model = model;
@@ -77,10 +77,10 @@ public class editMembers extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(editLayout, BorderLayout.CENTER);
     }
-    public editMembers(MemberTableModel model, ArrayList<members> memberList, Integer ID){
+    public editMembers(MemberTableModel model, ArrayList<members> memberList, members mem){
         this.model = model;
         this.memberList = memberList;
-        this.ID = ID;
+        this.mem = mem;
 
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
@@ -89,13 +89,17 @@ public class editMembers extends JPanel {
 
         west = initWest(setFont);
         south = initSouth(setFont);
-        center = initCenter(setFont, 1234);
+        center = initCenter(setFont, mem.getId());
 
-        firstNameTextBox.setText("Paul");
-        lastNameTextBox.setText("Darragh");
-        membershipTextBox.setText("Basic");
-        renewalDateTextBox.setText("11-10-2013");
-        cardNumberTextBox.setText("**********");
+        System.out.println(mem.getClass());
+
+        firstNameTextBox.setText(mem.getFirstName());
+        lastNameTextBox.setText(mem.getLastName());
+        membershipTextBox.setText(mem.getMembershipType());
+        renewalDateTextBox.setText(mem.getRenwalDate().toString());
+        cardNumberTextBox.setText(mem.getCreditCard());
+
+
 
         editLayout.add(west, BorderLayout.WEST);
         editLayout.add(south, BorderLayout.SOUTH);

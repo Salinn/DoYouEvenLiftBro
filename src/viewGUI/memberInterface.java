@@ -6,8 +6,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.*;
+import Model.members;
 
 public class memberInterface extends JPanel{
     private JPanel bottumLayout;
@@ -23,6 +25,7 @@ public class memberInterface extends JPanel{
     private JScrollPane scrollWindow;
 
     private Font setFont;
+    private members selectemem;
 
     private MemberTableModel model;
     private ArrayList<members> memberList;
@@ -70,7 +73,7 @@ public class memberInterface extends JPanel{
         edit.setFont(setFont);
         edit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gymInterface.refresh((new editMembers(model,memberList)));
+                gymInterface.refresh((new editMembers(model,memberList, selectemem)));
             }
         });
 
@@ -94,6 +97,21 @@ public class memberInterface extends JPanel{
         table.setFont(setFont);
         table.setRowHeight(45);
         table.isCellEditable(0,0);
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent event) {
+                // do some actions here, for example
+                // print first column value from selected row
+                //System.out.println(table.getValueAt(table.getSelectedRow(), 2).toString());
+                int temp = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 2).toString());
+                for(members mem: memberList){
+                    if (mem.getId() == temp){
+                        //System.out.println(mem);
+                        selectemem = mem;
+                    }
+                }
+            }
+        });
+
 
         //new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         JScrollPane x = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

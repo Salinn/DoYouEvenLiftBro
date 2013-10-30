@@ -102,7 +102,6 @@ public class GridMenuItem {
 
     public JButton createdMembershipOptionButton(MembershipOptions target){
         button = new JButton(name);
-
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
