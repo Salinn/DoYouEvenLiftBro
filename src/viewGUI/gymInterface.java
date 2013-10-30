@@ -24,6 +24,7 @@ public class gymInterface {
 
     private static JPanel west;
     private static JPanel center;
+    private static LoginPage login;
 
     public JButton membership;
     public JButton classes;
@@ -71,6 +72,11 @@ public class gymInterface {
 
         //Adds the 5 main buttons to the layout
         frame.add(west, BorderLayout.WEST);
+        
+        //Add Login Panel to the layout
+        login = new LoginPage();
+        gymInterface.refresh(login);
+        
         frame.setVisible(true);
 
     //Add function to pass JPANELS around and set that up
