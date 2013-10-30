@@ -7,8 +7,16 @@ package viewGUI;
 
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Hashtable;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -16,11 +24,22 @@ import javax.swing.JFrame;
  */
 public class LoginPage extends javax.swing.JPanel {
 
-    /**
+   private Hashtable<String,String> loginHash = new Hashtable<String,String>();
+   private static final int NUMBER_BUTTON_WIDTH = 250;
+   private static final int PASSWORD_FIELD_WIDTH = 760;
+   private static final int ENTER_AND_CLEAR_GAP = 530;
+	
+	/**
      * Creates new form LoginPage
      */
     public LoginPage() {
         initComponents();
+        loginHash.put("1111", "Welcome Robert!");
+        loginHash.put("2222", "Welcome Nsama!");
+        loginHash.put("3333", "Welcome Paul!");
+        loginHash.put("4444", "Welcome Eric!");
+        loginHash.put("5555", "Welcome Andrew!");
+        loginHash.put("9999", "Welcome Guest!");
     }
 
     /**
@@ -31,55 +50,71 @@ public class LoginPage extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
+    
+    	imagePanel = new JPanel();
+    	homeScreen = null;
+    	try{
+    		homeScreen = new ImageIcon("Images/Gym.PNG");
+    		System.out.println("Should have created new ImageIcon");
+    	}
+    	catch(Exception e){
+    		
+    	}
+    	
+    	homeLabel = new JButton();
+    	homeLabel.setIcon(homeScreen);
+    	homeLabel.setEnabled(false);
+    	imagePanel.add(homeLabel);
+    	
+    	jPasswordField1 = new javax.swing.JPasswordField();
+       
+    	button4 = new NumPadButton(jPasswordField1,"4");
+        button5 = new NumPadButton(jPasswordField1,"5");
+        button7 = new NumPadButton(jPasswordField1, "7");
+        button8 = new NumPadButton(jPasswordField1,"8");
+        button9 = new NumPadButton(jPasswordField1,"9");
+        button6 = new NumPadButton(jPasswordField1, "6");
+        button1 = new NumPadButton(jPasswordField1,"1");
+        button2 = new NumPadButton(jPasswordField1,"2");
+        button3 = new NumPadButton(jPasswordField1,"3");
+        button0 = new NumPadButton(jPasswordField1,"0");
+      
+        buttonEnter = new JButton("Enter");
+        buttonClear = new JButton("Clear");
+        
+        buttonEnter.addActionListener(new ActionListener(){
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-
-        jButton1.setText("jButton1");
-
-        jButton2.setText("4");
-
-        jButton3.setText("5");
-
-        jButton4.setText("7");
-
-        jButton5.setText("8");
-
-        jButton6.setText("9");
-
-        jButton7.setText("6");
-
-        jButton8.setText("1");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String pass = jPasswordField1.getText();
+				String welcomeMessage = loginHash.get(pass);
+				
+				if(welcomeMessage != null){
+					JOptionPane.showMessageDialog(null, welcomeMessage);
+					
+					
+					gymInterface.refresh(imagePanel);
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "No user with that password can be found.");
+					jPasswordField1.setText("");
+				}
+			}
+        	
         });
 
-        jButton9.setText("2");
+        buttonClear.addActionListener(new ActionListener(){
 
-        jButton10.setText("3");
-
-        jButton11.setText("0");
-
-        jPasswordField1.setText("jPasswordField1");
-
-        jButton12.setText("Enter");
-
-        jButton13.setText("Clear");
-
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				jPasswordField1.setText("");
+			}
+        	
+        });
+        
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -89,30 +124,30 @@ public class LoginPage extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, PASSWORD_FIELD_WIDTH, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(button4, javax.swing.GroupLayout.DEFAULT_SIZE, NUMBER_BUTTON_WIDTH, Short.MAX_VALUE)
+                                        .addComponent(button7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, NUMBER_BUTTON_WIDTH, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(buttonClear, javax.swing.GroupLayout.PREFERRED_SIZE, NUMBER_BUTTON_WIDTH, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(button5, javax.swing.GroupLayout.DEFAULT_SIZE, NUMBER_BUTTON_WIDTH, Short.MAX_VALUE)
+                                    .addComponent(button8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(button0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(button2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(button3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, NUMBER_BUTTON_WIDTH, Short.MAX_VALUE)
+                                    .addComponent(button6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(button9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(ENTER_AND_CLEAR_GAP, ENTER_AND_CLEAR_GAP, ENTER_AND_CLEAR_GAP)
+                        .addComponent(buttonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(1200, 1200))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,56 +156,66 @@ public class LoginPage extends javax.swing.JPanel {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10))
+                    .addComponent(button1)
+                    .addComponent(button2)
+                    .addComponent(button3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton7))
+                    .addComponent(button4)
+                    .addComponent(button5)
+                    .addComponent(button6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(button7)
+                    .addComponent(button8)
+                    .addComponent(button9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton11)
+                .addComponent(button0)
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonClear, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>                        
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
+    private JPanel getIconPage(){
+    	return imagePanel;
+    }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private NumPadButton button3;
+    private NumPadButton button0;
+    private JButton buttonEnter;
+    private JButton buttonClear;
+    private NumPadButton button4;
+    private NumPadButton button5;
+    private NumPadButton button7;
+    private NumPadButton button8;
+    private NumPadButton button9;
+    private NumPadButton button6;
+    private NumPadButton button1;
+    private NumPadButton button2;
     private javax.swing.JPasswordField jPasswordField1;
+    private JPanel imagePanel;
+    private ImageIcon homeScreen;
+    private JButton homeLabel;
     // End of variables declaration    
     
     public static void main(String [] args){
     	JFrame test = new JFrame();
-    	test.add(new LoginPage());
+    	LoginPage login = new LoginPage();
+    	test.add(login);
     	test.setLocationRelativeTo(null);
     	test.setMinimumSize(new Dimension(400,400));
     	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	test.setVisible(true);
+    	
+    	JFrame test2 = new JFrame();
+    	test2.add(login.getIconPage());
+    	test2.setLocationRelativeTo(null);
+    	test2.setMinimumSize(new Dimension(400,400));
+    	test2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    	test2.setVisible(true);
     }
 }
