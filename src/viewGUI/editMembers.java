@@ -41,10 +41,12 @@ public class editMembers extends JPanel {
     private MemberTableModel model;
     private ArrayList<members> memberList;
     private members mem;
+    private int temp;
 
     public editMembers(MemberTableModel model, ArrayList<members> memberList){
         this.model = model;
         this.memberList = memberList;
+        temp = -1;
         ArrayList<Integer> tempIdList = new ArrayList<Integer>();
         for(members person : memberList){
             tempIdList.add(person.getId());
@@ -77,10 +79,11 @@ public class editMembers extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(editLayout, BorderLayout.CENTER);
     }
-    public editMembers(MemberTableModel model, ArrayList<members> memberList, members mem){
+    public editMembers(MemberTableModel model, ArrayList<members> memberList, members mem, int temp){
         this.model = model;
         this.memberList = memberList;
         this.mem = mem;
+        this.temp = temp;
 
         setFont = new Font("SansSerif", Font.BOLD, 40);
 
@@ -193,6 +196,9 @@ public class editMembers extends JPanel {
         add.setSize(1000,1000);
         add.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
             if (cardNumberTextBox.getText().length() == 16){
+                if (temp != -1){
+                    memberList.remove(temp);
+                }
                 Calendar calendar = new GregorianCalendar();
                 Date trialTime = new Date();
                 calendar.setTime(trialTime);

@@ -22,6 +22,8 @@ public class memberInterface extends JPanel{
 
     private JTable table;
 
+    private int temp;
+
     private JScrollPane scrollWindow;
 
     private Font setFont;
@@ -73,7 +75,7 @@ public class memberInterface extends JPanel{
         edit.setFont(setFont);
         edit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gymInterface.refresh((new editMembers(model,memberList, selectemem)));
+                gymInterface.refresh((new editMembers(model,memberList, selectemem, temp)));
             }
         });
 
@@ -102,9 +104,10 @@ public class memberInterface extends JPanel{
                 // do some actions here, for example
                 // print first column value from selected row
                 //System.out.println(table.getValueAt(table.getSelectedRow(), 2).toString());
-                int temp = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 2).toString());
+                temp = table.getSelectedRow();
+                int tempid = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 2).toString());
                 for(members mem: memberList){
-                    if (mem.getId() == temp){
+                    if (mem.getId() == tempid){
                         //System.out.println(mem);
                         selectemem = mem;
                     }

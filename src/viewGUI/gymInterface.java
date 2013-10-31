@@ -16,6 +16,7 @@ import EquipmentView.EquipmentPanel;
 import Model.members;
 import Model.LeagueModel;
 import Model.TeamModel;
+import java.util.Collections;
 
 public class gymInterface {
 	Dimension screenSize;
