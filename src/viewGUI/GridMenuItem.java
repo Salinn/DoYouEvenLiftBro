@@ -45,8 +45,8 @@ public class GridMenuItem {
 			createLeagueButton((LeagueModel)target);
 		} else if(target instanceof TeamModel){
 			createTeamButton((TeamModel) target);
-		} else if(target instanceof MembershipOptions) {
-
+		} else if(target instanceof JPanel) {
+            createdMembershipOptionButton();
         } else {
 			createButton(target);
 		}
@@ -101,12 +101,15 @@ public class GridMenuItem {
 		return button;
 	}
 
-    public JButton createdMembershipOptionButton(MembershipOptions target){
+    public JButton createdMembershipOptionButton(){
         button = new JButton(name);
+        final JPanel temp = (JPanel) target;
+        System.out.println("CREDIT CARE!!!");
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                gymInterface.undo();
+
+                gymInterface.refresh(temp);
             }
         });
         return button;

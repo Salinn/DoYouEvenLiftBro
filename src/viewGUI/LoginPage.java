@@ -92,8 +92,7 @@ public class LoginPage extends javax.swing.JPanel {
 				
 				if(welcomeMessage != null){
 					JOptionPane.showMessageDialog(null, welcomeMessage);
-					
-					
+                    gymInterface.enable();
 					gymInterface.refresh(imagePanel);
 				}
 				else{

@@ -170,7 +170,7 @@ public class editMembers extends JPanel {
 
         membershipTextBox.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
-                //gymInterface.refresh(new MembershipOptions(), mem);
+                gymInterface.refresh(new MembershipOptions(editLayout));
             }
             public void focusLost(FocusEvent e) {
             }
