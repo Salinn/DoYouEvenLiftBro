@@ -1,5 +1,0 @@
-This package contains all of the Equipment View stuff for my own organization,
-but I know everything will move around later once we focus on integration some
-more.
-
--Pop

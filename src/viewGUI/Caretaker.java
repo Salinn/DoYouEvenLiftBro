@@ -29,7 +29,6 @@ class Caretaker {
     		savedStates.remove();
     		savedStates.add(m);
     	}
-    	System.out.println("Add size: " + savedStates.size());
     	
     }
     

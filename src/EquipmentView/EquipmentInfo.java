@@ -14,6 +14,7 @@ package EquipmentView;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -25,6 +26,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Model.Equipment;
 
 import viewGUI.gymInterface;
 
@@ -186,19 +189,10 @@ public class EquipmentInfo extends JPanel{
 		
 		
 		//South border
-		JPanel south = new JPanel(new GridLayout(0,2));
-		JButton back = new JButton("Back");
-		JButton edit = new JButton("Edit");
+		JPanel south = new JPanel(new FlowLayout());
+		JButton edit = new JButton("Edit Equipment");
 		edit.setFont(new Font("Serif", Font.PLAIN, 40));
-		back.setFont(new Font("Serif", Font.PLAIN, 40));
-		back.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				gymInterface.undo();	
-			}
-		});
-		south.add(edit);
-		south.add(back);
+		south.add(edit, BorderLayout.CENTER);
 		frame.add(south, BorderLayout.SOUTH);
 		this.add(frame, BorderLayout.CENTER);
 		
@@ -206,31 +200,5 @@ public class EquipmentInfo extends JPanel{
 	}
 	
 	
-	/**
-	 * Main method for testing purposes.
-	 */
-	public static void main(String[] args){
-		//Code borrowed from gymInterface
-		
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		
-		//Creates and sets up the main frame that will be used in the program
-		JFrame frame = new JFrame("DO YOU EVEN LIFT BRO?!?!");
-		frame.setVisible(true);
-        frame.getContentPane().setLayout(new BorderLayout(20, 20));
-		frame.setBounds(65, 0, screenSize.width-70, screenSize.height); //This was just so I could see it in ubunutu
-		frame.setResizable(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//Initializes the west Panel, aka the 5 main buttons
-        panelInterface westPanel = new panelInterface();
-        
-        //My Equipment Panel Initialization
-        Equipment equip = new Equipment("AN OBJECT", "1", "OBJT-01", 
-        		"RM-9001");
-        EquipmentInfo info = new EquipmentInfo(equip);
-        
-        frame.add(westPanel.getPanel(), BorderLayout.WEST);
-        frame.add(info, BorderLayout.CENTER);
-	}
 }

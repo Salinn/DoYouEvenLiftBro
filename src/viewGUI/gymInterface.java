@@ -11,8 +11,8 @@ import java.util.GregorianCalendar;
 
 import javax.swing.*;
 
-import EquipmentView.Equipment;
 import EquipmentView.EquipmentPanel;
+import Model.Equipment;
 import Model.members;
 import Model.LeagueModel;
 import Model.TeamModel;

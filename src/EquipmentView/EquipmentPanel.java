@@ -16,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import Model.Equipment;
+
 import viewGUI.GridButtonPanel;
 import viewGUI.GridMenuItem;
 import viewGUI.gymInterface;
@@ -58,53 +60,5 @@ public class EquipmentPanel extends JPanel{
 		return items;
 	}
 	
-	/**
-	 * Main method for testing purposes.
-	 */
-	public static void main(String[] args){
-		//Code borrowed from gymInterface
-		
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		
-		//Creates and sets up the main frame that will be used in the program
-		JFrame frame = new JFrame("DO YOU EVEN LIFT BRO?!?!");
-		frame.setVisible(true);
-        frame.getContentPane().setLayout(new BorderLayout(20, 20));
-		frame.setBounds(65, 0, screenSize.width-70, screenSize.height); //This was just so I could see it in ubunutu
-		frame.setResizable(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//Initializes the west Panel, aka the 5 main buttons
-        panelInterface westPanel = new panelInterface();
-        
-        //My Equipment Panel Initialization
-        Equipment equip = new Equipment("Treadmill", "1", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip1 = new Equipment("Weight Bench", "2", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip2 = new Equipment("Dumbbells", "3", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip3 = new Equipment("Elliptical", "4", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip4 = new Equipment("Stationary Bike", "5", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip5 = new Equipment("Weight Machine", "6", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip6 = new Equipment("Something else", "7", "OBJT-01", 
-        		"RM-9001");
-        
-        ArrayList<Equipment> equipment = new ArrayList<Equipment>();
-        equipment.add(equip);
-        equipment.add(equip1);
-        equipment.add(equip2);
-        equipment.add(equip3);
-        equipment.add(equip4);
-        equipment.add(equip5);
-        equipment.add(equip6);
-        
-        JPanel eq = new EquipmentPanel(equipment);
-        
-        frame.add(westPanel.getPanel(), BorderLayout.WEST);
-        frame.add(eq, BorderLayout.CENTER);
-	}
 }

@@ -1,4 +1,4 @@
-package EquipmentView;
+package Model;
 
 /*
  * Equipment.java
