@@ -119,7 +119,7 @@ public class editMembers extends JPanel {
         membership  = new JLabel("Membership Type");
         id          = new JLabel("ID");
         renewalDate = new JLabel("Renewal Date");
-        cardNumber  = new JLabel("Credit Care");
+        cardNumber  = new JLabel("Credit Card");
 
         firstName.setFont(setFont);
         lastName.setFont(setFont);
@@ -170,7 +170,7 @@ public class editMembers extends JPanel {
 
         membershipTextBox.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
-                gymInterface.refresh(new MembershipOptions());
+                //gymInterface.refresh(new MembershipOptions(), mem);
             }
             public void focusLost(FocusEvent e) {
             }
