@@ -66,15 +66,15 @@ public class GridMenuItem {
 	 * Create a league button
 	 * @return JButton
 	 */
-	public JButton createLeagueButton(LeagueModel target){
+	public JButton createLeagueButton(final LeagueModel target){
 		//Create Button
 		button = new JButton(name);
 		
 		//Create Listener
-		tempLeaguePage = new LeagueMain(target.getName(),target);
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				tempLeaguePage = new LeagueMain(target.getName(),target);
 				gymInterface.refresh(tempLeaguePage);
 			}
 		});
@@ -85,7 +85,7 @@ public class GridMenuItem {
 	 * Create a Team button
 	 * @return JButton
 	 */
-	public JButton createTeamButton(TeamModel target){
+	public JButton createTeamButton(final TeamModel target){
 		//Create Button
 		button = new JButton(name);
 		
@@ -94,7 +94,8 @@ public class GridMenuItem {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//gymInterface.refresh();;
+				JPanel tmp = new TeamView(target);
+				gymInterface.refresh(tmp);
 			}
 		});
 		return button;

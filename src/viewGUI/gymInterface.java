@@ -41,8 +41,6 @@ public class gymInterface {
     private Object[][] data;
     private static Originator originator;
     
-    //temp for leagues
-    static ArrayList<GridMenuItem> tempLeague;
 
 	public gymInterface(){
 		
@@ -162,7 +160,7 @@ public class gymInterface {
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
         classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
-        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", tempLeague));}});
+        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel()));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
 
         //Adds all of the buttons to the layout
@@ -220,51 +218,32 @@ public class gymInterface {
 		gymInterface gymGUI = new gymInterface();
     }
 
-    private void createLeagueModel(){
-        //Build a temp league
-        ArrayList<TeamModel> tempTeam = new ArrayList<TeamModel>();
-        TeamModel tempTeamModel = new TeamModel("Gruul");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Simic");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Izzet");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Orzhov");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Selesnya");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Rakdos");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Boros");
-        tempTeam.add(tempTeamModel);
-        tempTeamModel = new TeamModel("Golgari");
-        tempTeam.add(tempTeamModel);
-    	tempTeamModel = new TeamModel("Azourious");
-    	tempTeam.add(tempTeamModel);
-    	tempTeamModel = new TeamModel("Dimir");
-    	tempTeam.add(tempTeamModel);
+    private ArrayList<GridMenuItem> createLeagueModel(){
+        ArrayList<GridMenuItem> tempLeague;
 
     	//Build a temp league
         tempLeague = new ArrayList<GridMenuItem>();
-        LeagueModel tempLeagueModel = new LeagueModel("Football",tempTeam);
+        LeagueModel tempLeagueModel = new LeagueModel("Football");
         tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Soccer",tempTeam);
+        tempLeagueModel = new LeagueModel("Soccer");
         tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Ping Pong",tempTeam);
+        tempLeagueModel = new LeagueModel("Ping Pong");
         tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Weight Club",tempTeam);
+        tempLeagueModel = new LeagueModel("Weight Club");
         tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Basketball",tempTeam);
+        tempLeagueModel = new LeagueModel("Basketball");
         tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Dodgeball",tempTeam);
+        tempLeagueModel = new LeagueModel("Dodgeball");
         tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Tennis",tempTeam);
+        tempLeagueModel = new LeagueModel("Tennis");
     	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Field Hockey",tempTeam);
+    	tempLeagueModel = new LeagueModel("Field Hockey");
     	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Hockey",tempTeam);
+    	tempLeagueModel = new LeagueModel("Hockey");
     	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Underwater Basket Weaving",tempTeam);
+    	tempLeagueModel = new LeagueModel("Underwater Basket Weaving");
     	tempLeague.add(tempLeagueModel.getMenuItem());
+    	
+    	return tempLeague;
     }
 }

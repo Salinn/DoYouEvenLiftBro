@@ -44,7 +44,7 @@ public class LeagueMain extends JPanel {
 	
 	GridButtonPanel tempTeamsMenu;
 	
-	public LeagueMain(String mainName,LeagueModel league){
+	public LeagueMain(final String mainName,final LeagueModel league){
 		
 		this.league = league;
 		
@@ -64,11 +64,11 @@ public class LeagueMain extends JPanel {
 		teams.setIcon(teamsIcn);
 		
 		//Create teams button listener
-		tempTeamsMenu = new GridButtonPanel(mainName,league.getTeams());
 		teams.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				tempTeamsMenu = new GridButtonPanel(mainName,league.getTeams());
 				gymInterface.refresh(tempTeamsMenu);
 			}
 		});
@@ -83,7 +83,8 @@ public class LeagueMain extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//add method call
+				LeagueView tempLeagueStats = new LeagueView(league);
+				gymInterface.refresh(tempLeagueStats);
 			}
 		});
 		
@@ -131,27 +132,4 @@ public class LeagueMain extends JPanel {
 		this.add(mainPane,BorderLayout.CENTER);
 	}
 	
-	/**
-	 * main method used to test the screen
-	 * to be removed once finalized.
-	 * @param args
-	 */
-    public static void main(String [] args){
-    	try {
-    	    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-    	        if ("Nimbus".equals(info.getName())) {
-    	            UIManager.setLookAndFeel(info.getClassName());
-    	            break;
-    	        }
-    	    }
-    	} catch (Exception e) {
-    	    // If Nimbus is not available, you can set the GUI to another look and feel.
-    	}
-    	
-    	JFrame test = new JFrame();
-    	test.add(new LeagueMain("League",null));
-    	test.setMinimumSize(new Dimension(800,800));
-    	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    	test.setVisible(true);
-    }
 }
