@@ -44,6 +44,7 @@ public class gymInterface {
 
 	public gymInterface(){
 
+		/*
 		try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -54,6 +55,7 @@ public class gymInterface {
         } catch (Exception e) {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
+        */
 		
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -93,6 +95,7 @@ public class gymInterface {
         logo       = new JButton("Back");
 
 
+        /*
         //Needs Images to be inserted
         //Creates images that can be inserted as objects
         imgMembership = new ImageIcon();
@@ -107,13 +110,14 @@ public class gymInterface {
         equipment.setIcon(imgEquipment);
         league.setIcon(imgLeague);
         logo.setIcon(imgLogo);
-
+        */
+        
         membership.setEnabled(false);
         classes.setEnabled(false);
         equipment.setEnabled(false);
         league.setEnabled(false);
         logo.setEnabled(false);
-
+		
 
     	Equipment equip = new Equipment("Treadmill", "1", "OBJT-01", 
         		"RM-9001");

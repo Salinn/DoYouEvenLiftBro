@@ -50,13 +50,15 @@ public class LoginPage extends JPanel {
         north = initNorth();
         center = initCenter();
 
-        mainView.setLayout(new BorderLayout());
         mainView.add(north, BorderLayout.NORTH);
         mainView.add(center, BorderLayout.CENTER);
         mainView.setVisible(true);
+        
 
         this.setLayout(new BorderLayout());
         this.add(mainView, BorderLayout.CENTER);
+        this.setVisible(true);
+        
     }
     private void initCredentials(){
         loginHash.put("1111", "Welcome Robert!");
@@ -218,5 +220,13 @@ public class LoginPage extends JPanel {
         homeLabel.setEnabled(false);
         startingImage.add(homeLabel);
         return startingImage;
+    }
+    
+    public static void main(String[] args){
+    	JPanel l = new LoginPage();
+    	JFrame f = new JFrame();
+    	f.add(l);
+    	f.setVisible(true);
+    	
     }
 }
