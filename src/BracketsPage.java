@@ -1,6 +1,10 @@
 import java.awt.Dimension;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import Model.TeamModel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -31,21 +35,22 @@ public class BracketsPage extends javax.swing.JPanel {
     private void initComponents() {
 
     	BracketButton finalButton = null;
+    	firstEightBracket = new ArrayList<BracketButton>();
     	  
-        team1 = new BracketButton("Team 1");
-        team2 = new BracketButton("Team 2", team1);
+        team1 = new BracketButton();
+        team2 = new BracketButton(team1);
         team1.setBracketButton(team2);
-        
-        team3 = new BracketButton("Team 3");
-        team4 = new BracketButton("Team 4", team3);
+       
+        team3 = new BracketButton();
+        team4 = new BracketButton(team3);
         team3.setBracketButton(team4);
         
-        team5 = new BracketButton("Team 5");
-        team6 = new BracketButton("Team 6", team5);
+        team5 = new BracketButton();
+        team6 = new BracketButton(team5);
         team5.setBracketButton(team6);
         
-        team7 = new BracketButton("Team 7");
-        team8 = new BracketButton("Team 8",team7);
+        team7 = new BracketButton();
+        team8 = new BracketButton(team7);
         team7.setBracketButton(team8);
         
         winB1 = new BracketButton(finalButton);
@@ -80,6 +85,15 @@ public class BracketsPage extends javax.swing.JPanel {
         winner = new BracketButton(finalButton);
         semi1.setNextBracketButton(winner);
         semi2.setNextBracketButton(winner);
+        
+        firstEightBracket.add(team1);
+        firstEightBracket.add(team2);
+        firstEightBracket.add(team3);
+        firstEightBracket.add(team4);
+        firstEightBracket.add(team5);
+        firstEightBracket.add(team6);
+        firstEightBracket.add(team7);
+        firstEightBracket.add(team8);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,7 +170,24 @@ public class BracketsPage extends javax.swing.JPanel {
         );
     }// </editor-fold>                        
 
-    // Variables declaration - do not modify                     
+   
+    
+    
+    
+    
+    
+    public void setTeams(ArrayList<TeamModel> teams){
+    	for(int i = 0; i < teams.size(); i++){
+    		firstEightBracket.get(i).setTeam(teams.get(i));
+    	}
+    	
+    	this.validate();
+    	this.repaint();
+    }
+    
+    
+    // Variables declaration - do not modify 
+    private ArrayList<BracketButton> firstEightBracket;
     private BracketButton team1;
     private BracketButton team2;
     private BracketButton team3;
@@ -172,12 +203,14 @@ public class BracketsPage extends javax.swing.JPanel {
     private BracketButton semi1;
     private BracketButton semi2;
     private BracketButton winner;
+    
+   
     // End of variables declaration                   
 
 
 
     public static void main(String[] args){
-    	JFrame test= new JFrame();
+    	JFrame test= new JFrame("League Bracket");
     	BracketsPage temp = new BracketsPage();
     	
     	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -185,5 +218,15 @@ public class BracketsPage extends javax.swing.JPanel {
     	test.setMinimumSize(new Dimension(700,400));
     	test.add(temp);
     	test.setVisible(true);
+    	JOptionPane.showMessageDialog(null, "About to set teams");
+    	
+    	ArrayList<TeamModel> teams = new ArrayList<TeamModel>();
+    	
+    	for(int i = 0; i < 8; i ++){
+    		TeamModel tempTeam = new TeamModel("Team "+i);
+    		teams.add(tempTeam);
+    	}
+    	
+    	temp.setTeams(teams);
     }
 }

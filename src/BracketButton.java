@@ -4,10 +4,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import Model.TeamModel;
+
 
 public class BracketButton extends JButton {
 	
-	private String team;
+	private TeamModel team;
 	private BracketButton inBracketWith;
 	private BracketButton nextBracket;
 	private boolean recordedGame;
@@ -21,17 +23,23 @@ public class BracketButton extends JButton {
 	
 	//Team should be team object. Temporarily a string
 	//When clicking on this button, the button will record win losses and change color
-	public BracketButton(String Team, BracketButton inBracket){
-		super(Team);
+	public BracketButton(TeamModel Team, BracketButton inBracket){
+		super(Team.getName());
 		team = Team;
 		inBracketWith = inBracket;
 		recordedGame = false;
 		this.addActionListener(recordWin);
 	}
 	
-	public BracketButton(String Team){
-		super(Team);
+	public BracketButton(TeamModel Team){
+		super(Team.getName());
 		team = Team;
+		recordedGame = false;
+		this.addActionListener(recordWin);
+	}
+	
+	public BracketButton(){
+		super("TBD");
 		recordedGame = false;
 		this.addActionListener(recordWin);
 	}
@@ -53,7 +61,7 @@ public class BracketButton extends JButton {
 					recordedGame = true;
 					if(nextBracket != null){
 						nextBracket.setTeam(getTeam());
-						nextBracket.setText(team);
+						nextBracket.setText(team.getName());
 					}
 				}else{
 					System.out.println("Other Team was null");
@@ -65,7 +73,7 @@ public class BracketButton extends JButton {
 		
 	};
 	
-	public String getTeam(){
+	public TeamModel getTeam(){
 		return team;
 	}
 	
@@ -77,8 +85,12 @@ public class BracketButton extends JButton {
 		nextBracket = next;
 	}
 
-	public void setTeam(String Team){
+	public void setTeam(TeamModel Team){
 		team = Team;
+		this.setText(team.getName());
+		
+		this.validate();
+		this.repaint();
 	}
 	
 	public void setRecordedGame(){
