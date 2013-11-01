@@ -74,6 +74,7 @@ public class LoginPage extends JPanel {
 
         passwordField = new JPasswordField();
         passwordField.setFont(setFont);
+        passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 
         north.add(passwordField);
         north.setVisible(true);
