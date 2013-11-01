@@ -43,7 +43,7 @@ public class gymInterface {
     
 
 	public gymInterface(){
-		
+
 		try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
