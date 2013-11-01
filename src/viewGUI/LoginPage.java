@@ -37,7 +37,6 @@ public class LoginPage extends JPanel {
     private Font setFont;
 
     private ImageIcon homeScreen;
-    private JPanel imagePanel;
 
     private JPanel north;
     private JPanel center;
@@ -212,10 +211,11 @@ public class LoginPage extends JPanel {
         catch(Exception e){
 
         }
+        startingImage = new JPanel();
         homeLabel = new JButton();
         homeLabel.setIcon(homeScreen);
         homeLabel.setEnabled(false);
-        imagePanel.add(homeLabel);
+        startingImage.add(homeLabel);
         return startingImage;
     }
 }
