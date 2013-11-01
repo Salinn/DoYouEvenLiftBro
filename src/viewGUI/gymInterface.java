@@ -27,11 +27,11 @@ public class gymInterface {
     private static JPanel center;
     private static LoginPage login;
 
-    public JButton membership;
-    public JButton classes;
-    public JButton equipment;
-    public JButton league;
-    public JButton logo;
+    public static JButton membership;
+    public static JButton classes;
+    public static JButton equipment;
+    public static JButton league;
+    public static JButton logo;
 
     private ImageIcon imgMembership;
     private ImageIcon imgSchedule;
@@ -43,7 +43,7 @@ public class gymInterface {
     
 
 	public gymInterface(){
-		
+
 		try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -107,6 +107,12 @@ public class gymInterface {
         equipment.setIcon(imgEquipment);
         league.setIcon(imgLeague);
         logo.setIcon(imgLogo);
+
+        membership.setEnabled(false);
+        classes.setEnabled(false);
+        equipment.setEnabled(false);
+        league.setEnabled(false);
+        logo.setEnabled(false);
 
 
     	Equipment equip = new Equipment("Treadmill", "1", "OBJT-01", 
@@ -191,7 +197,13 @@ public class gymInterface {
 
     }
     
-    
+    public static void enable(){
+        membership.setEnabled(true);
+        classes.setEnabled(true);
+        equipment.setEnabled(true);
+        league.setEnabled(true);
+        logo.setEnabled(true);
+    }
     
     public static void undo(){
     	
