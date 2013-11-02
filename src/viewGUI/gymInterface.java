@@ -173,7 +173,7 @@ public class gymInterface {
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
         classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
-        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel()));}});
+        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
 
         //Adds all of the buttons to the layout
