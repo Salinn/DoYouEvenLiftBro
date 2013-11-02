@@ -68,7 +68,7 @@ public class LeagueMain extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				tempTeamsMenu = new GridButtonPanel(mainName,league.getTeams());
+				tempTeamsMenu = new GridButtonPanel(mainName,league.getTeams(),false);
 				gymInterface.refresh(tempTeamsMenu);
 			}
 		});
