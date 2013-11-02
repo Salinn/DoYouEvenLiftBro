@@ -96,10 +96,13 @@ public class editMembers extends JPanel {
 
         System.out.println(mem.getClass());
 
+        SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
+        String nextMonthAsString = sf.format(mem.getRenwalDate());
+
         firstNameTextBox.setText(mem.getFirstName());
         lastNameTextBox.setText(mem.getLastName());
         membershipTextBox.setText(mem.getMembershipType());
-        renewalDateTextBox.setText(mem.getRenwalDate().toString());
+        renewalDateTextBox.setText(nextMonthAsString);
         cardNumberTextBox.setText(mem.getCreditCard());
 
 
@@ -170,7 +173,7 @@ public class editMembers extends JPanel {
 
         membershipTextBox.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
-                gymInterface.refresh(new MembershipOptions(editLayout));
+                gymInterface.refresh(new MembershipOptions(new editMembers(model, memberList, mem, temp)));
             }
             public void focusLost(FocusEvent e) {
             }

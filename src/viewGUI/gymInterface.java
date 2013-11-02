@@ -15,6 +15,7 @@ import EquipmentView.EquipmentPanel;
 import Model.Equipment;
 import Model.members;
 import Model.LeagueModel;
+import Model.AccessToMembers;
 import Model.TeamModel;
 import java.util.Collections;
 
@@ -163,6 +164,8 @@ public class gymInterface {
         memberList.add(mem4);
         memberList.add(mem5);
         memberList.add(mem6);
+
+        AccessToMembers memberAccess = new AccessToMembers(memberList);
 
         final MemberTableModel model = new MemberTableModel(memberList);
 
