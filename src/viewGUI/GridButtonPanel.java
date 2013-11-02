@@ -49,7 +49,7 @@ public class GridButtonPanel extends JPanel {
 	//Get screen size
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	public GridButtonPanel(String mainName, ArrayList<GridMenuItem> menuItems){
+	public GridButtonPanel(String mainName, ArrayList<GridMenuItem> menuItems, boolean addButtonExist){
 		
 		this.menuItems = menuItems;
 		this.currentList = menuItems;
@@ -66,8 +66,10 @@ public class GridButtonPanel extends JPanel {
 		titlePanel.setBorder(blueline);
 	
 		//Create the add button
-		addButton = new JButton("Add New " + mainName);
-		addButton.setPreferredSize(new Dimension(40, screenSize.height/18));
+		if(addButtonExist){
+			addButton = new JButton("Add New " + mainName);
+			addButton.setPreferredSize(new Dimension(40, screenSize.height/18));
+		}
 		
 		//addButton ActionListener
 		addButton.addActionListener(new ActionListener() {
@@ -316,7 +318,7 @@ public class GridButtonPanel extends JPanel {
     	testList.add(new GridMenuItem(null,"Dimir"));
     	
     	JFrame test = new JFrame();
-    	test.add(new GridButtonPanel("Team",testList));
+    	test.add(new GridButtonPanel("Team",testList,false));
     	test.setMinimumSize(new Dimension(800,800));
     	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	test.setVisible(true);
