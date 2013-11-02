@@ -9,7 +9,7 @@ public class AccessToMembers {
         this.memberList = memberList;
     }
 
-    private members getMember(int ID){
+    public members getMember(int ID){
         for (members current : memberList){
             if (current.getId() == ID){
                 return current;
