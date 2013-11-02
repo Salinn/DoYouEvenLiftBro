@@ -38,7 +38,7 @@ public class EquipmentPanel extends JPanel{
 		this.setLayout(new BorderLayout());
 		this.equipment = equipment;
 		ArrayList<GridMenuItem> menu_items = makeGridItems();
-		this.buttons = new GridButtonPanel("Equipment", menu_items);
+		//this.buttons = new GridButtonPanel("Equipment", menu_items);
 		this.add(this.buttons, BorderLayout.CENTER);
 	}
 	

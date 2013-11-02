@@ -69,16 +69,14 @@ public class GridButtonPanel extends JPanel {
 		if(addButtonExist){
 			addButton = new JButton("Add New " + mainName);
 			addButton.setPreferredSize(new Dimension(40, screenSize.height/18));
-		}
-		
+
 		//addButton ActionListener
 		addButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				addNew();
 			}
-		});
+		});}
 		
 		//Put Center Pane Together
 		centerPane = new JPanel();
@@ -86,7 +84,9 @@ public class GridButtonPanel extends JPanel {
 		centerPane.add(buildGridButtons(),BorderLayout.CENTER);
 		centerPane.add(buildLeftButton(),BorderLayout.WEST);
 		centerPane.add(buildRightButton(),BorderLayout.EAST);
-		centerPane.add(addButton,BorderLayout.NORTH);
+        if (addButtonExist){
+            centerPane.add(addButton,BorderLayout.NORTH);
+        }
 		
 		//Create Search bar elements
 		searchText = new JTextField();
