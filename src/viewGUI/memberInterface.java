@@ -99,6 +99,7 @@ public class memberInterface extends JPanel{
         table.setFont(setFont);
         table.setRowHeight(45);
         table.isCellEditable(0,0);
+        table.getTableHeader().setReorderingAllowed(false);
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 // do some actions here, for example
