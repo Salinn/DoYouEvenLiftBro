@@ -17,12 +17,12 @@ public class MembershipOptions extends JPanel {
     public MembershipOptions(JPanel buttonPanel, MemberTableModel model, ArrayList<members> memberList, members mem, int temp){
         this.setLayout(new BorderLayout());
         ArrayList<GridMenuItem> testList = new ArrayList<GridMenuItem>();
-        testList.add(new GridMenuItem(buttonPanel ,"Basic"));
-        testList.add(new GridMenuItem(buttonPanel,"Intramural"));
-        testList.add(new GridMenuItem(buttonPanel,"Class"));
-        testList.add(new GridMenuItem(buttonPanel,"Premium"));
-        testList.add(new GridMenuItem(buttonPanel,"Trial"));
-        buttons = new GridButtonPanel("Membership Options",testList, false, model, memberList, mem, temp);
+        testList.add(new GridMenuItem(buttonPanel ,"Basic",model, memberList, mem, temp));
+        testList.add(new GridMenuItem(buttonPanel,"Intramural",model, memberList, mem, temp));
+        testList.add(new GridMenuItem(buttonPanel,"Class",model, memberList, mem, temp));
+        testList.add(new GridMenuItem(buttonPanel,"Premium",model, memberList, mem, temp));
+        testList.add(new GridMenuItem(buttonPanel,"Trial",model, memberList, mem, temp));
+        buttons = new GridButtonPanel("Membership Options",testList, false);
         this.add(buttons, BorderLayout.CENTER);
     }
 }
