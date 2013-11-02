@@ -1,5 +1,6 @@
 package viewGUI;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -108,7 +109,11 @@ public class GridMenuItem {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JPanel panel = new JPanel(temp.getLayout());
+                for(int i = 0; i < temp.getComponentCount(); i++){
+                    Component comp = temp.getComponent(i);
 
+                }
                 gymInterface.refresh(temp);
             }
         });
