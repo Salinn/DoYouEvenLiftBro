@@ -87,16 +87,16 @@ public class LoginPage extends JPanel {
         center = new JPanel();
         center.setLayout(new GridLayout(4,3));
 
-        button0 = new JButton("0");
-        button1 = new JButton("1");
-        button2 = new JButton("2");
-        button3 = new JButton("3");
-        button4 = new JButton("4");
-        button5 = new JButton("5");
-        button6 = new JButton("6");
-        button7 = new JButton("7");
-        button8 = new JButton("8");
-        button9 = new JButton("9");
+        button0 = new NumPadButton(passwordField,"0");
+        button1 = new NumPadButton(passwordField,"1");
+        button2 = new NumPadButton(passwordField,"2");
+        button3 = new NumPadButton(passwordField,"3");
+        button4 = new NumPadButton(passwordField,"4");
+        button5 = new NumPadButton(passwordField,"5");
+        button6 = new NumPadButton(passwordField,"6");
+        button7 = new NumPadButton(passwordField,"7");
+        button8 = new NumPadButton(passwordField,"8");
+        button9 = new NumPadButton(passwordField,"9");
 
         button0.setFont(setFont);
         button1.setFont(setFont);
@@ -108,57 +108,6 @@ public class LoginPage extends JPanel {
         button7.setFont(setFont);
         button8.setFont(setFont);
         button9.setFont(setFont);
-
-        button0.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 0);
-            }
-        });
-        button1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 1);
-            }
-        });
-        button2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 2);
-            }
-        });
-        button3.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 3);
-            }
-        });
-        button4.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 4);
-            }
-        });
-        button5.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 5);
-            }
-        });
-        button6.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 6);
-            }
-        });
-        button7.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 7);
-            }
-        });
-        button8.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 8);
-            }
-        });
-        button9.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                passwordField.setText(passwordField.getText() + 9);
-            }
-        });
 
         buttonEnter = new JButton("Enter");
         buttonClear = new JButton("Clear");
