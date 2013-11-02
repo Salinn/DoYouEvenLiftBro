@@ -184,7 +184,7 @@ public class BracketsPage extends javax.swing.JPanel {
     
     
     public void setTeams(ArrayList<TeamModel> teams){
-    	for(int i = 0; i < teams.size(); i++){
+    	for(int i = 0; i < 8; i++){
     		firstEightBracket.get(i).setTeam(teams.get(i));
     	}
     	
