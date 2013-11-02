@@ -22,7 +22,11 @@ import Model.TeamModel;
  */
 public class LeagueView extends JPanel{
 	
+	private LeagueModel leagueModel;
+	
 	public LeagueView(LeagueModel thisLeague){
+		
+		leagueModel = thisLeague;
 		
 		//generate title
 		JPanel titlePanel = new JPanel(new GridLayout(1, 1), false);
@@ -143,6 +147,12 @@ public class LeagueView extends JPanel{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					//add method call
+					JFrame tempFrame =new JFrame("League Bracket");
+					tempFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+					tempFrame.add(leagueModel.getBracketsPage());
+					tempFrame.setMinimumSize(new Dimension(900,950));
+					tempFrame.setLocationRelativeTo(null);
+					tempFrame.setVisible(true);
 				}
 			});
 		} else {
@@ -157,6 +167,7 @@ public class LeagueView extends JPanel{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					//add method call
+							
 				}
 			});
 		}
