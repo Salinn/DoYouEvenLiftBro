@@ -1,13 +1,14 @@
 package viewGUI;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 import Model.LeagueModel;
 import Model.TeamModel;
+import Model.members;
 
 /**
  * This class is a generic data structure that can be used to make
@@ -47,11 +48,15 @@ public class GridMenuItem {
 		} else if(target instanceof TeamModel){
 			createTeamButton((TeamModel) target);
 		} else if(target instanceof JPanel) {
-            createdMembershipOptionButton();
-        } else {
 			createButton(target);
 		}
 	}
+
+    public GridMenuItem(Object target, String name, MemberTableModel model, ArrayList<members> memberList, members mem, int temp){
+        this.name = name;
+        this.target = target;
+        createdMembershipOptionButton(model, memberList, mem, temp);
+    }
 
 	/**
 	 * This text is used by the GridMenuItem to find items the user
@@ -102,19 +107,14 @@ public class GridMenuItem {
 		return button;
 	}
 
-    public JButton createdMembershipOptionButton(){
+    public JButton createdMembershipOptionButton(final MemberTableModel model, final ArrayList<members> memberList, final members mem,final int temp){
         button = new JButton(name);
-        final JPanel temp = (JPanel) target;
+        final JPanel newTarget = (JPanel) target;
         System.out.println("CREDIT CARE!!!");
         button.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
-                JPanel panel = new JPanel(temp.getLayout());
-                for(int i = 0; i < temp.getComponentCount(); i++){
-                    Component comp = temp.getComponent(i);
-
-                }
-                gymInterface.refresh(temp);
+                mem.setMembershipType(button.getText());
+                gymInterface.refresh((new editMembers(model,memberList, mem, temp)));
             }
         });
         return button;

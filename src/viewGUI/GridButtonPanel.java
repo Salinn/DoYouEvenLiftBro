@@ -1,5 +1,7 @@
 package viewGUI;
 
+import Model.members;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -69,16 +71,14 @@ public class GridButtonPanel extends JPanel {
 		if(addButtonExist){
 			addButton = new JButton("Add New " + mainName);
 			addButton.setPreferredSize(new Dimension(40, screenSize.height/18));
-		}
-		
+
 		//addButton ActionListener
 		addButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				addNew();
 			}
-		});
+		});}
 		
 		//Put Center Pane Together
 		centerPane = new JPanel();
@@ -86,7 +86,9 @@ public class GridButtonPanel extends JPanel {
 		centerPane.add(buildGridButtons(),BorderLayout.CENTER);
 		centerPane.add(buildLeftButton(),BorderLayout.WEST);
 		centerPane.add(buildRightButton(),BorderLayout.EAST);
-		centerPane.add(addButton,BorderLayout.NORTH);
+        if (addButtonExist){
+            centerPane.add(addButton,BorderLayout.NORTH);
+        }
 		
 		//Create Search bar elements
 		searchText = new JTextField();
@@ -276,51 +278,4 @@ public class GridButtonPanel extends JPanel {
 		
 		this.revalidate();
 	}
-	
-	/**
-	 * main method used to test the screen
-	 * to be removed once finalized.
-	 * @param args
-	 */
-    public static void main(String [] args){
-    	try {
-    	    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-    	        if ("Nimbus".equals(info.getName())) {
-    	            UIManager.setLookAndFeel(info.getClassName());
-    	            break;
-    	        }
-    	    }
-    	} catch (Exception e) {
-    	    // If Nimbus is not available, you can set the GUI to another look and feel.
-    	}
-    	
-    	ArrayList<GridMenuItem> testList = new ArrayList<GridMenuItem>();
-    	testList.add(new GridMenuItem(null,"Team Applesauce"));
-    	testList.add(new GridMenuItem(null,"Team Knightmare"));
-    	testList.add(new GridMenuItem(null,"Team Fight Club"));
-    	testList.add(new GridMenuItem(null,"Team Muffins"));
-    	testList.add(new GridMenuItem(null,"Bruce Cambell"));
-    	testList.add(new GridMenuItem(null,"Team Bangarang"));
-    	testList.add(new GridMenuItem(null,"Fort Knox"));
-    	testList.add(new GridMenuItem(null,"Rock Raiders"));
-    	testList.add(new GridMenuItem(null,"The A Team"));
-    	testList.add(new GridMenuItem(null,"Team Ownage"));
-    	testList.add(new GridMenuItem(null,"USA"));
-    	testList.add(new GridMenuItem(null,"Gruul"));
-    	testList.add(new GridMenuItem(null,"Simic"));
-    	testList.add(new GridMenuItem(null,"Izzet"));
-    	testList.add(new GridMenuItem(null,"Orzhov"));
-    	testList.add(new GridMenuItem(null,"Selesnya"));
-    	testList.add(new GridMenuItem(null,"Rakdos"));
-    	testList.add(new GridMenuItem(null,"Boros"));
-    	testList.add(new GridMenuItem(null,"Golgari"));
-    	testList.add(new GridMenuItem(null,"Azourious"));
-    	testList.add(new GridMenuItem(null,"Dimir"));
-    	
-    	JFrame test = new JFrame();
-    	test.add(new GridButtonPanel("Team",testList,false));
-    	test.setMinimumSize(new Dimension(800,800));
-    	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    	test.setVisible(true);
-    }
 }

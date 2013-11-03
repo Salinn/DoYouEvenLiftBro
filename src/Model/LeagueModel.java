@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 import javax.swing.UIManager;
 
+import viewGUI.BracketsPage;
 import viewGUI.GridMenuItem;
+
 
 /**
  * @author Eric Majchrzak
@@ -20,9 +22,12 @@ public class LeagueModel {
 	private ArrayList<LeagueGame> games = populateGames();
 	private String leagueName;
 	private boolean isBracket;
+	private BracketsPage leagueBracket;
 	
 	public LeagueModel(String name){
 		this.leagueName = name;
+		leagueBracket = new BracketsPage();
+		leagueBracket.setTeams(teams);
 		
 	}
 
@@ -55,7 +60,8 @@ public class LeagueModel {
 	}
 	
 	public boolean bracket(){
-		return isBracket;
+		//return isBracket;
+		return true;
 	}
 	
 	public ArrayList<TeamModel> getTeamModels(){
@@ -107,6 +113,10 @@ public class LeagueModel {
 
 	public ArrayList<LeagueGame> getGames() {
 		return games;
+	}
+	
+	public BracketsPage getBracketsPage(){
+		return leagueBracket;
 	}
 
 }

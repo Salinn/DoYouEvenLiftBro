@@ -1,3 +1,5 @@
+package viewGUI;
+
 import java.awt.Dimension;
 import java.util.ArrayList;
 
@@ -18,7 +20,10 @@ import Model.TeamModel;
  */
 public class BracketsPage extends javax.swing.JPanel {
 
-    /**
+	private static final int BUTTON_SIZE = 100;
+	private static final int BUTTON_GAP = 50;
+	
+	/**
      * Creates new form BracketsPage
      */
     public BracketsPage() {
@@ -102,72 +107,74 @@ public class BracketsPage extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(team1)
+                    .addComponent(team1,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(team2)
-                        .addGap(18, 18, 18)
-                        .addComponent(winB1))
+                        .addComponent(team2,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                        .addGap(BUTTON_GAP, BUTTON_GAP, BUTTON_GAP)
+                        .addComponent(winB1,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(team6)
-                        .addGap(18, 18, 18)
-                        .addComponent(winB3)
-                        .addGap(18, 18, 18)
-                        .addComponent(semi2))
+                        .addComponent(team6,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                        .addGap(BUTTON_GAP, BUTTON_GAP, BUTTON_GAP)
+                        .addComponent(winB3,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                        .addGap(BUTTON_GAP, BUTTON_GAP, BUTTON_GAP)
+                        .addComponent(semi2,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(team7)
-                        .addGap(18, 18, 18)
-                        .addComponent(winB4))
-                    .addComponent(team8)
+                        .addComponent(team7,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                        .addGap(BUTTON_GAP, BUTTON_GAP, BUTTON_GAP)
+                        .addComponent(winB4,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
+                    .addComponent(team8,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(team3)
-                                .addGap(18, 18, 18)
-                                .addComponent(winB2)
-                                .addGap(18, 18, 18)
-                                .addComponent(semi1))
-                            .addComponent(team4)
-                            .addComponent(team5))
-                        .addGap(18, 18, 18)
-                        .addComponent(winner)))
+                                .addComponent(team3,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                                .addGap(BUTTON_GAP, BUTTON_GAP, BUTTON_GAP)
+                                .addComponent(winB2,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                                .addGap(BUTTON_GAP, BUTTON_GAP, BUTTON_GAP)
+                                .addComponent(semi1,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
+                            .addComponent(team4,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                            .addComponent(team5,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
+                        .addGap(BUTTON_GAP, BUTTON_GAP, BUTTON_GAP)
+                        .addComponent(winner,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(team1)
+                .addComponent(team1,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(team2)
-                    .addComponent(winB1))
+                    .addComponent(team2,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                    .addComponent(winB1,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(team3)
-                            .addComponent(winB2)
-                            .addComponent(semi1))
+                            .addComponent(team3,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                            .addComponent(winB2,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                            .addComponent(semi1,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(team4)
+                        .addComponent(team4,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(team5)
+                        .addComponent(team5,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(team6)
-                            .addComponent(winB3)
-                            .addComponent(semi2))
+                            .addComponent(team6,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                            .addComponent(winB3,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                            .addComponent(semi2,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(team7)
-                            .addComponent(winB4))
+                            .addComponent(team7,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)
+                            .addComponent(winB4,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(team8))
+                        .addComponent(team8,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(winner)))
+                        .addGap(180, 180, 180)
+                        .addComponent(winner,BUTTON_SIZE,BUTTON_SIZE,BUTTON_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
+        
+        
     }// </editor-fold>                        
 
    
@@ -177,7 +184,7 @@ public class BracketsPage extends javax.swing.JPanel {
     
     
     public void setTeams(ArrayList<TeamModel> teams){
-    	for(int i = 0; i < teams.size(); i++){
+    	for(int i = 0; i < 8; i++){
     		firstEightBracket.get(i).setTeam(teams.get(i));
     	}
     	
@@ -214,8 +221,8 @@ public class BracketsPage extends javax.swing.JPanel {
     	BracketsPage temp = new BracketsPage();
     	
     	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    	test.setLocationRelativeTo(null);
-    	test.setMinimumSize(new Dimension(700,400));
+    	//test.setLocationRelativeTo(null);
+    	test.setMinimumSize(new Dimension(900,950));
     	test.add(temp);
     	test.setVisible(true);
     	JOptionPane.showMessageDialog(null, "About to set teams");

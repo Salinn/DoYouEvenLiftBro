@@ -66,7 +66,7 @@ public class classInterface extends JPanel {
                             gymInterface.refresh(panel);}
             });
         }
-        buttons = new GridButtonPanel("Classes",testList);
+        //buttons = new GridButtonPanel("Classes",testList);
         this.add(buttons, BorderLayout.CENTER);
 
     }
