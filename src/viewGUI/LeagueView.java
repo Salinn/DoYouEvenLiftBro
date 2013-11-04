@@ -81,7 +81,7 @@ public class LeagueView extends JPanel{
 			players.add(team1Label);
 			
 			if(!((i==numRows-1) && (!isEven))){
-				team1 = thisLeague.getTeamModels().get(roundCount);
+				team1 = thisLeague.getTeamModels().get(roundCount + 1);
 				team1Label = new JLabel(team1.getName() + " wins: " + team1.getWins());
 				team1Label.setFont(new Font("Serif", 0, 18));
 				players.add(team1Label);
