@@ -14,9 +14,10 @@ import javax.swing.*;
 public class classInterface extends JPanel {
     private GridButtonPanel buttons;
     private GymMediatorModel mediator;
+    private ArrayList<GridMenuItem> classList;
 
 
-    public classInterface(ArrayList<GridMenuItem> theList){
+    public classInterface(GymMediatorModel mediator){
         this.mediator = mediator;
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -31,15 +32,13 @@ public class classInterface extends JPanel {
         this.setLayout(new BorderLayout());
         ArrayList<GridMenuItem> testList = new ArrayList<GridMenuItem>();
 
-        /**
         ArrayList<ClassModel> classes = mediator.getClasses();
         for(ClassModel aClass: classes){
-            testList.add(new GridMenuItem(aClass,mediator));
+         classList.add(new GridMenuItem(aClass,mediator));
         }
-         **/
 
 
-        buttons = new GridButtonPanel("Classes",theList,false);
+        buttons = new GridButtonPanel("Classes",classList,false);
 
         this.add(buttons, BorderLayout.CENTER);
 

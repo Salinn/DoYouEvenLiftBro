@@ -46,7 +46,7 @@ public class gymInterface {
     
 
 	public gymInterface(){
-
+        theClassesHolder = new ClassesModel();
 		/*
 		try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -59,7 +59,6 @@ public class gymInterface {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
         */
-        theClassesHolder = new ClassesModel();
 
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -72,6 +71,7 @@ public class gymInterface {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         createLeagueModel();
+        setupClasses();
 		//Initializes the west Panel, aka the 5 main buttons
         west = setWestPanel();
 
@@ -175,7 +175,7 @@ public class gymInterface {
 
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
-        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(testList));}});
+        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator));}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
         league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
@@ -271,29 +271,28 @@ public class gymInterface {
     }
 
     public void setupClasses(){
-        testList = new ArrayList<GridMenuItem>();
         ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F","20/30","1233");
+        theClassesHolder.addClass(running00.getClassName(),running00);
         ClassModel running01 = new ClassModel("Running01","2pm-3pm","M-W-F","10/30","1233");
+        theClassesHolder.addClass(running01.getClassName(),running01);
         ClassModel running02 = new ClassModel("Running02","4pm-5pm","T-Th","24/30","1233");
+        theClassesHolder.addClass(running02.getClassName(),running02);
         ClassModel swimming00 = new ClassModel("Swimming00","1pm-3pm","M-W-F","24/35","1235");
+        theClassesHolder.addClass(swimming00.getClassName(),swimming00);
         ClassModel swimming01 = new ClassModel("Swimming01","4pm-6pm","T-Th","12/15","1235");
+        theClassesHolder.addClass(swimming01.getClassName(),swimming01);
         ClassModel spinning00 = new ClassModel("Spinning00","5pm-7pm","M-W-F","20/67","1236");
+        theClassesHolder.addClass(spinning00.getClassName(),spinning00);
         ClassModel spinning01 = new ClassModel("Spinning01","1pm-2pm","T-Th","20/67","1773");
+        theClassesHolder.addClass(spinning01.getClassName(),spinning01);
         ClassModel jogging00 = new ClassModel("Jogging00","1pm-2pm","M-W-F","20/67","1211");
+        theClassesHolder.addClass(jogging00.getClassName(),jogging00);
         ClassModel jogging01 = new ClassModel("Jogging01","6pm-7pm","T-Th","20/100","1266");
+        theClassesHolder.addClass(jogging01.getClassName(),jogging01);
         ClassModel karate00 = new ClassModel("Karate00","1pm-2pm","M-W-F","20/30","1209");
+        theClassesHolder.addClass(karate00.getClassName(),karate00);
         ClassModel karate01 = new ClassModel("Karate01","8am-9am","T-Th","20/30","1234");
+        theClassesHolder.addClass(karate01.getClassName(),karate01);
 
-        testList.add(new GridMenuItem(running00,theMediator));
-        testList.add(new GridMenuItem(running01,theMediator));
-        testList.add(new GridMenuItem(running02,theMediator));
-        testList.add(new GridMenuItem(swimming00,theMediator));
-        testList.add(new GridMenuItem(swimming01,theMediator));
-        testList.add(new GridMenuItem(spinning00,theMediator));
-        testList.add(new GridMenuItem(spinning01,theMediator));
-        testList.add(new GridMenuItem(jogging00,theMediator));
-        testList.add(new GridMenuItem(jogging01,theMediator));
-        testList.add(new GridMenuItem(karate00,theMediator));
-        testList.add(new GridMenuItem(karate01,theMediator));
     }
 }
