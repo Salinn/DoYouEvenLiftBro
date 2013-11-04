@@ -160,7 +160,9 @@ public class GridButtonPanel extends JPanel {
 		//Add buttons to the grid
 		for(int i = (9 * currentPage); i < (9 * currentPage + 9); i++){
 			if(i < currentList.size()){
-				newGridPanel.add(currentList.get(i).getButton());
+				JButton temp = currentList.get(i).getButton();
+				temp.setFont(new Font("Serif", 1, 30));
+				newGridPanel.add(temp);
 				
 			//Keep the grid buttons sized correctly
 			} else {

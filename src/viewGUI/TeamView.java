@@ -43,15 +43,15 @@ public class TeamView extends JPanel{
 		JPanel statSpecificPanel = new JPanel(new GridLayout(1, 3), false);
 		
 		JLabel ttlPoints = new JLabel("Total Points: " + thisTeam.getPoints(), JLabel.CENTER);
-		//ttlPoints.setFont(new Font("Serif", Font.BOLD, 25));
+		ttlPoints.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(ttlPoints);
 		
 		JLabel nmbGames = new JLabel("Games Played: " + thisTeam.getNumberGames(), JLabel.CENTER);
-		//nmbGames.setFont(new Font("Serif", Font.BOLD, 25));
+		nmbGames.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(nmbGames);
 		
 		JLabel avgPoints = new JLabel("Average Points Per Game: " + thisTeam.getaveragePoints(), JLabel.CENTER);
-		//avgPoints.setFont(new Font("Serif", Font.BOLD, 25));
+		avgPoints.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(avgPoints);
 		
 		statPanel.add(makeSouthBar(),BorderLayout.NORTH);
@@ -62,6 +62,7 @@ public class TeamView extends JPanel{
 		playerPanel.setLayout(new BorderLayout());
 		
 		JLabel playerMainLabel = new JLabel("Players", JLabel.CENTER);
+		playerMainLabel.setFont(new Font("Serif", 1, 25));
 		playerMainLabel.setBorder(blueline);
 		playerPanel.add(playerMainLabel,BorderLayout.NORTH);
 		
@@ -78,10 +79,12 @@ public class TeamView extends JPanel{
 			int roundCount = 2*i;
 			
 			JLabel player1Label = new JLabel(thisTeam.getPlayers().get(roundCount), JLabel.CENTER);
+			player1Label.setFont(new Font("Serif", 0, 18));
 			players.add(player1Label);
 			
 			if(!((i==numRows-1) && (!isEven))){
 				JLabel player2Label = new JLabel(thisTeam.getPlayers().get(roundCount+1), JLabel.CENTER);
+				player2Label.setFont(new Font("Serif", 0, 18));
 				players.add(player2Label);
 			}
 		}
@@ -93,13 +96,15 @@ public class TeamView extends JPanel{
 		games.setLayout(new BorderLayout());
 		
 		JLabel gamesMainLabel = new JLabel("Games", JLabel.CENTER);
+		gamesMainLabel.setFont(new Font("Serif", 1, 25));
 		gamesMainLabel.setBorder(blueline);
 		games.add(gamesMainLabel,BorderLayout.NORTH);
 		
-		JPanel gameStats = new JPanel(new GridLayout(thisTeam.getNumberGames(), 2), false);
+		JPanel gameStats = new JPanel(new GridLayout(thisTeam.getNumberGames()/3, 2), false);
 		
 		for(int i=0;i<thisTeam.getNumberGames();i++){
 			JLabel tempGame = new JLabel("Game " + i + ": " + thisTeam.getGames().get(i).getGame(), JLabel.CENTER);
+			tempGame.setFont(new Font("Serif", 0, 18));
 			gameStats.add(tempGame);
 		}
 		
@@ -138,6 +143,7 @@ public class TeamView extends JPanel{
 	public JPanel makeSouthBar(){
 		//Create the addGame button
 		JButton addGame = new JButton("Add Game");
+		addGame.setFont(new Font("Serif", 1, 25));
 		addGame.setPreferredSize(new Dimension(40, 80));
 								
 		//Create addGame button listener
@@ -151,6 +157,7 @@ public class TeamView extends JPanel{
 		
 		//Create the edit button
 		JButton edit = new JButton("Edit Team");
+		edit.setFont(new Font("Serif", 1, 25));
 		edit.setPreferredSize(new Dimension(40, 80));
 								
 		//Create edit button listener

@@ -59,9 +59,10 @@ public class LeagueMain extends JPanel {
 		titlePanel.setBorder(blueline);
 		
 		//Create the teams button
-		JButton teams = new JButton();
-		StretchIcon teamsIcn = new StretchIcon("Images/teamsIcn.jpg");
-		teams.setIcon(teamsIcn);
+		JButton teams = new JButton("Teams");
+		teams.setFont(new Font("Serif", 1, 30));
+		//StretchIcon teamsIcn = new StretchIcon("Images/teamsIcn.jpg");
+		//teams.setIcon(teamsIcn);
 		
 		//Create teams button listener
 		teams.addActionListener(new ActionListener() {
@@ -74,9 +75,10 @@ public class LeagueMain extends JPanel {
 		});
 		
 		//Create the stats button
-		JButton stats = new JButton();
-		StretchIcon statsIcn = new StretchIcon("Images/statsIcn.jpg");
-		stats.setIcon(statsIcn);
+		JButton stats = new JButton("Statistics");
+		stats.setFont(new Font("Serif", 1, 30));
+		//StretchIcon statsIcn = new StretchIcon("Images/statsIcn.jpg");
+		//stats.setIcon(statsIcn);
 				
 		//Create stats button listener
 		stats.addActionListener(new ActionListener() {
@@ -89,9 +91,10 @@ public class LeagueMain extends JPanel {
 		});
 		
 		//Create the addGame button
-		JButton addGame = new JButton();
-		StretchIcon addGameIcn = new StretchIcon("Images/addGameIcn.jpg");
-		addGame.setIcon(addGameIcn);
+		JButton addGame = new JButton("Add Game");
+		addGame.setFont(new Font("Serif", 1, 30));
+		//StretchIcon addGameIcn = new StretchIcon("Images/addGameIcn.jpg");
+		//addGame.setIcon(addGameIcn);
 						
 		//Create addGame button listener
 		addGame.addActionListener(new ActionListener() {
@@ -103,9 +106,10 @@ public class LeagueMain extends JPanel {
 		});
 		
 		//Create the edit button
-		JButton edit = new JButton();
-		StretchIcon editIcn = new StretchIcon("Images/editIcn.png");
-		edit.setIcon(editIcn);
+		JButton edit = new JButton("Edit");
+		edit.setFont(new Font("Serif", 1, 30));
+		//StretchIcon editIcn = new StretchIcon("Images/editIcn.png");
+		//edit.setIcon(editIcn);
 								
 		//Create edit button listener
 		edit.addActionListener(new ActionListener() {
