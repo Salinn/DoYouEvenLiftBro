@@ -8,7 +8,7 @@ public class GymMediatorModel {
     private static AccessToMembers members;
 
     public GymMediatorModel(AccessToMembers members, ClassesModel classes){
-        members = members;
+        this.members = members;
         this.classes = classes;
     }
 

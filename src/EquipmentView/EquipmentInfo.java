@@ -20,6 +20,12 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -220,12 +226,15 @@ public class EquipmentInfo extends JPanel{
 					String id = equip_id.getText();
 					String location = equip_location.getText();
 					String member_id = member.getText();
-					if (!validateChanges(id, member_id)){
+					String entered_cost = cost.getText();
+					String date = repair_date.getText();
+					if (!validateChanges(id, member_id, entered_cost, date)){
 						return;
 					}
 					
+					
 					// If successful show changes
-					updateEquipment(id, location, member_id);
+					updateEquipment(id, location, member_id, date, entered_cost);
 					isEditing = false;
 					equip_id.setEnabled(false);
 					equip_location.setEnabled(false);
@@ -290,7 +299,6 @@ public class EquipmentInfo extends JPanel{
 
 		if(needs_repairs){
 			equip_repair.setText("Yes");
-			//TODO Change below
 			repair_date.setText(this.equipment.getRepairDate().toString());
 			cost.setText(this.equipment.getRepairCost().toString());
 		} else {
@@ -301,7 +309,8 @@ public class EquipmentInfo extends JPanel{
 	
 	
 	
-	private boolean validateChanges(String id, String member_id){
+	private boolean validateChanges(String id, String member_id, String cost,
+			String repair_date){
 		try{
 			int gym_id = Integer.parseInt(id);
 			if(gym_id < 0){
@@ -327,10 +336,51 @@ public class EquipmentInfo extends JPanel{
 			}
 		}
 		
+		if(repair_date.equals("") ^ cost.equals("")){
+			if(repair_date.equals("")){
+				JOptionPane.showMessageDialog(null, "Please enter a repair date in the format of mm-dd-yyyy.");
+			}
+			if(cost.equals("")){
+				JOptionPane.showMessageDialog(null, "Please enter a repair cost.");
+			}
+			return false;
+		}
+		
+		try{
+			Calendar calendar = Calendar.getInstance();
+			SimpleDateFormat sf = new SimpleDateFormat("mm-dd-yyyy");
+			Date date = sf.parse(repair_date);
+			Date today = calendar.getTime();  //TODO Not today's date?
+			
+			/*
+			System.out.println(sf.format(date));
+			if(date.compareTo(today)<0){
+				JOptionPane.showMessageDialog(null, "Repair date is not valid.\nPlease enter a date following the format of mm-dd-yyyy.");
+				return false;
+			}
+			*/
+		} catch (ParseException e) {
+			if(!repair_date.equals("")){
+				JOptionPane.showMessageDialog(null, "Repair date is not valid.\nPlease enter a date following the format of mm-dd-yyyy.");
+				return false;
+			}
+		}
+		
+		try{
+			DecimalFormat df = new DecimalFormat("#.##");
+			double repair_cost = Double.parseDouble(cost);
+		} catch (NumberFormatException e) {
+			if(!cost.equals("")){
+				JOptionPane.showMessageDialog(null, "Repair cost is not valid.\nPlease enter a valid price.");
+				return false;
+			}
+		}
+		
 		return true;
 	}
 	
-	private void updateEquipment(String id, String location, String member_id){
+	private void updateEquipment(String id, String location, String member_id,
+			String date, String cost){
 		this.equipment.setID(id);
 		this.equipment.setLocation(location);
 		
@@ -346,6 +396,14 @@ public class EquipmentInfo extends JPanel{
 			this.equipment.setCleaning(false);
 		}
 		
+		if(!date.equals("") && !cost.equals("")){
+			
+			this.equipment.setRepairs(true, date, cost);
+		} else {
+			this.equipment.setRepairs(false, null, null);
+		}
+		
+
 	}
 	
 
