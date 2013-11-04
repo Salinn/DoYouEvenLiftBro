@@ -29,6 +29,14 @@ public class ClassModel {
        return students.get(id)  ;
     }
 
+    public ArrayList<members> getAllStudents(){
+        ArrayList<members> temp = new ArrayList<members>();
+        for (members m: students.values()){
+            temp.add(m);
+        }
+        return temp;
+    }
+
 
     public String getClassName(){return this.className;}
     public String getClassTime(){return this.classTime;}
