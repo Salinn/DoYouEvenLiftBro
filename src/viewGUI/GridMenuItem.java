@@ -55,6 +55,7 @@ public class GridMenuItem {
     }
 
     public JButton createClassInterfaceButton(final ClassModel target, final GymMediatorModel mediator){
+        name = target.getClassName();
         button = new JButton(target.getClassName());
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){

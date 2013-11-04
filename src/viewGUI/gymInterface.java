@@ -42,6 +42,7 @@ public class gymInterface {
     private ImageIcon imgLogo;
     private Object[][] data;
     private static Originator originator;
+    ArrayList<GridMenuItem> testList;
     
 
 	public gymInterface(){
@@ -174,7 +175,7 @@ public class gymInterface {
 
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
-        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator));}});
+        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(testList));}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
         league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
@@ -267,5 +268,32 @@ public class gymInterface {
     	tempLeague.add(tempLeagueModel.getMenuItem());
     	
     	return tempLeague;
+    }
+
+    public void setupClasses(){
+        testList = new ArrayList<GridMenuItem>();
+        ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F","20/30","1233");
+        ClassModel running01 = new ClassModel("Running01","2pm-3pm","M-W-F","10/30","1233");
+        ClassModel running02 = new ClassModel("Running02","4pm-5pm","T-Th","24/30","1233");
+        ClassModel swimming00 = new ClassModel("Swimming00","1pm-3pm","M-W-F","24/35","1235");
+        ClassModel swimming01 = new ClassModel("Swimming01","4pm-6pm","T-Th","12/15","1235");
+        ClassModel spinning00 = new ClassModel("Spinning00","5pm-7pm","M-W-F","20/67","1236");
+        ClassModel spinning01 = new ClassModel("Spinning01","1pm-2pm","T-Th","20/67","1773");
+        ClassModel jogging00 = new ClassModel("Jogging00","1pm-2pm","M-W-F","20/67","1211");
+        ClassModel jogging01 = new ClassModel("Jogging01","6pm-7pm","T-Th","20/100","1266");
+        ClassModel karate00 = new ClassModel("Karate00","1pm-2pm","M-W-F","20/30","1209");
+        ClassModel karate01 = new ClassModel("Karate01","8am-9am","T-Th","20/30","1234");
+
+        testList.add(new GridMenuItem(running00,theMediator));
+        testList.add(new GridMenuItem(running01,theMediator));
+        testList.add(new GridMenuItem(running02,theMediator));
+        testList.add(new GridMenuItem(swimming00,theMediator));
+        testList.add(new GridMenuItem(swimming01,theMediator));
+        testList.add(new GridMenuItem(spinning00,theMediator));
+        testList.add(new GridMenuItem(spinning01,theMediator));
+        testList.add(new GridMenuItem(jogging00,theMediator));
+        testList.add(new GridMenuItem(jogging01,theMediator));
+        testList.add(new GridMenuItem(karate00,theMediator));
+        testList.add(new GridMenuItem(karate01,theMediator));
     }
 }
