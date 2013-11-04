@@ -20,7 +20,7 @@ public class Equipment {
 	
 	/** Gym ID number for equipment piece */
 	private String id;
-		
+
 	/** Manfactuer's model number for equipment piece */
 	private String model_number;
 	
@@ -40,10 +40,10 @@ public class Equipment {
 	private boolean needs_repairs;
 	
 	/** The repair date for the equipment, if applicable */
-	private Date repair_date;
+	private String repair_date;
 	
 	/** The cost to repair the equipment, if applicable */
-	private Float repair_cost;
+	private String repair_cost;
 	
 	//TODO Schedule of classes as an attribute w/ appropriate methods
 	
@@ -148,7 +148,7 @@ public class Equipment {
 	 * applicable.
 	 * @return repair_date - Date - repair date of the equipment piece
 	 */
-	public Date getRepairDate(){
+	public String getRepairDate(){
 		return this.repair_date;
 	}
 	
@@ -156,8 +156,22 @@ public class Equipment {
 	 * Getter method for the cost of the repair, if applicable.
 	 * @return repair_cost - Float - cost to repair the equipment
 	 */
-	public Float getRepairCost(){
+	public String getRepairCost(){
 		return this.repair_cost;
+	}
+	
+	/**
+	 * @param id the id to set
+	 */
+	public void setID(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	
 	/**
@@ -189,11 +203,13 @@ public class Equipment {
 	 * @param date - Date - repair date of the equipment piece
 	 * @param cost - Float - cost to repair the equipment
 	 */
-	public void setRepairs(boolean repairs, Date date, Float cost){
+	public void setRepairs(boolean repairs, String date, String cost){
 		this.needs_repairs = repairs;
 		this.repair_date = date;
 		this.repair_cost = cost;
 	}
+	
+	
 	
 	
 

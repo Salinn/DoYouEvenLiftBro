@@ -47,6 +47,8 @@ public class GridMenuItem {
 			createTeamButton((TeamModel) target);
 		} else if(target instanceof JPanel) {
 			createButton(target);
+		} else {
+			this.button = new JButton(name);
 		}
 	}
 

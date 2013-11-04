@@ -63,6 +63,8 @@ public class editMembers extends JPanel {
                 }
             }
         }
+        this.temp = 0;
+        this.mem = null;
 
 
         setFont = new Font("SansSerif", Font.BOLD, 40);
@@ -161,19 +163,24 @@ public class editMembers extends JPanel {
         idTextBox.setText(value.toString());
         idTextBox.setEnabled(false);
 
-        Calendar calendar = new GregorianCalendar();
+        final Calendar calendar = new GregorianCalendar();
         Date trialTime = new Date();
         calendar.setTime(trialTime);
         SimpleDateFormat sf = new SimpleDateFormat("dd-MM-yyyy");
         calendar.add(Calendar.MONTH,1);
-        String nextMonthAsString = sf.format(calendar.getTime());
+        final String nextMonthAsString = sf.format(calendar.getTime());
 
         renewalDateTextBox.setText(nextMonthAsString);
         renewalDateTextBox.setEnabled(false);
 
         membershipTextBox.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
-                gymInterface.refresh(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));
+                if (mem != null){
+                    gymInterface.refresh(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));
+                } else {
+                    members mem = new members(firstNameTextBox.getText(), lastNameTextBox.getText(), membershipTextBox.getText(), Integer.parseInt(idTextBox.getText()), calendar.getTime(), cardNumberTextBox.getText());
+                    gymInterface.refresh(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));
+                }
             }
             public void focusLost(FocusEvent e) {
             }
