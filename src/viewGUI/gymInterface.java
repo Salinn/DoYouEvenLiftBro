@@ -49,7 +49,7 @@ public class gymInterface {
 
 	public gymInterface(){
         theClassesHolder = new ClassesModel();
-		/*
+
 		try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -60,7 +60,7 @@ public class gymInterface {
         } catch (Exception e) {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
-        */
+
 
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
