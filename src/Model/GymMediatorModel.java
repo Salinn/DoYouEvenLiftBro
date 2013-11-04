@@ -24,8 +24,8 @@ public class GymMediatorModel {
     }
 
     public void addStudentToClass(String memberID, ClassModel theClass ){
-
-        theClass.addStudents(members.getMember(Integer.getInteger(memberID)));
+        int id = Integer.parseInt(memberID);
+        theClass.addStudents(members.getMember(id));
     };
 
     public static AccessToMembers getAccess(){

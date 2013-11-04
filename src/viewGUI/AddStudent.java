@@ -41,7 +41,8 @@ public class AddStudent extends JPanel {
     public void getButton(){
         addStudent.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        mediator.addStudentToClass(studentId.getText(), className);
+                        String id = studentId.getText();
+                        mediator.addStudentToClass(id, className);
                         JPanel panel = new ClassInfoandStudents(className,mediator);
                         gymInterface.refresh(panel);
                     }

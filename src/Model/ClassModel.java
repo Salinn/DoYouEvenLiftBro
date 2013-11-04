@@ -18,6 +18,7 @@ public class ClassModel {
         this.classLocation = classLocation;
         this.className = className;
         this.classTime = classTime;
+        students = new HashMap<Integer, members>();
 
     }
 
