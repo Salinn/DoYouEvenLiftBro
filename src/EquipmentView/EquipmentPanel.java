@@ -34,11 +34,10 @@ public class EquipmentPanel extends JPanel{
 	private ArrayList<Equipment> equipment;
 	
 	public EquipmentPanel(ArrayList<Equipment> equipment){
-		
 		this.setLayout(new BorderLayout());
 		this.equipment = equipment;
 		ArrayList<GridMenuItem> menu_items = makeGridItems();
-		//this.buttons = new GridButtonPanel("Equipment", menu_items);
+		this.buttons = new GridButtonPanel("Equipment", menu_items, false);
 		this.add(this.buttons, BorderLayout.CENTER);
 	}
 	

@@ -20,7 +20,7 @@ public class Equipment {
 	
 	/** Gym ID number for equipment piece */
 	private String id;
-		
+
 	/** Manfactuer's model number for equipment piece */
 	private String model_number;
 	
@@ -161,6 +161,20 @@ public class Equipment {
 	}
 	
 	/**
+	 * @param id the id to set
+	 */
+	public void setID(String id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	/**
 	 * Sets the member that is borrowing the equipment and the on loan 
 	 * attribute that indicates that the equipment is/isn't on loan.
 	 * 
@@ -194,6 +208,8 @@ public class Equipment {
 		this.repair_date = date;
 		this.repair_cost = cost;
 	}
+	
+	
 	
 	
 

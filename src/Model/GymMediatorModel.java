@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class GymMediatorModel {
     private ClassesModel classes;
-    private AccessToMembers members;
+    private static AccessToMembers members;
 
     public GymMediatorModel(AccessToMembers members, ClassesModel classes){
-        this.members = members;
+        members = members;
         this.classes = classes;
     }
 
@@ -23,6 +23,9 @@ public class GymMediatorModel {
         theClass.addStudents(members.getMember(Integer.getInteger(memberID)));
     };
 
+    public static AccessToMembers getAccess(){
+    	return members;
+    }
 
 
 }

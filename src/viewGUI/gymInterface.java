@@ -34,6 +34,8 @@ public class gymInterface {
     public static JButton equipment;
     public static JButton league;
     public static JButton logo;
+    
+    public static AccessToMembers memberAccess; 
 
     private ImageIcon imgMembership;
     private ImageIcon imgSchedule;
@@ -170,6 +172,7 @@ public class gymInterface {
 
         AccessToMembers memberAccess = new AccessToMembers(memberList);
         theMediator = new GymMediatorModel(memberAccess,theClassesHolder);
+
 
         final MemberTableModel model = new MemberTableModel(memberList);
 
