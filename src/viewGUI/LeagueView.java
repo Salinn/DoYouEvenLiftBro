@@ -44,11 +44,11 @@ public class LeagueView extends JPanel{
 		
 
 		JLabel winning = new JLabel("Point Leader: " + thisLeague.highScore());
-		//ttlPoints.setFont(new Font("Serif", Font.BOLD, 25));
+		winning.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(winning);
 		
 		JLabel nmbTeams = new JLabel("Number of Teams: " + thisLeague.getTeams().size());
-		//nmbGames.setFont(new Font("Serif", Font.BOLD, 25));
+		nmbTeams.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(nmbTeams);
 		
 		statPanel.add(makeSouthBar(thisLeague.bracket()),BorderLayout.NORTH);
@@ -59,6 +59,7 @@ public class LeagueView extends JPanel{
 		teamPanel.setLayout(new BorderLayout());
 		
 		JLabel teamMainLabel = new JLabel("Teams", JLabel.CENTER);
+		teamMainLabel.setFont(new Font("Serif", 1, 25));
 		teamMainLabel.setBorder(blueline);
 		teamPanel.add(teamMainLabel,BorderLayout.NORTH);
 		
@@ -76,11 +77,13 @@ public class LeagueView extends JPanel{
 			
 			TeamModel team1 = thisLeague.getTeamModels().get(roundCount);
 			JLabel team1Label = new JLabel(team1.getName() + " wins: " + team1.getWins());
+			team1Label.setFont(new Font("Serif", 0, 18));
 			players.add(team1Label);
 			
 			if(!((i==numRows-1) && (!isEven))){
-				team1 = thisLeague.getTeamModels().get(roundCount);
+				team1 = thisLeague.getTeamModels().get(roundCount + 1);
 				team1Label = new JLabel(team1.getName() + " wins: " + team1.getWins());
+				team1Label.setFont(new Font("Serif", 0, 18));
 				players.add(team1Label);
 			}
 		}
@@ -92,13 +95,15 @@ public class LeagueView extends JPanel{
 		games.setLayout(new BorderLayout());
 		
 		JLabel gamesMainLabel = new JLabel("Games", JLabel.CENTER);
+		gamesMainLabel.setFont(new Font("Serif", 1, 25));
 		gamesMainLabel.setBorder(blueline);
 		games.add(gamesMainLabel,BorderLayout.NORTH);
 		
-		JPanel gameStats = new JPanel(new GridLayout(thisLeague.getNumberGames(), 2), false);
+		JPanel gameStats = new JPanel(new GridLayout(thisLeague.getNumberGames()/3, 3), false);
 		
 		for(int i=0;i<thisLeague.getNumberGames();i++){
 			JLabel tempGame = new JLabel("Game " + i + ": " + thisLeague.getGames().get(i).getGame(), JLabel.CENTER);
+			tempGame.setFont(new Font("Serif", 0, 18));
 			gameStats.add(tempGame);
 		}
 		
@@ -139,6 +144,7 @@ public class LeagueView extends JPanel{
 		if(bracket){
 			//Create the bracket button
 			addGame = new JButton("Bracket");
+			addGame.setFont(new Font("Serif", 1, 25));
 			addGame.setPreferredSize(new Dimension(40, 80));
 									
 			//Create bracket button listener
@@ -159,6 +165,7 @@ public class LeagueView extends JPanel{
 		
 			//Create the addGame button
 			addGame = new JButton("Add Game");
+			addGame.setFont(new Font("Serif", 1, 25));
 			addGame.setPreferredSize(new Dimension(40, 80));
 								
 			//Create addGame button listener
@@ -174,6 +181,7 @@ public class LeagueView extends JPanel{
 		
 		//Create the edit button
 		JButton edit = new JButton("Edit League");
+		edit.setFont(new Font("Serif", 1, 25));
 		edit.setPreferredSize(new Dimension(40, 80));
 								
 		//Create edit button listener

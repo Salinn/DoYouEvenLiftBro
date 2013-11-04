@@ -14,9 +14,11 @@ import javax.swing.*;
 public class classInterface extends JPanel {
     private GridButtonPanel buttons;
     private GymMediatorModel mediator;
+    private ArrayList<GridMenuItem> classList;
 
 
-    public classInterface(){
+    public classInterface(GymMediatorModel mediator){
+        this.mediator = mediator;
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -28,45 +30,16 @@ public class classInterface extends JPanel {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
         this.setLayout(new BorderLayout());
-        ArrayList<GridMenuItem> testList = new ArrayList<GridMenuItem>();
+        ArrayList<GridMenuItem> classList = new ArrayList<GridMenuItem>();
 
-        /**
         ArrayList<ClassModel> classes = mediator.getClasses();
         for(ClassModel aClass: classes){
-            testList.add(new GridMenuItem(aClass,aClass.getClassName()));
+         classList.add(new GridMenuItem(aClass,mediator));
         }
-         **/
 
 
-        testList.add(new GridMenuItem(null,"Jogging"));
-        testList.add(new GridMenuItem(null,"spinning"));
-        testList.add(new GridMenuItem(null,"running"));
-        testList.add(new GridMenuItem(null,"boxing"));
-        testList.add(new GridMenuItem(null,"weights"));
-        testList.add(new GridMenuItem(null,"swimming"));
-        testList.add(new GridMenuItem(null,"squash"));
-        testList.add(new GridMenuItem(null,"Tennis"));
-        testList.add(new GridMenuItem(null,"diving"));
-        testList.add(new GridMenuItem(null,"yoga"));
-        testList.add(new GridMenuItem(null,"karate"));
-        testList.add(new GridMenuItem(null,"dance"));
-        testList.add(new GridMenuItem(null,"Zumba"));
-        testList.add(new GridMenuItem(null,"sleeping"));
-        testList.add(new GridMenuItem(null,"meditation"));
-        testList.add(new GridMenuItem(null,"prancing"));
-        testList.add(new GridMenuItem(null,"break dancing"));
-        testList.add(new GridMenuItem(null,"clasical dance"));
-        testList.add(new GridMenuItem(null,"gorri"));
-        testList.add(new GridMenuItem(null,"jumas"));
-        testList.add(new GridMenuItem(null,"dirt"));
-        for (GridMenuItem GmI: testList){
-            GmI.getButton().addActionListener(new ActionListener() {
-            				public void actionPerformed(ActionEvent e){
-                            JPanel panel = new ClassInfoandStudents();
-                            gymInterface.refresh(panel);}
-            });
-        }
-        //buttons = new GridButtonPanel("Classes",testList);
+        buttons = new GridButtonPanel("Classes",classList,false);
+
         this.add(buttons, BorderLayout.CENTER);
 
     }

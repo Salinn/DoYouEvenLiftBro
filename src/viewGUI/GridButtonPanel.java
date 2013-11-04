@@ -48,6 +48,9 @@ public class GridButtonPanel extends JPanel {
 	//The name of the page
 	private String name;
 	
+	//Does the page have an add button
+	boolean hasAddButton;
+	
 	//Get screen size
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
@@ -56,6 +59,7 @@ public class GridButtonPanel extends JPanel {
 		this.menuItems = menuItems;
 		this.currentList = menuItems;
 		this.name = mainName;
+		hasAddButton = addButtonExist;
 		
 		//Create the title
 		titlePanel = new JPanel(new GridLayout(1, 1), false);
@@ -156,7 +160,9 @@ public class GridButtonPanel extends JPanel {
 		//Add buttons to the grid
 		for(int i = (9 * currentPage); i < (9 * currentPage + 9); i++){
 			if(i < currentList.size()){
-				newGridPanel.add(currentList.get(i).getButton());
+				JButton temp = currentList.get(i).getButton();
+				temp.setFont(new Font("Serif", 1, 30));
+				newGridPanel.add(temp);
 				
 			//Keep the grid buttons sized correctly
 			} else {
@@ -263,7 +269,8 @@ public class GridButtonPanel extends JPanel {
 		centerPane.add(buildGridButtons(),BorderLayout.CENTER);
 		centerPane.add(buildLeftButton(),BorderLayout.WEST);
 		centerPane.add(buildRightButton(),BorderLayout.EAST);
-		centerPane.add(addButton,BorderLayout.NORTH);
+		if(hasAddButton)
+			centerPane.add(addButton,BorderLayout.NORTH);
 		this.removeAll();
 		
 		//Add panels to the window

@@ -12,14 +12,15 @@ import java.util.GregorianCalendar;
 import javax.swing.*;
 
 import EquipmentView.EquipmentPanel;
-import Model.Equipment;
-import Model.members;
-import Model.LeagueModel;
-import Model.AccessToMembers;
-import Model.TeamModel;
+import Model.*;
+
 import java.util.Collections;
 
 public class gymInterface {
+    private GymMediatorModel theMediator;
+    private ClassesModel theClassesHolder;
+    private AccessToMembers theMembers;
+
 	Dimension screenSize;
 
 	private static JFrame frame;
@@ -33,6 +34,8 @@ public class gymInterface {
     public static JButton equipment;
     public static JButton league;
     public static JButton logo;
+    
+    public static AccessToMembers memberAccess; 
 
     private ImageIcon imgMembership;
     private ImageIcon imgSchedule;
@@ -41,10 +44,11 @@ public class gymInterface {
     private ImageIcon imgLogo;
     private Object[][] data;
     private static Originator originator;
+    ArrayList<GridMenuItem> testList;
     
 
 	public gymInterface(){
-
+        theClassesHolder = new ClassesModel();
 		/*
 		try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -57,7 +61,7 @@ public class gymInterface {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
         */
-		
+
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         originator = new Originator();
@@ -69,6 +73,7 @@ public class gymInterface {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         createLeagueModel();
+        setupClasses();
 		//Initializes the west Panel, aka the 5 main buttons
         west = setWestPanel();
 
@@ -166,12 +171,14 @@ public class gymInterface {
         memberList.add(mem6);
 
         AccessToMembers memberAccess = new AccessToMembers(memberList);
+        theMediator = new GymMediatorModel(memberAccess,theClassesHolder);
+
 
         final MemberTableModel model = new MemberTableModel(memberList);
 
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
-        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
+        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator));}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
         league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
@@ -264,5 +271,31 @@ public class gymInterface {
     	tempLeague.add(tempLeagueModel.getMenuItem());
     	
     	return tempLeague;
+    }
+
+    public void setupClasses(){
+        ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F","20/30","1233");
+        theClassesHolder.addClass(running00.getClassName(),running00);
+        ClassModel running01 = new ClassModel("Running01","2pm-3pm","M-W-F","10/30","1233");
+        theClassesHolder.addClass(running01.getClassName(),running01);
+        ClassModel running02 = new ClassModel("Running02","4pm-5pm","T-Th","24/30","1233");
+        theClassesHolder.addClass(running02.getClassName(),running02);
+        ClassModel swimming00 = new ClassModel("Swimming00","1pm-3pm","M-W-F","24/35","1235");
+        theClassesHolder.addClass(swimming00.getClassName(),swimming00);
+        ClassModel swimming01 = new ClassModel("Swimming01","4pm-6pm","T-Th","12/15","1235");
+        theClassesHolder.addClass(swimming01.getClassName(),swimming01);
+        ClassModel spinning00 = new ClassModel("Spinning00","5pm-7pm","M-W-F","20/67","1236");
+        theClassesHolder.addClass(spinning00.getClassName(),spinning00);
+        ClassModel spinning01 = new ClassModel("Spinning01","1pm-2pm","T-Th","20/67","1773");
+        theClassesHolder.addClass(spinning01.getClassName(),spinning01);
+        ClassModel jogging00 = new ClassModel("Jogging00","1pm-2pm","M-W-F","20/67","1211");
+        theClassesHolder.addClass(jogging00.getClassName(),jogging00);
+        ClassModel jogging01 = new ClassModel("Jogging01","6pm-7pm","T-Th","20/100","1266");
+        theClassesHolder.addClass(jogging01.getClassName(),jogging01);
+        ClassModel karate00 = new ClassModel("Karate00","1pm-2pm","M-W-F","20/30","1209");
+        theClassesHolder.addClass(karate00.getClassName(),karate00);
+        ClassModel karate01 = new ClassModel("Karate01","8am-9am","T-Th","20/30","1234");
+        theClassesHolder.addClass(karate01.getClassName(),karate01);
+
     }
 }
