@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ClassModel {
     private String className;
@@ -8,7 +9,7 @@ public class ClassModel {
     private String classDays;
     private String classLocation;
     private String classCapacity;
-    private ArrayList<members> students;
+    private HashMap<Integer,members> students;
 
     public ClassModel(String className, String classTime, String classDays,
                       String classCapacity, String classLocation){
@@ -21,12 +22,13 @@ public class ClassModel {
     }
 
     public void addStudents(members student){
-       students.add(student);
+       students.put(student.getId(),student);
     }
 
     public members getStudent(String id){
-       return null  ;
+       return students.get(id)  ;
     }
+
 
     public String getClassName(){return this.className;}
     public String getClassTime(){return this.classTime;}
@@ -35,7 +37,7 @@ public class ClassModel {
     public String getClassCapacity(){return this.classCapacity;}
 
     public void setClassName(String name){this.className = name;}
-    public void setClassTime(String time){ this.classTime = time;}
+    public void setClassTime(String time){this.classTime = time;}
     public void setClassDays(String days){this.classDays = days;}
     public void setClassLocation(String location){this.classLocation = location;}
     public void setClassCapacity(String capacity){this.classCapacity = capacity;}

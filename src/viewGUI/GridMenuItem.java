@@ -6,9 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import Model.LeagueModel;
-import Model.TeamModel;
-import Model.members;
+import Model.*;
 
 /**
  * This class is a generic data structure that can be used to make
@@ -51,6 +49,21 @@ public class GridMenuItem {
 			createButton(target);
 		}
 	}
+
+    public  GridMenuItem( ClassModel target, GymMediatorModel mediator){
+        createClassInterfaceButton(target,mediator);
+    }
+
+    public JButton createClassInterfaceButton(final ClassModel target, final GymMediatorModel mediator){
+        button = new JButton(target.getClassName());
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+            JPanel panel = new ClassInfoandStudents(target,mediator);
+            gymInterface.refresh(panel);}
+            });
+        return button;
+    }
+
 
     public GridMenuItem(Object target, String name, MemberTableModel model, ArrayList<members> memberList, members mem, int temp){
         this.name = name;

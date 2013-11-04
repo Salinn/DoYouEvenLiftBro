@@ -21,8 +21,7 @@ public class ClassesModel {
     }
 
     public ClassModel findClass(String className){
-        ClassModel tempClass = theClasses.get(className);
-        return tempClass;
+        return theClasses.get(className);
     }
 
     public ArrayList<ClassModel> getAllClasses(){

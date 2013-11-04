@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 public class GymMediatorModel {
     private ClassesModel classes;
-    //private members members;
+    private AccessToMembers members;
 
-    public GymMediatorModel(){
-
+    public GymMediatorModel(AccessToMembers members, ClassesModel classes){
+        this.members = members;
+        this.classes = classes;
     }
 
     public void createClass(){};
@@ -19,11 +20,10 @@ public class GymMediatorModel {
 
     public void addStudentToClass(String memberID, ClassModel theClass ){
 
-        /**
-         * will make a call to member holder to get member then get classes holder to give class and add to class list.
-         */
-        //theClass.addStudents(member);
+        theClass.addStudents(members.getMember(Integer.getInteger(memberID)));
     };
+
+
 
 }
 

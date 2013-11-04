@@ -1,5 +1,8 @@
 package viewGUI;
 
+import Model.ClassModel;
+import Model.GymMediatorModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +12,7 @@ public class ClassInfoandStudents extends JPanel {
     private  JPanel centerPanel;
     private JButton addStudent;
     private JPanel topPanel;
+    private GridMenuItem addButton;
 
     private JLabel name;
     private JLabel time;
@@ -18,29 +22,31 @@ public class ClassInfoandStudents extends JPanel {
 
     private JTable studentTable;
     private JScrollPane studentScrollWindow;
+    private GymMediatorModel mediator;
 
 
-    public ClassInfoandStudents(){
+    public ClassInfoandStudents(final ClassModel theClass, final GymMediatorModel mediator){
+        this.mediator = mediator;
         studentTable = new JTable();
         topPanel = new JPanel();
         centerPanel = new JPanel();
         addStudent = new JButton("Add Student");
         addStudent.addActionListener(new ActionListener() {
-                    				public void actionPerformed(ActionEvent e){
-                                        JPanel addClass= new AddStudent();
-                                        gymInterface.refresh(addClass);
-                                    }
+            public void actionPerformed(ActionEvent e) {
+                JPanel addClass = new AddStudent(mediator, theClass);
+                gymInterface.refresh(addClass);
+            }
         });
 
         topPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.setLayout(new BorderLayout());
         centerPanel.setLayout(new BorderLayout());
 
-        name = new JLabel("the name");
-        time = new JLabel("the time");
-        days = new JLabel("the days");
-        capacity = new JLabel("the capacity");
-        location = new JLabel("the location");
+        name = new JLabel(theClass.getClassName());
+        time = new JLabel(theClass.getClassTime());
+        days = new JLabel(theClass.getClassDays());
+        capacity = new JLabel(theClass.getClassCapacity());
+        location = new JLabel(theClass.getClassLocation());
 
         String[] columnNames = {"First Name","Last Name","ID"};
         Object[][] data = { {"Nsama", "Chipalo", new Integer(1234)},
@@ -71,4 +77,5 @@ public class ClassInfoandStudents extends JPanel {
 
 
     }
+
 }

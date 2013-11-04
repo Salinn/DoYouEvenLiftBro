@@ -12,14 +12,15 @@ import java.util.GregorianCalendar;
 import javax.swing.*;
 
 import EquipmentView.EquipmentPanel;
-import Model.Equipment;
-import Model.members;
-import Model.LeagueModel;
-import Model.AccessToMembers;
-import Model.TeamModel;
+import Model.*;
+
 import java.util.Collections;
 
 public class gymInterface {
+    private GymMediatorModel theMediator;
+    private ClassesModel theClassesHolder;
+    private AccessToMembers theMembers;
+
 	Dimension screenSize;
 
 	private static JFrame frame;
@@ -57,7 +58,8 @@ public class gymInterface {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
         */
-		
+        theClassesHolder = new ClassesModel();
+
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         originator = new Originator();
@@ -166,12 +168,13 @@ public class gymInterface {
         memberList.add(mem6);
 
         AccessToMembers memberAccess = new AccessToMembers(memberList);
+        theMediator = new GymMediatorModel(memberAccess,theClassesHolder);
 
         final MemberTableModel model = new MemberTableModel(memberList);
 
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
-        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface());}});
+        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator));}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
         league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
