@@ -168,6 +168,9 @@ public class gymInterface {
         memberList.add(mem4);
         memberList.add(mem5);
         memberList.add(mem6);
+        final MemberTableModel model = new MemberTableModel(memberList);
+
+        //catmeowwow
 
         AccessToMembers memberAccess = new AccessToMembers(memberList);
         ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F","20/30","1233");
@@ -190,9 +193,6 @@ public class gymInterface {
         theClassesHolder.addClass(spinning00.getClassName(),spinning00);
 
         theMediator = new GymMediatorModel(memberAccess,theClassesHolder);
-
-
-        final MemberTableModel model = new MemberTableModel(memberList);
 
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList));}});
@@ -227,6 +227,15 @@ public class gymInterface {
         frame.add(center, BorderLayout.CENTER);
         frame.revalidate();
 
+    }
+
+    public static void refreshNoMemento(JPanel new_center){
+        if (center != null){
+            center.removeAll();
+        }
+        center=new_center;
+        frame.add(center, BorderLayout.CENTER);
+        frame.revalidate();
     }
     
     public static void enable(){

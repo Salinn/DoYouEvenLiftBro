@@ -1,5 +1,6 @@
 package viewGUI;
 
+import Model.AccessToMembers;
 import Model.members;
 
 import java.awt.*;
@@ -12,8 +13,11 @@ import javax.swing.*;
 import Model.members;
 
 public class memberInterface extends JPanel{
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
     private JPanel bottumLayout;
     private JPanel membershipLayout;
+    private JPanel searchBar;
 
     private JTextField searchFeild;
 
@@ -58,12 +62,13 @@ public class memberInterface extends JPanel{
     private JPanel initSouth(Font setFont){
         //Creates the Southern Layout using a FlowLayout
         bottumLayout = new JPanel();
-        bottumLayout.setLayout(new FlowLayout());
+        bottumLayout.setLayout(new GridLayout());
+        JPanel tempPanel = new JPanel();
+        tempPanel.setLayout(new GridLayout());
 
         //Creates an Add button and sets its font
-        add = new JButton(" Add Member ");
+        add = new JButton(" Add ");
         add.setFont(setFont);
-        add.setSize(1000, 1000);
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 gymInterface.refresh(new editMembers(model,memberList));
@@ -71,7 +76,7 @@ public class memberInterface extends JPanel{
         });
 
         //Creates an Edit button and set its font
-        edit = new JButton(" Edit Member ");
+        edit = new JButton(" Edit ");
         edit.setFont(setFont);
         edit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -79,14 +84,25 @@ public class memberInterface extends JPanel{
             }
         });
 
-        //Creates a search feild and sets the width and font
-        searchFeild = new JTextField("",15);
-        searchFeild.setFont(setFont);
+        //Creates a search feild and sets the width and fon
 
-        //Adds the 2 buttons and text feild to the flow layout
+        //Create Search bar elements
+        searchFeild = new JTextField();
+        searchFeild.setFont(setFont);
+        JButton searchButton = new JButton("Search");
+        searchButton.setFont(setFont);
+        searchButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
+            ArrayList<members> updated_memberList = new ArrayList<members>();
+            updated_memberList = searchForMembers(memberList, searchFeild.getText());
+            final MemberTableModel updated_model = new MemberTableModel(updated_memberList);
+            gymInterface.refresh(new memberInterface(updated_model,memberList));}});
+
+        tempPanel.add(searchButton);
+        tempPanel.add(add);
+        tempPanel.add(edit);
+
         bottumLayout.add(searchFeild);
-        bottumLayout.add(add);
-        bottumLayout.add(edit);
+        bottumLayout.add(tempPanel);
 
         return bottumLayout;
     }
@@ -124,4 +140,39 @@ public class memberInterface extends JPanel{
         x.setBorder(BorderFactory.createEmptyBorder());
         return x;
     }
+
+    private ArrayList<members> searchForMembers(ArrayList<members> memberList, String input){
+        ArrayList<members> updated_memberList = new ArrayList<members>();
+        for(members current: memberList){
+            try {
+                if (current.getId() == Integer.parseInt(input)){
+                    updated_memberList.add(current);
+                }
+            }
+            catch( Exception e ) {
+                if (current.getFirstName().toUpperCase().contains(input.toUpperCase())){
+                    updated_memberList.add(current);
+                } else if (current.getFirstName().toUpperCase().contains(input.toUpperCase())){
+                    updated_memberList.add(current);
+                }
+            }
+        }
+        return updated_memberList;
+    }
+/*
+    private void search() {
+        ArrayList<GridMenuItem> newList = new ArrayList<GridMenuItem>();
+        String text = searchText.getText();
+
+        for(int i=0;i<menuItems.size();i++){
+            if(menuItems.get(i).searchName(text)){
+                newList.add(menuItems.get(i));
+            }
+        }
+
+        currentList = newList;
+        currentPage = 0;
+        refresh();
+
+    }*/
 }
