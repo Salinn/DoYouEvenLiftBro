@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+
 import Model.members;
 
 public class memberInterface extends JPanel{
@@ -95,7 +97,7 @@ public class memberInterface extends JPanel{
             ArrayList<members> updated_memberList = new ArrayList<members>();
             updated_memberList = searchForMembers(memberList, searchFeild.getText());
             final MemberTableModel updated_model = new MemberTableModel(updated_memberList);
-            gymInterface.refresh(new memberInterface(updated_model,memberList));}});
+            gymInterface.refreshNoMemento(new memberInterface(updated_model,memberList));}});
 
         tempPanel.add(searchButton);
         tempPanel.add(add);
@@ -110,11 +112,14 @@ public class memberInterface extends JPanel{
         //This is just data to populate the table to show what it would look like
         String[] columnNames = {"First Name","Last Name","ID"};
 
+        DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
+        dtcr.setHorizontalTextPosition(DefaultTableCellRenderer.LEFT);
+
         //Creates a table of all of the customers and sets the font
         table = new JTable(model);
         table.setFont(setFont);
         table.setRowHeight(45);
-        table.isCellEditable(0,0);
+        table.isCellEditable(0, 0);
         table.getTableHeader().setReorderingAllowed(false);
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {

@@ -1,5 +1,6 @@
 package viewGUI;
 
+import Model.AccessToMembers;
 import Model.members;
 
 import javax.swing.*;
@@ -218,6 +219,7 @@ public class editMembers extends JPanel {
                 members mem = new members(firstNameTextBox.getText(), lastNameTextBox.getText(), membershipTextBox.getText() , Integer.parseInt(idTextBox.getText()),calendar.getTime(), cardNumberTextBox.getText());
                 memberList.add(mem);
                 model = new MemberTableModel(memberList);
+                gymInterface.memberAccess = new AccessToMembers(memberList);
                 gymInterface.refresh(new memberInterface(model, memberList));
             } else if (cardNumberTextBox.getText().length() < 16){
                 JOptionPane.showMessageDialog(center,
