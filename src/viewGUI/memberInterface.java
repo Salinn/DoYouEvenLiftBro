@@ -112,14 +112,11 @@ public class memberInterface extends JPanel{
         //This is just data to populate the table to show what it would look like
         String[] columnNames = {"First Name","Last Name","ID"};
 
-        DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
-        dtcr.setHorizontalTextPosition(DefaultTableCellRenderer.LEFT);
-
         //Creates a table of all of the customers and sets the font
         table = new JTable(model);
         table.setFont(setFont);
         table.setRowHeight(45);
-        table.isCellEditable(0, 0);
+        table.isCellEditable(0,0);
         table.getTableHeader().setReorderingAllowed(false);
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
@@ -164,20 +161,4 @@ public class memberInterface extends JPanel{
         }
         return updated_memberList;
     }
-/*
-    private void search() {
-        ArrayList<GridMenuItem> newList = new ArrayList<GridMenuItem>();
-        String text = searchText.getText();
-
-        for(int i=0;i<menuItems.size();i++){
-            if(menuItems.get(i).searchName(text)){
-                newList.add(menuItems.get(i));
-            }
-        }
-
-        currentList = newList;
-        currentPage = 0;
-        refresh();
-
-    }*/
 }
