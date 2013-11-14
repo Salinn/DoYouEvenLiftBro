@@ -124,7 +124,7 @@ public class LoginPage extends JPanel {
                     JOptionPane.showMessageDialog(null, welcomeMessage);
                     gymInterface.enable();
                     getIconPage();
-                    gymInterface.refresh(startingImage);
+                    gymInterface.refreshNoMemento(startingImage);
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "No user with that password can be found.");

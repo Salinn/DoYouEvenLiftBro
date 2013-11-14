@@ -34,6 +34,7 @@ public class gymInterface {
     public static JButton equipment;
     public static JButton league;
     public static JButton logo;
+    public static JButton logOut;
     
     public static AccessToMembers memberAccess; 
 
@@ -89,7 +90,7 @@ public class gymInterface {
     }
     private JPanel setWestPanel(){
         west = new JPanel();
-        west.setLayout(new GridLayout(5,1));
+        west.setLayout(new GridLayout(6,1));
 
         
         //Creates the buttons for the panel
@@ -98,6 +99,7 @@ public class gymInterface {
         equipment  = new JButton("Equipment");
         league     = new JButton("League");
         logo       = new JButton("Back");
+        logOut     = new JButton("Log Out");
 
 
         /*
@@ -116,13 +118,8 @@ public class gymInterface {
         league.setIcon(imgLeague);
         logo.setIcon(imgLogo);
         */
-        
-        membership.setEnabled(false);
-        classes.setEnabled(false);
-        equipment.setEnabled(false);
-        league.setEnabled(false);
-        logo.setEnabled(false);
-		
+
+        disable();
 
     	Equipment equip = new Equipment("Treadmill", "1", "OBJT-01", 
         		"RM-9001");
@@ -200,13 +197,21 @@ public class gymInterface {
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list));}});
         league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
+        logOut.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                disable();
+                refreshNoMemento(new LoginPage());
+            }
+        });
 
         //Adds all of the buttons to the layout
+        west.add(logOut);
         west.add(membership);
         west.add(classes);
         west.add(equipment);
         west.add(league);
         west.add(logo);
+
 
         west.setVisible(true);
         
@@ -239,11 +244,21 @@ public class gymInterface {
     }
     
     public static void enable(){
+        logOut.setEnabled(true);
         membership.setEnabled(true);
         classes.setEnabled(true);
         equipment.setEnabled(true);
         league.setEnabled(true);
         logo.setEnabled(true);
+    }
+
+    public static void disable(){
+        logOut.setEnabled(false);
+        membership.setEnabled(false);
+        classes.setEnabled(false);
+        equipment.setEnabled(false);
+        league.setEnabled(false);
+        logo.setEnabled(false);
     }
     
     public static void undo(){
