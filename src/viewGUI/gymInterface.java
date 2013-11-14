@@ -36,7 +36,8 @@ public class gymInterface {
     public static JButton logo;
     public static JButton logOut;
     
-    public static AccessToMembers memberAccess; 
+    public static AccessToMembers memberAccess;
+    private Font setFont;
 
     private ImageIcon imgMembership;
     private ImageIcon imgSchedule;
@@ -64,6 +65,7 @@ public class gymInterface {
 
 
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setFont = new Font("SansSerif", Font.BOLD, 40);
 
         originator = new Originator();
 
@@ -100,6 +102,13 @@ public class gymInterface {
         league     = new JButton("League");
         logo       = new JButton("Back");
         logOut     = new JButton("Log Out");
+
+        membership.setFont(setFont);
+        classes.setFont(setFont);
+        equipment.setFont(setFont);
+        league.setFont(setFont);
+        logo.setFont(setFont);
+        logOut.setFont(setFont);
 
 
         /*
