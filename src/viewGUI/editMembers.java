@@ -191,11 +191,18 @@ public class editMembers extends JPanel {
 
         KeyListener keyListener = new KeyListener() {
             public void keyPressed(KeyEvent keyEvent) {
-                System.out.println(cardNumberTextBox.getText());
+                //System.out.println(cardNumberTextBox.getText());
+                int keyCode = keyEvent.getKeyCode();
+                String keyText = KeyEvent.getKeyText(keyCode);
+                System.out.println(keyCode + "  |  " + keyText);
                 int numbersLeft = 16;
                 numbersLeft = numbersLeft - (cardNumberTextBox.getText().length());
-                if (numbersLeft == -1){
-                    numbersLeft = 0;
+                try {
+                    Robot robot = new Robot();
+                    robot.keyPress(KeyEvent.VK_DOWN);
+                    robot.keyRelease(KeyEvent.VK_DOWN);
+                } catch (AWTException e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 }
                 numberOfDigitsLeft.setText(Integer.toString(numbersLeft) + " Digits To Enter");
             }public void keyReleased(KeyEvent keyEvent) {}
