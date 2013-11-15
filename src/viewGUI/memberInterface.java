@@ -6,6 +6,8 @@ import Model.members;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -37,7 +39,7 @@ public class memberInterface extends JPanel{
 
     private MemberTableModel model;
     private ArrayList<members> memberList;
-    public memberInterface(MemberTableModel model, ArrayList<members> memberList) {
+    public memberInterface(MemberTableModel model, ArrayList<members> memberList, String seachPhrase) {
         this.model = model;
         this.memberList =memberList;
         //Creates the font that the rest of the program will use
@@ -51,7 +53,7 @@ public class memberInterface extends JPanel{
 
         //Gets the layout of different parts of the boarder layout
         scrollWindow = initCenter(setFont);
-        bottumLayout = initSouth(setFont);
+        bottumLayout = initSouth(setFont, seachPhrase);
 
 
         //Adds the different layouts to the boarder layout
@@ -61,7 +63,7 @@ public class memberInterface extends JPanel{
         this.add(membershipLayout, BorderLayout.CENTER);
     }
 
-    private JPanel initSouth(Font setFont){
+    private JPanel initSouth(Font setFont, String searchPhrase){
         //Creates the Southern Layout using a FlowLayout
         bottumLayout = new JPanel();
         bottumLayout.setLayout(new GridLayout());
@@ -90,14 +92,27 @@ public class memberInterface extends JPanel{
 
         //Create Search bar elements
         searchFeild = new JTextField();
+        if (searchPhrase.compareTo("") == 0){
+            searchFeild.setText("Search for Member");
+        } else {
+            searchFeild.setText(searchPhrase);
+        }
         searchFeild.setFont(setFont);
+        searchFeild.addFocusListener(new FocusListener() {
+            public void focusGained(FocusEvent e) {
+                searchFeild.setText("");
+            }public void focusLost(FocusEvent e) {}});
         JButton searchButton = new JButton("Search");
         searchButton.setFont(setFont);
         searchButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
             ArrayList<members> updated_memberList = new ArrayList<members>();
-            updated_memberList = searchForMembers(memberList, searchFeild.getText());
+            if (searchFeild.getText().compareTo("Search for Member") == 0){
+                updated_memberList = searchForMembers(memberList, "");
+            } else {
+                updated_memberList = searchForMembers(memberList, searchFeild.getText());
+            }
             final MemberTableModel updated_model = new MemberTableModel(updated_memberList);
-            gymInterface.refreshNoMemento(new memberInterface(updated_model,memberList));}});
+            gymInterface.refreshNoMemento(new memberInterface(updated_model,memberList,searchFeild.getText()));}});
 
         tempPanel.add(searchButton);
         tempPanel.add(add);
@@ -116,7 +131,7 @@ public class memberInterface extends JPanel{
         table = new JTable(model);
         table.setFont(setFont);
         table.setRowHeight(45);
-        table.isCellEditable(0,0);
+        table.isCellEditable(0, 0);
         table.getTableHeader().setReorderingAllowed(false);
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {

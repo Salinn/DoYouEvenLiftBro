@@ -220,7 +220,7 @@ public class editMembers extends JPanel {
                 memberList.add(mem);
                 model = new MemberTableModel(memberList);
                 gymInterface.memberAccess = new AccessToMembers(memberList);
-                gymInterface.refresh(new memberInterface(model, memberList));
+                gymInterface.refresh(new memberInterface(model, memberList,""));
             } else if (cardNumberTextBox.getText().length() < 16){
                 JOptionPane.showMessageDialog(center,
                         "The credit card is missing a few numbers",
