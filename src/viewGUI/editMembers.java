@@ -20,10 +20,12 @@ public class editMembers extends JPanel {
     private JPanel south;
     private JPanel center;
     private JPanel editLayout;
+    private JPanel membershipLayout;
 
     private Font setFont;
     private Integer value;
     private JButton add;
+    private JButton editMembership;
 
     private JLabel firstName;
     private JLabel lastName;
@@ -146,6 +148,8 @@ public class editMembers extends JPanel {
     private JPanel initCenter(Font setFont, Integer value){
         center = new JPanel();
         center.setLayout(new GridLayout(9,1));
+        membershipLayout = new JPanel();
+        membershipLayout.setLayout(new GridLayout(1,2));
 
         firstNameTextBox   = new JTextField();
         lastNameTextBox    = new JTextField();
@@ -153,7 +157,9 @@ public class editMembers extends JPanel {
         idTextBox          = new JTextField();
         renewalDateTextBox = new JTextField();
         cardNumberTextBox  = new JPasswordField();
+        editMembership     = new JButton("Edit Membership");
 
+        editMembership.setFont(setFont);
         firstNameTextBox.setFont(setFont);
         lastNameTextBox.setFont(setFont);
         membershipTextBox.setFont(setFont);
@@ -173,6 +179,10 @@ public class editMembers extends JPanel {
 
         renewalDateTextBox.setText(nextMonthAsString);
         renewalDateTextBox.setEnabled(false);
+        membershipTextBox.setEnabled(false);
+        editMembership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
+            members mem = new members(firstNameTextBox.getText(), lastNameTextBox.getText(), membershipTextBox.getText(), Integer.parseInt(idTextBox.getText()), calendar.getTime(), cardNumberTextBox.getText());
+            gymInterface.refreshNoMemento(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));}});
 
         membershipTextBox.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
@@ -187,9 +197,12 @@ public class editMembers extends JPanel {
             }
         });
 
+        membershipLayout.add(membershipTextBox);
+        membershipLayout.add(editMembership);
+
         center.add(firstNameTextBox);
         center.add(lastNameTextBox);
-        center.add(membershipTextBox);
+        center.add(membershipLayout);
         center.add(idTextBox);
         center.add(renewalDateTextBox);
         center.add(cardNumberTextBox);
