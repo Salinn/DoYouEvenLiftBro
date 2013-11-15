@@ -162,7 +162,7 @@ public class memberInterface extends JPanel{
         ArrayList<members> updated_memberList = new ArrayList<members>();
         for(members current: memberList){
             try {
-                if (current.getId() == Integer.parseInt(input)){
+                if (current.getId().toString().contains((input))){
                     updated_memberList.add(current);
                 }
             }
