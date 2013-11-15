@@ -5,10 +5,7 @@ import Model.members;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -21,6 +18,7 @@ public class editMembers extends JPanel {
     private JPanel center;
     private JPanel editLayout;
     private JPanel membershipLayout;
+    private JPanel creditCardLayout;
 
     private Font setFont;
     private Integer value;
@@ -33,6 +31,7 @@ public class editMembers extends JPanel {
     private JLabel id;
     private JLabel renewalDate;
     private JLabel cardNumber;
+    private JLabel numberOfDigitsLeft;
 
     private JTextField firstNameTextBox;
     private JTextField lastNameTextBox;
@@ -150,6 +149,8 @@ public class editMembers extends JPanel {
         center.setLayout(new GridLayout(9,1));
         membershipLayout = new JPanel();
         membershipLayout.setLayout(new GridLayout(1,2));
+        creditCardLayout = new JPanel();
+        creditCardLayout.setLayout(new GridLayout(1,2));
 
         firstNameTextBox   = new JTextField();
         lastNameTextBox    = new JTextField();
@@ -158,7 +159,9 @@ public class editMembers extends JPanel {
         renewalDateTextBox = new JTextField();
         cardNumberTextBox  = new JPasswordField();
         editMembership     = new JButton("Edit Membership");
+        numberOfDigitsLeft = new JLabel("16 Digits To Enter");
 
+        numberOfDigitsLeft.setFont(setFont);
         editMembership.setFont(setFont);
         firstNameTextBox.setFont(setFont);
         lastNameTextBox.setFont(setFont);
@@ -184,28 +187,33 @@ public class editMembers extends JPanel {
             members mem = new members(firstNameTextBox.getText(), lastNameTextBox.getText(), membershipTextBox.getText(), Integer.parseInt(idTextBox.getText()), calendar.getTime(), cardNumberTextBox.getText());
             gymInterface.refreshNoMemento(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));}});
 
-        membershipTextBox.addFocusListener(new FocusListener() {
-            public void focusGained(FocusEvent e) {
-                if (mem != null){
-                    gymInterface.refresh(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));
-                } else {
-                    members mem = new members(firstNameTextBox.getText(), lastNameTextBox.getText(), membershipTextBox.getText(), Integer.parseInt(idTextBox.getText()), calendar.getTime(), cardNumberTextBox.getText());
-                    gymInterface.refresh(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));
+        cardNumberTextBox.setDocument(new JTextFieldLimit(16));
+
+        KeyListener keyListener = new KeyListener() {
+            public void keyPressed(KeyEvent keyEvent) {
+                System.out.println(cardNumberTextBox.getText().length());
+                int numbersLeft = 16;
+                numbersLeft = numbersLeft - (cardNumberTextBox.getText().length()+1);
+                if (numbersLeft == -1){
+                    numbersLeft = 0;
                 }
-            }
-            public void focusLost(FocusEvent e) {
-            }
-        });
+                numberOfDigitsLeft.setText(Integer.toString(numbersLeft) + " Digits To Enter");
+            }public void keyReleased(KeyEvent keyEvent) {}
+            public void keyTyped(KeyEvent keyEvent) {}};
+        cardNumberTextBox.addKeyListener(keyListener);
 
         membershipLayout.add(membershipTextBox);
         membershipLayout.add(editMembership);
+
+        creditCardLayout.add(cardNumberTextBox);
+        creditCardLayout.add(numberOfDigitsLeft);
 
         center.add(firstNameTextBox);
         center.add(lastNameTextBox);
         center.add(membershipLayout);
         center.add(idTextBox);
         center.add(renewalDateTextBox);
-        center.add(cardNumberTextBox);
+        center.add(creditCardLayout);
 
         return center;
     }
