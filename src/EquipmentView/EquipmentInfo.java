@@ -23,6 +23,7 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -38,7 +39,8 @@ import javax.swing.ButtonGroup;
 import Model.Equipment;
 import Model.GymMediatorModel;
 
-import viewGUI.gymInterface;
+import Model.members;
+import viewGUI.*;
 
 public class EquipmentInfo extends JPanel{
 
@@ -65,8 +67,12 @@ public class EquipmentInfo extends JPanel{
 	private JTextField cost;
 	
 	private JButton edit;
+
+    private JButton loanButton;
 	
 	private boolean isEditing;
+
+    private ArrayList<members> memberList;
 	
 	/**
 	 * Constructor of the Equipment Info panel.  It uses the attributes of
@@ -75,7 +81,9 @@ public class EquipmentInfo extends JPanel{
 	 * @param equipment - Equipment - Equipment piece that has been requested
 	 *                                to be displayed
 	 */
-	public EquipmentInfo(Equipment equipment){
+	public EquipmentInfo(final Equipment equipment,final ArrayList<members> memberList){
+        this.memberList = memberList;
+
 		this.equipment = equipment;
 		this.isEditing = false;
 		
@@ -216,6 +224,11 @@ public class EquipmentInfo extends JPanel{
 		//South border
 		JPanel south = new JPanel(new FlowLayout());
 		edit = new JButton("Edit Equipment");
+        loanButton = new JButton("Loan Equipment");
+
+        final MemberTableModel memModel = new MemberTableModel(memberList);
+
+        loanButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {gymInterface.refresh(new MembersSearch(equipment,memModel, memberList, ""));}});;
 		
 		edit.addActionListener(new ActionListener(){
 
@@ -269,7 +282,10 @@ public class EquipmentInfo extends JPanel{
 		
 		
 		edit.setFont(new Font("Serif", Font.PLAIN, 40));
-		south.add(edit, BorderLayout.CENTER);
+        loanButton.setFont(new Font("Serif", Font.PLAIN, 40));
+
+        south.add(loanButton, BorderLayout.CENTER);
+        south.add(edit, BorderLayout.CENTER);
 		frame.add(south, BorderLayout.SOUTH);
 		this.add(frame, BorderLayout.CENTER);
 		

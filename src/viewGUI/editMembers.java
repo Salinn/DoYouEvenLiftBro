@@ -191,9 +191,9 @@ public class editMembers extends JPanel {
 
         KeyListener keyListener = new KeyListener() {
             public void keyPressed(KeyEvent keyEvent) {
-                System.out.println(cardNumberTextBox.getText().length());
+                System.out.println(cardNumberTextBox.getText());
                 int numbersLeft = 16;
-                numbersLeft = numbersLeft - (cardNumberTextBox.getText().length()+1);
+                numbersLeft = numbersLeft - (cardNumberTextBox.getText().length());
                 if (numbersLeft == -1){
                     numbersLeft = 0;
                 }

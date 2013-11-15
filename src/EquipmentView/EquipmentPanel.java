@@ -18,8 +18,10 @@ import javax.swing.UIManager;
 
 import Model.Equipment;
 
+import Model.members;
 import viewGUI.GridButtonPanel;
 import viewGUI.GridMenuItem;
+import viewGUI.MemberTableModel;
 import viewGUI.gymInterface;
 
 /**
@@ -32,8 +34,12 @@ public class EquipmentPanel extends JPanel{
 	private GridButtonPanel buttons;
 	
 	private ArrayList<Equipment> equipment;
+
+    ArrayList<members> memberList;
 	
-	public EquipmentPanel(ArrayList<Equipment> equipment){
+	public EquipmentPanel(ArrayList<Equipment> equipment, ArrayList<members> memberList){
+        this.memberList = memberList;
+
 		this.setLayout(new BorderLayout());
 		this.equipment = equipment;
 		ArrayList<GridMenuItem> menu_items = makeGridItems();
@@ -50,7 +56,7 @@ public class EquipmentPanel extends JPanel{
 			JButton button = item.getButton();
 			button.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
-					JPanel panel = new EquipmentInfo(equipment_piece);
+					JPanel panel = new EquipmentInfo(equipment_piece, memberList);
 					gymInterface.refresh(panel);	
 				}
 			});
