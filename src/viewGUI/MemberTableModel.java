@@ -39,7 +39,10 @@ public class MemberTableModel extends AbstractTableModel{
         Class type = String.class;
         switch (columnIndex) {
             case 0:
+            	break;
             case 1:
+            	break;
+            case 2:
                 type = Integer.class;
                 break;
         }

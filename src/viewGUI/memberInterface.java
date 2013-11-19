@@ -13,6 +13,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 
 import Model.members;
 
@@ -127,9 +129,11 @@ public class memberInterface extends JPanel{
         //This is just data to populate the table to show what it would look like
         String[] columnNames = {"First Name","Last Name","ID"};
 
+ 
+        
         //Creates a table of all of the customers and sets the font
         table = new JTable(model);
-        table.setFont(setFont);
+        table.setFont(new Font("Sans Serif", Font.PLAIN, 30));
         table.setRowHeight(45);
         table.isCellEditable(0, 0);
         table.getTableHeader().setReorderingAllowed(false);
@@ -148,7 +152,16 @@ public class memberInterface extends JPanel{
                 }
             }
         });
-
+        
+        //Table renderer for alignment
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.LEFT   );
+        table.setDefaultRenderer(String.class, centerRenderer);
+        table.setDefaultRenderer(Integer.class, centerRenderer);
+        
+        
+        table.getTableHeader().setFont(setFont);
+        
 
         //new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         JScrollPane x = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);

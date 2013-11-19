@@ -176,7 +176,7 @@ public class gymInterface {
         memberList.add(mem6);
         final MemberTableModel model = new MemberTableModel(memberList);
 
-        //catmeowwow
+        //catmeowwow <- wtf?
 
         AccessToMembers memberAccess = new AccessToMembers(memberList);
         ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F","20/30","1233");
