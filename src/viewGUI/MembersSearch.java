@@ -7,6 +7,8 @@ import Model.members;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableCellRenderer;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,7 +49,7 @@ public class MembersSearch extends JPanel {
         this.memberList =memberList;
         this.equipment = equipment;
         //Creates the font that the rest of the program will use
-        setFont = new Font("SansSerif", Font.BOLD, 40);
+        setFont = new Font("SansSerif", Font.PLAIN, 30);
 
         membershipLayout = new JPanel();
 
@@ -89,7 +91,11 @@ public class MembersSearch extends JPanel {
                 searchFeild.setText("");
             }public void focusLost(FocusEvent e) {}});
         JButton searchButton = new JButton("Search");
-        JButton selectButton = new JButton("Add Member");
+        
+        //TODO Once this screen is used for classes change the text of the 
+        //select button to be based on the what the screen is
+        //i.e. if(loan screen){text set to loan} elif(class screen){text set to add}
+        JButton selectButton = new JButton("Loan");
         searchButton.setFont(setFont);
         selectButton.setFont(setFont);
         searchButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
@@ -137,6 +143,14 @@ public class MembersSearch extends JPanel {
                 }
             }
         });
+        
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.LEFT   );
+        table.setDefaultRenderer(String.class, centerRenderer);
+        table.setDefaultRenderer(Integer.class, centerRenderer);
+        
+        
+        table.getTableHeader().setFont(setFont);
 
 
         //new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
