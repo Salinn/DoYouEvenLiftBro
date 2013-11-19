@@ -21,7 +21,8 @@ public class AddStudent extends JPanel {
     public AddStudent(GymMediatorModel mediator, ClassModel className){
         this.mediator = mediator;
         this.className = className;
-        addStudent = new JButton("Add");;
+        addStudent = new JButton("Add");
+        addStudent.setFont(new Font("Sans Serif", Font.BOLD, 40));
         studentId = new JTextField();
         id = new JLabel("Add Student ID");
 
@@ -41,12 +42,25 @@ public class AddStudent extends JPanel {
     public void getButton(){
         addStudent.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
+                    	try{
                         String id = studentId.getText();
                         mediator.addStudentToClass(id, className);
                         JPanel panel = new ClassInfoandStudents(className,mediator);
                         gymInterface.refresh(panel);
+                    	} catch (NullPointerException exception) {
+                    		showErrorMessage();
+                    	} catch (NumberFormatException exception) {
+                    		showErrorMessage();
+                    	}
                     }
                 });
+    }
+    
+    private void showErrorMessage(){
+    	JOptionPane.showMessageDialog(studentId,
+                "Please enter a valid 4 digit member ID.",
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
     }
 
 

@@ -40,6 +40,7 @@ public class ClassInfoandStudents extends JPanel {
         topPanel = new JPanel();
         centerPanel = new JPanel();
         addStudent = new JButton("Add Student");
+        addStudent.setFont(new Font("Sans Serif", Font.BOLD, 40));
         addStudent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JPanel addClass = new AddStudent(mediator, theClass);
