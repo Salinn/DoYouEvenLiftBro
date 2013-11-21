@@ -27,6 +27,8 @@ public class ClassInfoandStudents extends JPanel {
     private JLabel capacity;
     private JLabel location;
 
+    private ArrayList<members> memberList;
+
     private JTable studentTable;
     private JScrollPane studentScrollWindow;
     private GymMediatorModel mediator;
@@ -34,16 +36,18 @@ public class ClassInfoandStudents extends JPanel {
     private ArrayList<members> theStudents;
 
 
-    public ClassInfoandStudents(final ClassModel theClass, final GymMediatorModel mediator){
+    public ClassInfoandStudents(final ClassModel theClass, final GymMediatorModel mediator, final ArrayList<members> memberList){
         this.mediator = mediator;
         studentTable = new JTable();
         topPanel = new JPanel();
         centerPanel = new JPanel();
+        JPanel tempPanel = new JPanel();
+        tempPanel.setLayout(new FlowLayout());
         addStudent = new JButton("Add Student");
         addStudent.setFont(new Font("Sans Serif", Font.BOLD, 40));
         addStudent.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JPanel addClass = new AddStudent(mediator, theClass);
+                JPanel addClass = new AddStudent(mediator, theClass, memberList);
                 gymInterface.refresh(addClass);
             }
         });
@@ -94,6 +98,7 @@ public class ClassInfoandStudents extends JPanel {
         studentScrollWindow.setBorder(BorderFactory.createEmptyBorder());
 
 
+        tempPanel.add(addStudent);
         topPanel.add(name);
         topPanel.add(time);
         topPanel.add(days);
@@ -101,7 +106,7 @@ public class ClassInfoandStudents extends JPanel {
         topPanel.add(location);
         centerPanel.add(topPanel, BorderLayout.NORTH);
         centerPanel.add(studentScrollWindow, BorderLayout.CENTER);
-        centerPanel.add(addStudent, BorderLayout.SOUTH);
+        centerPanel.add(tempPanel, BorderLayout.SOUTH);
         this.add(centerPanel);
 
 

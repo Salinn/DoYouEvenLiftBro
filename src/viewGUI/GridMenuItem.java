@@ -52,16 +52,16 @@ public class GridMenuItem {
 		}
 	}
 
-    public  GridMenuItem( ClassModel target, GymMediatorModel mediator){
-        createClassInterfaceButton(target,mediator);
+    public  GridMenuItem( ClassModel target, GymMediatorModel mediator, ArrayList<members> memberList){
+        createClassInterfaceButton(target,mediator,memberList);
     }
 
-    public JButton createClassInterfaceButton(final ClassModel target, final GymMediatorModel mediator){
+    public JButton createClassInterfaceButton(final ClassModel target, final GymMediatorModel mediator, final ArrayList<members> memberList){
         name = target.getClassName();
         button = new JButton(target.getClassName());
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-            JPanel panel = new ClassInfoandStudents(target,mediator);
+            JPanel panel = new ClassInfoandStudents(target,mediator,memberList);
             gymInterface.refresh(panel);}
             });
         return button;

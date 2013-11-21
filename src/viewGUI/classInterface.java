@@ -3,6 +3,7 @@ package viewGUI;
 
 import Model.ClassModel;
 import Model.GymMediatorModel;
+import Model.members;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,9 +16,10 @@ public class classInterface extends JPanel {
     private GridButtonPanel buttons;
     private GymMediatorModel mediator;
     private ArrayList<GridMenuItem> classList;
+    private ArrayList<members> memberList;
 
 
-    public classInterface(GymMediatorModel mediator){
+    public classInterface(GymMediatorModel mediator, ArrayList<members> memberList){
         this.mediator = mediator;
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -34,7 +36,7 @@ public class classInterface extends JPanel {
 
         ArrayList<ClassModel> classes = mediator.getClasses();
         for(ClassModel aClass: classes){
-         classList.add(new GridMenuItem(aClass,mediator));
+         classList.add(new GridMenuItem(aClass,mediator,memberList));
         }
 
 

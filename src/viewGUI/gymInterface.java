@@ -202,7 +202,7 @@ public class gymInterface {
 
         //Creates all of the listeners for each button
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList,""));}});
-        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator));}});
+        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator,memberList));}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list,memberList));}});
         league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});

@@ -1,7 +1,9 @@
 package viewGUI;
 
 import EquipmentView.EquipmentInfo;
+import Model.ClassModel;
 import Model.Equipment;
+import Model.GymMediatorModel;
 import Model.members;
 
 import javax.swing.*;
@@ -35,6 +37,8 @@ public class MembersSearch extends JPanel {
     private JTable table;
 
     private int temp;
+    GymMediatorModel mediator;
+    ClassModel className;
 
     private JScrollPane scrollWindow;
 
@@ -48,6 +52,31 @@ public class MembersSearch extends JPanel {
         this.model = model;
         this.memberList =memberList;
         this.equipment = equipment;
+        //Creates the font that the rest of the program will use
+        setFont = new Font("SansSerif", Font.PLAIN, 30);
+
+        membershipLayout = new JPanel();
+
+        //Creates the panel to be passed back and makes it a border layout
+        membershipLayout.setLayout(new BorderLayout(15, 15));
+        membershipLayout.setVisible(true);
+
+        //Gets the layout of different parts of the boarder layout
+        scrollWindow = initCenter(setFont);
+        bottumLayout = initSouth(setFont, seachPhrase);
+
+
+        //Adds the different layouts to the boarder layout
+        membershipLayout.add(scrollWindow, BorderLayout.CENTER);
+        membershipLayout.add(bottumLayout, BorderLayout.SOUTH);
+        this.setLayout(new BorderLayout());
+        this.add(membershipLayout, BorderLayout.CENTER);
+    }
+    public MembersSearch(GymMediatorModel mediator, ClassModel className, ArrayList<members> memberList, String seachPhrase) {
+        this.model = new MemberTableModel(memberList);
+        this.mediator = mediator;
+        this.className = className;
+        this.memberList = memberList;
         //Creates the font that the rest of the program will use
         setFont = new Font("SansSerif", Font.PLAIN, 30);
 
@@ -107,7 +136,14 @@ public class MembersSearch extends JPanel {
             }
             final MemberTableModel updated_model = new MemberTableModel(updated_memberList);
             gymInterface.refreshNoMemento(new MembersSearch(equipment,updated_model,memberList,searchFeild.getText()));}});
-        selectButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {gymInterface.refresh(new EquipmentInfo(equipment, memberList));}});
+
+        selectButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
+            if (equipment == null){
+                System.out.println("Fuck yeah!");
+                gymInterface.refresh(new ClassInfoandStudents(className, mediator, memberList));
+            }else{
+                gymInterface.refresh(new EquipmentInfo(equipment, memberList));
+            }}});
 
         tempPanel.add(searchButton);
         tempPanel.add(selectButton);
@@ -135,10 +171,18 @@ public class MembersSearch extends JPanel {
                 temp = table.getSelectedRow();
                 int tempid = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 2).toString());
                 for(members mem: memberList){
-                    if (mem.getId() == tempid){
-                        //System.out.println(mem);
-                        selectemem = mem;
-                        equipment.setLoan(true, Integer.toString(selectemem.getId()));
+                    if(equipment == null){
+                        System.out.println("Success!");
+                        if(mem.getId() == tempid){
+                            selectemem = mem;
+                            className.addStudents(selectemem);
+                        }
+                    } else {
+                        if (mem.getId() == tempid){
+                            //System.out.println(mem);
+                            selectemem = mem;
+                            equipment.setLoan(true, Integer.toString(selectemem.getId()));
+                        }
                     }
                 }
             }
