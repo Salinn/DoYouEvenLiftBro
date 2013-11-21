@@ -11,7 +11,7 @@ public class ClassesModel {
         theClasses = new HashMap<String,ClassModel>();
     }
 
-    public ClassModel createClass(String className, String classTime, String classDays, String classCapacity, String classLocation){
+    public ClassModel createClass(String className, String classTime, String classDays, Integer classCapacity, String classLocation){
         ClassModel aClass = new ClassModel(className,classTime,classDays,classCapacity,classLocation);
         return aClass;
     }

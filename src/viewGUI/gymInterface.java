@@ -179,22 +179,22 @@ public class gymInterface {
         //catmeowwow <- wtf?
 
         AccessToMembers memberAccess = new AccessToMembers(memberList);
-        ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F","20/30","1233");
+        ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F",30,"1233");
         running00.addStudents(mem1);
         theClassesHolder.addClass(running00.getClassName(),running00);
-        ClassModel running01 = new ClassModel("Running01","2pm-3pm","M-W-F","10/30","1233");
+        ClassModel running01 = new ClassModel("Running01","2pm-3pm","M-W-F",30,"1233");
         running01.addStudents(mem2);
         theClassesHolder.addClass(running01.getClassName(),running01);
-        ClassModel running02 = new ClassModel("Running02","4pm-5pm","T-Th","24/30","1233");
+        ClassModel running02 = new ClassModel("Running02","4pm-5pm","T-Th",30,"1233");
         running02.addStudents(mem3);
         theClassesHolder.addClass(running02.getClassName(),running02);
-        ClassModel swimming00 = new ClassModel("Swimming00","1pm-3pm","M-W-F","24/35","1235");
+        ClassModel swimming00 = new ClassModel("Swimming00","1pm-3pm","M-W-F", 35,"1235");
         swimming00.addStudents(mem4);
         theClassesHolder.addClass(swimming00.getClassName(),swimming00);
-        ClassModel swimming01 = new ClassModel("Swimming01","4pm-6pm","T-Th","12/15","1235");
+        ClassModel swimming01 = new ClassModel("Swimming01","4pm-6pm","T-Th",15,"1235");
         swimming01.addStudents(mem5);
         theClassesHolder.addClass(swimming01.getClassName(),swimming01);
-        ClassModel spinning00 = new ClassModel("Spinning00","5pm-7pm","M-W-F","20/67","1236");
+        ClassModel spinning00 = new ClassModel("Spinning00","5pm-7pm","M-W-F", 67,"1236");
         spinning00.addStudents(mem6);
         theClassesHolder.addClass(spinning00.getClassName(),spinning00);
 

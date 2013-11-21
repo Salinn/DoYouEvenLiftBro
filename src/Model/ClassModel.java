@@ -8,11 +8,11 @@ public class ClassModel {
     private String classTime;
     private String classDays;
     private String classLocation;
-    private String classCapacity;
+    private Integer classCapacity;
     private HashMap<Integer,members> students;
 
     public ClassModel(String className, String classTime, String classDays,
-                      String classCapacity, String classLocation){
+                      Integer classCapacity, String classLocation){
         this.classCapacity = classCapacity;
         this.classDays = classDays;
         this.classLocation = classLocation;
@@ -43,12 +43,13 @@ public class ClassModel {
     public String getClassTime(){return this.classTime;}
     public String getClassDays(){return this.classDays;}
     public String getClassLocation(){return this.classLocation;}
-    public String getClassCapacity(){return this.classCapacity;}
+    public String getClassCapacity(){
+        return "" + students.size() + "/" + this.classCapacity;}
 
     public void setClassName(String name){this.className = name;}
     public void setClassTime(String time){this.classTime = time;}
     public void setClassDays(String days){this.classDays = days;}
     public void setClassLocation(String location){this.classLocation = location;}
-    public void setClassCapacity(String capacity){this.classCapacity = capacity;}
+    public void setClassCapacity(Integer capacity){this.classCapacity = capacity;}
 
 }
