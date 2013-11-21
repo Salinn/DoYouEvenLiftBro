@@ -41,6 +41,7 @@ public class MembersSearch extends JPanel {
     ClassModel className;
 
     private JScrollPane scrollWindow;
+    JButton selectButton;
 
     private Font setFont;
     private members selectemem;
@@ -124,7 +125,11 @@ public class MembersSearch extends JPanel {
         //TODO Once this screen is used for classes change the text of the 
         //select button to be based on the what the screen is
         //i.e. if(loan screen){text set to loan} elif(class screen){text set to add}
-        JButton selectButton = new JButton("Loan");
+        if (equipment == null){
+            selectButton = new JButton("Add");
+        } else {
+            selectButton = new JButton("Loan");
+        }
         searchButton.setFont(setFont);
         selectButton.setFont(setFont);
         searchButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
@@ -139,7 +144,6 @@ public class MembersSearch extends JPanel {
 
         selectButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
             if (equipment == null){
-                System.out.println("Fuck yeah!");
                 gymInterface.refresh(new ClassInfoandStudents(className, mediator, memberList));
             }else{
                 gymInterface.refresh(new EquipmentInfo(equipment, memberList));
@@ -172,7 +176,6 @@ public class MembersSearch extends JPanel {
                 int tempid = Integer.parseInt(table.getValueAt(table.getSelectedRow(), 2).toString());
                 for(members mem: memberList){
                     if(equipment == null){
-                        System.out.println("Success!");
                         if(mem.getId() == tempid){
                             selectemem = mem;
                             className.addStudents(selectemem);
