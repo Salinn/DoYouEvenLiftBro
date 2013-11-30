@@ -71,7 +71,7 @@ public class LeagueMain extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				JPanel panel = new JPanel();
 				panel.setLayout(new BorderLayout());
-				panel.add(new GridButtonPanel(mainName,league.getTeams(),false), BorderLayout.CENTER);
+				panel.add(new GridButtonPanel(mainName,league.getTeams(),null), BorderLayout.CENTER);
 				gymInterface.refresh(panel);
 			}
 		});

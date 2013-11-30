@@ -40,7 +40,7 @@ public class classInterface extends JPanel {
         }
 
 
-        buttons = new GridButtonPanel("Classes",classList,false);
+        buttons = new GridButtonPanel("Classes",classList,null);
 
         this.add(buttons, BorderLayout.CENTER);
 

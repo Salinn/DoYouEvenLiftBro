@@ -54,12 +54,13 @@ public class GridButtonPanel extends JPanel {
 	//Get screen size
 	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
-	public GridButtonPanel(String mainName, ArrayList<GridMenuItem> menuItems, boolean addButtonExist){
+	public GridButtonPanel(String mainName, ArrayList<GridMenuItem> menuItems, ActionListener addButtonListener){
 		
 		this.menuItems = menuItems;
 		this.currentList = menuItems;
 		this.name = mainName;
-		hasAddButton = addButtonExist;
+	
+		hasAddButton = false;
 		
 		//Create the title
 		titlePanel = new JPanel(new GridLayout(1, 1), false);
@@ -72,17 +73,14 @@ public class GridButtonPanel extends JPanel {
 		titlePanel.setBorder(blueline);
 	
 		//Create the add button
-		if(addButtonExist){
+		if(addButtonListener != null){
+			hasAddButton = true;
 			addButton = new JButton("Add New " + mainName);
 			addButton.setPreferredSize(new Dimension(40, screenSize.height/18));
 
-		//addButton ActionListener
-		addButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				addNew();
-			}
-		});}
+			//addButton ActionListener
+			addButton.addActionListener(addButtonListener);
+		}
 		
 		//Put Center Pane Together
 		centerPane = new JPanel();
@@ -90,7 +88,7 @@ public class GridButtonPanel extends JPanel {
 		centerPane.add(buildGridButtons(),BorderLayout.CENTER);
 		centerPane.add(buildLeftButton(),BorderLayout.WEST);
 		centerPane.add(buildRightButton(),BorderLayout.EAST);
-        if (addButtonExist){
+        if (hasAddButton){
             centerPane.add(addButton,BorderLayout.NORTH);
         }
 		

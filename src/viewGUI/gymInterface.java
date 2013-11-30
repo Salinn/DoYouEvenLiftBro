@@ -208,7 +208,7 @@ public class gymInterface {
             public void actionPerformed(ActionEvent e){
             JPanel panel = new JPanel();
             panel.setLayout(new BorderLayout());
-            panel.add(new GridButtonPanel("League", createLeagueModel(), false), BorderLayout.CENTER);
+            panel.add(new GridButtonPanel("League", createLeagueModel(), null), BorderLayout.CENTER);
             refresh(panel);}
             });
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});

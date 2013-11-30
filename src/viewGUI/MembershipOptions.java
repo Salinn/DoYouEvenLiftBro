@@ -22,7 +22,7 @@ public class MembershipOptions extends JPanel {
         testList.add(new GridMenuItem(buttonPanel,"Class",model, memberList, mem, temp));
         testList.add(new GridMenuItem(buttonPanel,"Premium",model, memberList, mem, temp));
         testList.add(new GridMenuItem(buttonPanel,"Trial",model, memberList, mem, temp));
-        buttons = new GridButtonPanel("Membership Options",testList, false);
+        buttons = new GridButtonPanel("Membership Options",testList, null);
         this.add(buttons, BorderLayout.CENTER);
     }
 }
