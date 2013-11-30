@@ -204,7 +204,13 @@ public class gymInterface {
         membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList,""));}});
         classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator,memberList));}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list,memberList));}});
-        league.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new GridButtonPanel("League", createLeagueModel(), false));}});
+        league.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+            JPanel panel = new JPanel();
+            panel.setLayout(new BorderLayout());
+            panel.add(new GridButtonPanel("League", createLeagueModel(), false), BorderLayout.CENTER);
+            refresh(panel);}
+            });
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
         logOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
