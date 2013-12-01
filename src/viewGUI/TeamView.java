@@ -58,7 +58,7 @@ public class TeamView extends JPanel{
 		wins.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(wins);
 		
-		statPanel.add(makeSouthBar(),BorderLayout.NORTH);
+		//statPanel.add(makeSouthBar(),BorderLayout.NORTH);
 		statPanel.add(statSpecificPanel,BorderLayout.SOUTH);
 		
 		//generate players
@@ -134,21 +134,8 @@ public class TeamView extends JPanel{
 	}
 	
 	public JPanel makeSouthBar(){
-		//Create the addGame button
-		JButton addGame = new JButton("Add Game");
-		addGame.setFont(new Font("Serif", 1, 25));
-		addGame.setPreferredSize(new Dimension(40, 80));
-								
-		//Create addGame button listener
-		addGame.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//add method call
-			}
-		});
 		
-		//Create the edit button
+		/*//Create the edit button
 		JButton edit = new JButton("Edit Team");
 		edit.setFont(new Font("Serif", 1, 25));
 		edit.setPreferredSize(new Dimension(40, 80));
@@ -163,10 +150,10 @@ public class TeamView extends JPanel{
 		});
 		
 		JPanel rightPanel = new JPanel();
-		rightPanel.setLayout(new GridLayout(1,2));
-		rightPanel.add(addGame);
+		rightPanel.setLayout(new GridLayout(1,1));
 		rightPanel.add(edit);
-		return rightPanel;
+		return rightPanel;*/
+		return null;
 	}
 	
 	/**

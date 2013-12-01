@@ -168,7 +168,7 @@ public class LeagueView extends JPanel{
 		}
 		
 		//Create the edit button
-		JButton edit = new JButton("Edit League");
+		JButton edit = new JButton("Delete League");
 		edit.setFont(new Font("Serif", 1, 25));
 		edit.setPreferredSize(new Dimension(40, 80));
 								
@@ -177,7 +177,9 @@ public class LeagueView extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//add method call
+				int check = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this league?");
+				if(check == 0)
+					gymInterface.deleteLeague(leagueModel);
 			}
 		});
 		

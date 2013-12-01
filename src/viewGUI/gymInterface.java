@@ -39,7 +39,7 @@ public class gymInterface {
     public static AccessToMembers memberAccess;
     private Font setFont;
     
-    public TheLeague theWholeLeague = new TheLeague();
+    public static TheLeague theWholeLeague = new TheLeague();
 
     private ImageIcon imgMembership;
     private ImageIcon imgSchedule;
@@ -301,5 +301,14 @@ public class gymInterface {
     public static void main(String[] args) {
 		gymInterface gymGUI = new gymInterface();
     }
+	public static void deleteLeague(LeagueModel leagueToDelete) {
+		TheLeague.getRidOf(leagueToDelete);
+		JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.add(new GridButtonPanel("League", theWholeLeague.getModel(), null), BorderLayout.CENTER);
+		refreshNoMemento(panel);
+		
+		
+	}
 
 }

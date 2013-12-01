@@ -22,21 +22,21 @@ public class TeamModel {
 		this.teamName = name;
 		//players
 		teamMembers = new ArrayList<String>();
-		teamMembers.add("Test 1");
-		teamMembers.add("Test 2");
-		teamMembers.add("Test 3");
-		teamMembers.add("Test 4");
-		teamMembers.add("Test 5");
-		teamMembers.add("Test 6");
-		teamMembers.add("Test 7");
-		teamMembers.add("Test 8");
-		teamMembers.add("Test 9");
-		teamMembers.add("Test 10");
-		teamMembers.add("Test 11");
-		teamMembers.add("Test 12");
-		teamMembers.add("Test 13");
-		teamMembers.add("Test 14");
-		teamMembers.add("Test 15");
+		teamMembers.add("Georgia Lass");
+		teamMembers.add("Chuck Finnly");
+		teamMembers.add("Chaos Theory");
+		teamMembers.add("Eren Jager");
+		teamMembers.add("Suzaku Kururugi");
+		teamMembers.add("Ovan");
+		teamMembers.add("Udesky Sarris");
+		teamMembers.add("Malcolm Reynolds");
+		teamMembers.add("Han Solo");
+		teamMembers.add("Jeffrey Winger");
+		teamMembers.add("Bilbo Baggins");
+		teamMembers.add("Wesley Snipes");
+		teamMembers.add("Link");
+		teamMembers.add("Sock");
+		teamMembers.add("Doran");
 				
 		//Games
 		gamesPlayed = new ArrayList<Game>();

@@ -57,4 +57,13 @@ public class TheLeague {
 		return allLeagues;
 	}
 
+	public static void getRidOf(LeagueModel leagueToDelete) {
+		for(int i=0;i<allLeagues.size();i++){
+			if(allLeagues.get(i).searchName(leagueToDelete.getName())){
+				allLeagues.remove(i);
+			}
+		}
+		
+	}
+
 }
