@@ -136,4 +136,23 @@ public class LeagueModel {
 		return leagueBracket;
 	}
 
+	public void addGame(String team1Name, String team2Name,int team1Score, int team2Score) {
+		TeamModel team1 = null;
+		TeamModel team2 = null;
+		for(int i=0;i<teams.size();i++){
+			if(teams.get(i).getName().equals(team1Name)){
+				team1 = teams.get(i);
+			}
+			
+			if(teams.get(i).getName().equals(team2Name)){
+				team2 = teams.get(i);
+			}
+			
+		}
+		
+		LeagueGame thisGame = new LeagueGame(team1,team1Score,team2,team2Score);
+		games.add(thisGame);
+		
+	}
+
 }

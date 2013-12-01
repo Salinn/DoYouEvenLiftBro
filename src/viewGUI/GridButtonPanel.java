@@ -5,6 +5,8 @@ import Model.members;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,8 +95,15 @@ public class GridButtonPanel extends JPanel {
         }
 		
 		//Create Search bar elements
-		searchText = new JTextField();
+		searchText = new JTextField("Search...");
 		searchText.setFont(new Font("Serif", Font.PLAIN, 25));
+		searchText.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                searchText.setText("");
+            }
+        });
+		
 		JButton searchButton = new JButton("Search");
 		searchButton.setPreferredSize(new Dimension(screenSize.width/18, 40));
 		

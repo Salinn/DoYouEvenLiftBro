@@ -128,7 +128,7 @@ public class LeagueView extends JPanel{
 	}
 	
 	public JPanel makeSouthBar(boolean bracket){
-		JButton addGame;
+		JButton addGame = new JButton();
 		if(bracket){
 			//Create the bracket button
 			addGame = new JButton("Bracket");
@@ -147,22 +147,6 @@ public class LeagueView extends JPanel{
 					tempFrame.setMinimumSize(new Dimension(900,950));
 					tempFrame.setLocationRelativeTo(null);
 					tempFrame.setVisible(true);
-				}
-			});
-		} else {
-		
-			//Create the addGame button
-			addGame = new JButton("Add Game");
-			addGame.setFont(new Font("Serif", 1, 25));
-			addGame.setPreferredSize(new Dimension(40, 80));
-								
-			//Create addGame button listener
-			addGame.addActionListener(new ActionListener() {
-			
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					//add method call
-							
 				}
 			});
 		}
@@ -185,7 +169,9 @@ public class LeagueView extends JPanel{
 		
 		JPanel rightPanel = new JPanel();
 		rightPanel.setLayout(new GridLayout(1,2));
-		rightPanel.add(addGame);
+		if(bracket){
+			rightPanel.add(addGame);
+		}
 		rightPanel.add(edit);
 		return rightPanel;
 	}

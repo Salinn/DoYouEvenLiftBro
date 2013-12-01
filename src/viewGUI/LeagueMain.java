@@ -23,6 +23,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.Border;
 
+import Model.LeagueGame;
 import Model.LeagueModel;
 
 /**
@@ -103,13 +104,14 @@ public class LeagueMain extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//add method call
+				LeagueGame.popUpGame(league);
 			}
 		});
 		
 		//Create the edit button
 		JButton edit = new JButton("Edit");
 		edit.setFont(new Font("Serif", 1, 30));
+		edit.setVisible(false);
 		//StretchIcon editIcn = new StretchIcon("Images/editIcn.png");
 		//edit.setIcon(editIcn);
 								
