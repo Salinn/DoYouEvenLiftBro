@@ -40,14 +40,9 @@ public class TeamModel {
 				
 		//Games
 		gamesPlayed = new ArrayList<Game>();
-		Game temp = new Game();
-		
-		for(int i=0;i<100;i++){
-			gamesPlayed.add(temp);
-		}
 				
 		//totalPoints
-		totalPoints = 100;
+		totalPoints = 0;
 	}
 	
 	public TeamModel(){
@@ -74,14 +69,9 @@ public class TeamModel {
 		
 		//Games
 		gamesPlayed = new ArrayList<Game>();
-		Game temp = new Game();
-		
-		for(int i=0;i<100;i++){
-			gamesPlayed.add(temp);
-		}
 		
 		//totalPoints
-		totalPoints = 15;
+		totalPoints = 0;
 		
 	}
 	
@@ -120,6 +110,11 @@ public class TeamModel {
 	
 	public ArrayList<Game> getGames(){
 		return gamesPlayed;
+	}
+	
+	public void addGame(Game thisGame){
+		gamesPlayed.add(thisGame);
+		totalPoints += thisGame.getPoints();
 	}
 	
 	public int getWins(){

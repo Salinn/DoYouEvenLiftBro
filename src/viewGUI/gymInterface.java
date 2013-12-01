@@ -38,6 +38,8 @@ public class gymInterface {
     
     public static AccessToMembers memberAccess;
     private Font setFont;
+    
+    public TheLeague theWholeLeague = new TheLeague();
 
     private ImageIcon imgMembership;
     private ImageIcon imgSchedule;
@@ -75,7 +77,6 @@ public class gymInterface {
 		frame.setResizable(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        createLeagueModel();
 		//Initializes the west Panel, aka the 5 main buttons
         west = setWestPanel();
 
@@ -208,7 +209,7 @@ public class gymInterface {
             public void actionPerformed(ActionEvent e){
             JPanel panel = new JPanel();
             panel.setLayout(new BorderLayout());
-            panel.add(new GridButtonPanel("League", createLeagueModel(), null), BorderLayout.CENTER);
+            panel.add(new GridButtonPanel("League", theWholeLeague.getModel(), null), BorderLayout.CENTER);
             refresh(panel);}
             });
         logo.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {undo();}});
@@ -299,35 +300,6 @@ public class gymInterface {
     
     public static void main(String[] args) {
 		gymInterface gymGUI = new gymInterface();
-    }
-
-    private ArrayList<GridMenuItem> createLeagueModel(){
-        ArrayList<GridMenuItem> tempLeague;
-
-    	//Build a temp league
-        tempLeague = new ArrayList<GridMenuItem>();
-        LeagueModel tempLeagueModel = new LeagueModel("Football");
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Soccer");
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Ping Pong");
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Weight Club");
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Basketball");
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Dodgeball");
-        tempLeague.add(tempLeagueModel.getMenuItem());
-        tempLeagueModel = new LeagueModel("Tennis");
-    	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Field Hockey");
-    	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Hockey");
-    	tempLeague.add(tempLeagueModel.getMenuItem());
-    	tempLeagueModel = new LeagueModel("Underwater Basket Weaving");
-    	tempLeague.add(tempLeagueModel.getMenuItem());
-    	
-    	return tempLeague;
     }
 
 }

@@ -40,14 +40,14 @@ public class LeagueView extends JPanel{
 		
 		//generate main stats
 		JPanel statPanel = new JPanel(new BorderLayout());
-		JPanel statSpecificPanel = new JPanel(new GridLayout(1, 2), false);
+		JPanel statSpecificPanel = new JPanel(new GridLayout(2, 1), false);
 		
 
-		JLabel winning = new JLabel("Point Leader: " + thisLeague.highScore());
+		JLabel winning = new JLabel("  Point Leader: " + thisLeague.highScore());
 		winning.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(winning);
 		
-		JLabel nmbTeams = new JLabel("Number of Teams: " + thisLeague.getTeams().size());
+		JLabel nmbTeams = new JLabel("  Number of Teams: " + thisLeague.getTeams().size());
 		nmbTeams.setFont(new Font("Serif", 1, 25));
 		statSpecificPanel.add(nmbTeams);
 		
@@ -64,28 +64,16 @@ public class LeagueView extends JPanel{
 		teamPanel.add(teamMainLabel,BorderLayout.NORTH);
 		
 		boolean isEven = true;
-		int numRows = thisLeague.getTeamModels().size() / 2;
-		if(thisLeague.getTeams().size()%2 == 1){
-			isEven = false;
-			numRows++;
-		}
+		int numRows = thisLeague.getTeamModels().size();
 		
-		JPanel players = new JPanel(new GridLayout(numRows, 2), false);
+		JPanel players = new JPanel(new GridLayout(numRows, 1), false);
 		
 		for(int i=0;i<numRows;i++){
-			int roundCount = 2*i;
 			
-			TeamModel team1 = thisLeague.getTeamModels().get(roundCount);
-			JLabel team1Label = new JLabel(team1.getName() + " wins: " + team1.getWins());
+			TeamModel team1 = thisLeague.getTeamModels().get(i);
+			JLabel team1Label = new JLabel("  " + team1.getName() + " wins: " + team1.getWins());
 			team1Label.setFont(new Font("Serif", 0, 18));
 			players.add(team1Label);
-			
-			if(!((i==numRows-1) && (!isEven))){
-				team1 = thisLeague.getTeamModels().get(roundCount + 1);
-				team1Label = new JLabel(team1.getName() + " wins: " + team1.getWins());
-				team1Label.setFont(new Font("Serif", 0, 18));
-				players.add(team1Label);
-			}
 		}
 		
 		teamPanel.add(players,BorderLayout.CENTER);
@@ -99,10 +87,10 @@ public class LeagueView extends JPanel{
 		gamesMainLabel.setBorder(blueline);
 		games.add(gamesMainLabel,BorderLayout.NORTH);
 		
-		JPanel gameStats = new JPanel(new GridLayout(thisLeague.getNumberGames()/3, 3), false);
+		JPanel gameStats = new JPanel(new GridLayout(thisLeague.getNumberGames(), 1), false);
 		
 		for(int i=0;i<thisLeague.getNumberGames();i++){
-			JLabel tempGame = new JLabel("Game " + i + ": " + thisLeague.getGames().get(i).getGame(), JLabel.CENTER);
+			JLabel tempGame = new JLabel("  Game " + i + ": " + thisLeague.getGames().get(i).getGame());
 			tempGame.setFont(new Font("Serif", 0, 18));
 			gameStats.add(tempGame);
 		}
@@ -218,7 +206,7 @@ public class LeagueView extends JPanel{
     	}
     	
     	JFrame test = new JFrame();
-    	JPanel myPanel = new LeagueView(new LeagueModel("Test"));
+    	JPanel myPanel = new LeagueView(new LeagueModel("Test",false));
     	test.add(myPanel);
     	test.setMinimumSize(new Dimension(400,400));
     	test.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -5,6 +5,7 @@ package Model;
 
 import java.awt.LayoutManager;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.UIManager;
 
@@ -24,10 +25,17 @@ public class LeagueModel {
 	private boolean isBracket;
 	private BracketsPage leagueBracket;
 	
-	public LeagueModel(String name){
+	public LeagueModel(String name,boolean bracketMode){
 		this.leagueName = name;
-		leagueBracket = new BracketsPage();
-		leagueBracket.setTeams(teams);
+		
+		isBracket = bracketMode;
+		
+		if(isBracket){
+			leagueBracket = new BracketsPage();
+			leagueBracket.setTeams(teams);
+		} else {
+			leagueBracket = null;
+		}
 		
 	}
 
@@ -60,8 +68,7 @@ public class LeagueModel {
 	}
 	
 	public boolean bracket(){
-		//return isBracket;
-		return true;
+		return isBracket;
 	}
 	
 	public ArrayList<TeamModel> getTeamModels(){
@@ -98,10 +105,20 @@ public class LeagueModel {
 	private ArrayList<LeagueGame> populateGames(){
 		//Games
 		ArrayList<LeagueGame> tempGames = new ArrayList<LeagueGame>();
-		LeagueGame temp = new LeagueGame();
+		
+		Random generator = new Random();
 		
 		for(int i=0;i<100;i++){
-			tempGames.add(temp);
+			TeamModel team1 = teams.get(generator.nextInt( teams.size() ));
+			int team1Score = generator.nextInt(50);
+		
+			TeamModel team2 = teams.get(generator.nextInt( teams.size() ));
+			int team2Score = generator.nextInt(50);
+		
+			if(!team1.getName().equals(team2.getName())){
+				LeagueGame temp = new LeagueGame(team1,team1Score,team2,team2Score);
+				tempGames.add(temp);
+			}
 		}
 		
 		return tempGames;

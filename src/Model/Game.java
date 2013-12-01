@@ -13,10 +13,10 @@ public class Game {
 	int theirScore;
 	int ourScore;
 
-	public Game(){
-		opponent = "opponent";
-		theirScore = 15;
-		ourScore = 16;
+	public Game(TeamModel enemy, int myScore, int theirScore){
+		opponent = enemy.getName();
+		this.theirScore = theirScore;
+		ourScore = myScore;
 	}
 	
 	public String getGame(){
@@ -28,5 +28,9 @@ public class Game {
 			return true;
 		}
 		return false;
+	}
+
+	public int getPoints() {
+		return ourScore;
 	}
 }
