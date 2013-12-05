@@ -30,7 +30,9 @@ public class AddStudent extends JPanel {
         addStudent.setFont(new Font("Sans Serif", Font.BOLD, 40));
         search.setFont(new Font("Sans Serif", Font.BOLD, 40));
         studentId = new JTextField();
+        studentId.setFont(new Font("Sana Serif", Font.BOLD, 40));
         id = new JLabel("Add Student ID");
+        id.setFont(new Font("Sans Serif", Font.BOLD, 40));
 
         gridPanel = new JPanel();
         JPanel temp = new JPanel();

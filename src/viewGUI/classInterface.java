@@ -32,7 +32,7 @@ public class classInterface extends JPanel {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
         this.setLayout(new BorderLayout());
-        ArrayList<GridMenuItem> classList = new ArrayList<GridMenuItem>();
+        classList = new ArrayList<GridMenuItem>();
 
         ArrayList<ClassModel> classes = mediator.getClasses();
         for(ClassModel aClass: classes){
