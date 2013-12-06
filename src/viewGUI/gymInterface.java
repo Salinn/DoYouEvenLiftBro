@@ -131,20 +131,19 @@ public class gymInterface {
 
         disable();
 
-    	Equipment equip = new Equipment("Treadmill", "1", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip1 = new Equipment("Weight Bench", "2", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip2 = new Equipment("Dumbbells", "3", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip3 = new Equipment("Elliptical", "4", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip4 = new Equipment("Stationary Bike", "5", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip5 = new Equipment("Weight Machine", "6", "OBJT-01", 
-        		"RM-9001");
-        Equipment equip6 = new Equipment("Something else", "7", "OBJT-01", 
-        		"RM-9001");
+    	Equipment equip = new Equipment("Treadmill", "1", "TRD-9001", 
+        		"ROOM-A");
+        Equipment equip1 = new Equipment("Weight Bench", "2", "WB-1101", 
+        		"ROOM-B");
+        Equipment equip2 = new Equipment("Dumbbells", "3", "DUB-201", 
+        		"ROOM-B");
+        Equipment equip3 = new Equipment("Elliptical", "4", "ELIP-7777", 
+        		"ROOM-A");
+        Equipment equip4 = new Equipment("Stationary Bike", "5", "BIKE-21", 
+        		"ROOM-A");
+        Equipment equip5 = new Equipment("Weight Machine", "6", "WM-101", 
+        		"ROOM-B");
+        
         final ArrayList<Equipment> equipment_list = new ArrayList<Equipment>();
         equipment_list.add(equip);
         equipment_list.add(equip1);
@@ -152,7 +151,7 @@ public class gymInterface {
         equipment_list.add(equip3);
         equipment_list.add(equip4);
         equipment_list.add(equip5);
-        equipment_list.add(equip6);
+
 
         Calendar calendar = new GregorianCalendar();
         Date trialTime = new Date();
