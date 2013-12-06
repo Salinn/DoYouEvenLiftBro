@@ -172,19 +172,14 @@ public class memberInterface extends JPanel{
     }
 
     private ArrayList<members> searchForMembers(ArrayList<members> memberList, String input){
+        System.out.println(input);
         ArrayList<members> updated_memberList = new ArrayList<members>();
         for(members current: memberList){
-            try {
-                if (current.getId().toString().contains((input))){
-                    updated_memberList.add(current);
-                }
+            if (current.getId().toString().contains((input))){
+                updated_memberList.add(current);
             }
-            catch( Exception e ) {
-                if (current.getFirstName().toUpperCase().contains(input.toUpperCase())){
-                    updated_memberList.add(current);
-                } else if (current.getFirstName().toUpperCase().contains(input.toUpperCase())){
-                    updated_memberList.add(current);
-                }
+            if (current.getFirstName().toUpperCase().contains(input.toUpperCase())){
+                updated_memberList.add(current);
             }
         }
         return updated_memberList;

@@ -55,7 +55,7 @@ public class editMembers extends JPanel {
         }
         boolean flag = true;
         while (flag){
-            this.value = (int)(Math.random() * 8847);
+            this.value = ((int)(Math.random() * 9999)) + 1;
             for(Integer tempNum : tempIdList){
                 if (tempNum != value){
                     flag = false;
