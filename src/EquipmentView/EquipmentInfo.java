@@ -224,11 +224,31 @@ public class EquipmentInfo extends JPanel{
 		//South border
 		JPanel south = new JPanel(new FlowLayout());
 		edit = new JButton("Edit Equipment");
-        loanButton = new JButton("Loan Equipment");
+		String loan_label;
+		if(this.equipment.isOnLoan()){
+			loan_label = "Return Equipment";
+		} else {
+			loan_label = "Loan Equipment";
+		}
+        loanButton = new JButton(loan_label);
 
         final MemberTableModel memModel = new MemberTableModel(memberList);
 
-        loanButton.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {gymInterface.refresh(new MembersSearch(equipment,memModel, memberList, ""));}});;
+        loanButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+        		if(!(equipment.isOnLoan())){
+        			gymInterface.refresh(new MembersSearch(equipment,memModel, memberList, ""));
+        			loanButton.setText("Return Equipment");
+        		} else {
+        			equipment.setLoan(false, null);
+        			equip_loan.setText("No");
+        			member.setText("");
+        			loanButton.setText("Loan Equipment");
+        		}
+			}
+        });
+        		
 		
 		edit.addActionListener(new ActionListener(){
 
@@ -402,7 +422,9 @@ public class EquipmentInfo extends JPanel{
 		
 		if(!member_id.equals("") && !member_id.equals("N/A")){
 			this.equipment.setLoan(true, member_id);
+			this.loanButton.setText("Return Equipment");
 		} else {
+			this.loanButton.setText("Loan Equipment");
 			this.equipment.setLoan(false, null);
 		}
 		
