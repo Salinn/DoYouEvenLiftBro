@@ -177,12 +177,15 @@ public class memberInterface extends JPanel{
         for(members current: memberList){
             if (current.getId().toString().contains((input))){
                 updated_memberList.add(current);
+                continue;
             }
             if (current.getFirstName().toUpperCase().contains(input.toUpperCase())){
                 updated_memberList.add(current);
+                continue;
             }
             if (current.getLastName().toUpperCase().contains(input.toUpperCase())){
                 updated_memberList.add(current);
+                continue;
             }
         }
         return updated_memberList;
