@@ -181,6 +181,9 @@ public class memberInterface extends JPanel{
             if (current.getFirstName().toUpperCase().contains(input.toUpperCase())){
                 updated_memberList.add(current);
             }
+            if (current.getLastName().toUpperCase().contains(input.toUpperCase())){
+                updated_memberList.add(current);
+            }
         }
         return updated_memberList;
     }
