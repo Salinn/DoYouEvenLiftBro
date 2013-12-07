@@ -176,7 +176,6 @@ public class gymInterface {
         memberList.add(mem6);
         final MemberTableModel model = new MemberTableModel(memberList);
 
-        //catmeowwow <- wtf?
 
         AccessToMembers memberAccess = new AccessToMembers(memberList);
         ClassModel running00 = new ClassModel("Running00","1pm-2pm","M-W-F",30,"1233");
@@ -201,8 +200,8 @@ public class gymInterface {
         theMediator = new GymMediatorModel(memberAccess,theClassesHolder);
 
         //Creates all of the listeners for each button
-        membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new memberInterface(model,memberList,""));}});
-        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new classInterface(theMediator,memberList));}});
+        membership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new MemberInterface(model,memberList,""));}});
+        classes.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new ClassInterface(theMediator,memberList));}});
         equipment.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {refresh(new EquipmentPanel(equipment_list,memberList));}});
         league.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){

@@ -130,7 +130,7 @@ public class GridMenuItem {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 mem.setMembershipType(button.getText());
-                gymInterface.refresh((new editMembers(model,memberList, mem, temp)));
+                gymInterface.refresh((new EditMembers(model,memberList, mem, temp)));
             }
         });
         return button;

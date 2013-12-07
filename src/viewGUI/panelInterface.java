@@ -3,7 +3,7 @@ package viewGUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class panelInterface {
+public class PanelInterface {
     private JPanel west;
     private JButton membership;
     private JButton schedule;
@@ -18,7 +18,7 @@ public class panelInterface {
     private ImageIcon imgLogo;
 
 
-    public panelInterface(){
+    public PanelInterface(){
         //Creates the panel layout, which is a vertical grid layout
         west = new JPanel();
         west.setLayout(new GridLayout(5,1));

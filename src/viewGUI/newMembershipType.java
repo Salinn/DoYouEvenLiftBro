@@ -3,7 +3,7 @@ package viewGUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class newMembershipType extends JPanel {
+public class NewMembershipType extends JPanel {
     private Font setFont;
 
     private JPanel membershipType;
@@ -25,7 +25,7 @@ public class newMembershipType extends JPanel {
     private JTextField leagueAccessTextBox;
     private JTextField gymAccessTextBox;
 
-    public  newMembershipType(){
+    public  NewMembershipType(){
         setFont = new Font("SansSerif", Font.BOLD, 40);
         membershipType = new JPanel();
         membershipType.setLayout(new BorderLayout(15,15));

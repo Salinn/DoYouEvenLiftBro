@@ -10,7 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class editMembers extends JPanel {
+public class EditMembers extends JPanel {
     private JPanel customerInfo;
     private JPanel bottumLayout;
     private JPanel west;
@@ -45,7 +45,7 @@ public class editMembers extends JPanel {
     private members mem;
     private int temp;
 
-    public editMembers(MemberTableModel model, ArrayList<members> memberList){
+    public EditMembers(MemberTableModel model, ArrayList<members> memberList){
         this.model = model;
         this.memberList = memberList;
         temp = -1;
@@ -83,7 +83,7 @@ public class editMembers extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(editLayout, BorderLayout.CENTER);
     }
-    public editMembers(MemberTableModel model, ArrayList<members> memberList, members mem, int temp){
+    public EditMembers(MemberTableModel model, ArrayList<members> memberList, members mem, int temp){
         this.model = model;
         this.memberList = memberList;
         this.mem = mem;
@@ -185,7 +185,7 @@ public class editMembers extends JPanel {
         membershipTextBox.setEnabled(false);
         editMembership.addActionListener(new ActionListener() {public void actionPerformed(ActionEvent e) {
             members mem = new members(firstNameTextBox.getText(), lastNameTextBox.getText(), membershipTextBox.getText(), Integer.parseInt(idTextBox.getText()), calendar.getTime(), cardNumberTextBox.getText());
-            gymInterface.refreshNoMemento(new MembershipOptions(new editMembers(model, memberList, mem, temp), model, memberList, mem, temp));}});
+            gymInterface.refreshNoMemento(new MembershipOptions(new EditMembers(model, memberList, mem, temp), model, memberList, mem, temp));}});
 
         cardNumberTextBox.setDocument(new JTextFieldLimit(16));
 
@@ -248,7 +248,7 @@ public class editMembers extends JPanel {
                 memberList.add(mem);
                 model = new MemberTableModel(memberList);
                 gymInterface.memberAccess = new AccessToMembers(memberList);
-                gymInterface.refresh(new memberInterface(model, memberList,""));
+                gymInterface.refresh(new MemberInterface(model, memberList,""));
             } else if (cardNumberTextBox.getText().length() < 16){
                 JOptionPane.showMessageDialog(center,
                         "The credit card is missing a few numbers",

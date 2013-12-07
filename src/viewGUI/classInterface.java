@@ -12,14 +12,14 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-public class classInterface extends JPanel {
+public class ClassInterface extends JPanel {
     private GridButtonPanel buttons;
     private GymMediatorModel mediator;
     private ArrayList<GridMenuItem> classList;
     private ArrayList<members> memberList;
 
 
-    public classInterface(GymMediatorModel mediator, ArrayList<members> memberList){
+    public ClassInterface(GymMediatorModel mediator, ArrayList<members> memberList){
         this.mediator = mediator;
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {

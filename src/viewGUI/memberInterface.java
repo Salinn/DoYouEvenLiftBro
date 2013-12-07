@@ -18,7 +18,7 @@ import javax.swing.table.TableCellRenderer;
 
 import Model.members;
 
-public class memberInterface extends JPanel{
+public class MemberInterface extends JPanel{
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     private JPanel bottumLayout;
@@ -41,7 +41,7 @@ public class memberInterface extends JPanel{
 
     private MemberTableModel model;
     private ArrayList<members> memberList;
-    public memberInterface(MemberTableModel model, ArrayList<members> memberList, String seachPhrase) {
+    public MemberInterface(MemberTableModel model, ArrayList<members> memberList, String seachPhrase) {
         this.model = model;
         this.memberList =memberList;
         //Creates the font that the rest of the program will use
@@ -77,7 +77,7 @@ public class memberInterface extends JPanel{
         add.setFont(setFont);
         add.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gymInterface.refresh(new editMembers(model,memberList));
+                gymInterface.refresh(new EditMembers(model,memberList));
             }
         });
 
@@ -86,7 +86,7 @@ public class memberInterface extends JPanel{
         edit.setFont(setFont);
         edit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gymInterface.refresh((new editMembers(model,memberList, selectemem, temp)));
+                gymInterface.refresh((new EditMembers(model,memberList, selectemem, temp)));
             }
         });
 
@@ -114,7 +114,7 @@ public class memberInterface extends JPanel{
                 updated_memberList = searchForMembers(memberList, searchFeild.getText());
             }
             final MemberTableModel updated_model = new MemberTableModel(updated_memberList);
-            gymInterface.refreshNoMemento(new memberInterface(updated_model,memberList,searchFeild.getText()));}});
+            gymInterface.refreshNoMemento(new MemberInterface(updated_model,memberList,searchFeild.getText()));}});
 
         tempPanel.add(searchButton);
         tempPanel.add(add);
